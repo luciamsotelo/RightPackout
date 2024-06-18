@@ -18,7 +18,7 @@ function AutoCloseExample() {
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '9vh', // Adjusted from '09vh' to '9vh'
+    height: '15vh', // Adjusted from '09vh' to '9vh'
   };
 
   const dropdownStyle = {
@@ -124,6 +124,10 @@ function AutoCloseExample() {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
+
+     
+
+     
     </div>
   );
 }

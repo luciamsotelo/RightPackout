@@ -7,7 +7,6 @@ const Footer = () => {
             <Nav defaultActiveKey="/home" as="ul">
                 <Nav.Item as="li">
                     <Nav.Link style = {{color: "white"}} href="/aboutUs">About Us</Nav.Link>
-                    <Nav.Link style = {{color: "white"}} href="">Contact Us</Nav.Link>
                 </Nav.Item>
             </Nav>
         </div>
