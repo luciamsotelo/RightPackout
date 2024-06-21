@@ -64,7 +64,7 @@ function Header() {
 
   return (
     
-    <div className='' style={{ backgroundColor: 'lightblue', color: 'red' }}>
+    <div className='' style={{ backgroundColor: 'transparent' }}>
       <Navbar>
         <Container>
           <Row className="align-items-center">
@@ -76,7 +76,7 @@ function Header() {
                   width="150"
                   height="150"
                   className="d-inline-block align-top"
-                  style={{ borderRadius: '5%'}}
+                  style={{ border: '4px solid black', borderRadius: '10px' }}
                 />{' '}
               </Navbar.Brand>
             </Col>
@@ -181,7 +181,6 @@ function Header() {
               </Form>
             </Modal.Body>
           </Modal>
-          
         </Container>
       </Navbar>
     </div>

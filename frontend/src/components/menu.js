@@ -19,6 +19,7 @@ function AutoCloseExample() {
     justifyContent: 'center',
     alignItems: 'center',
     height: '15vh', // Adjusted from '09vh' to '9vh'
+    
   };
 
   const dropdownStyle = {
@@ -38,7 +39,7 @@ function AutoCloseExample() {
           Content Packing
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/pack">
             Packout & Packback
           </Dropdown.Item>
           <Dropdown.Item className="custom-dropdown-item" href="#">

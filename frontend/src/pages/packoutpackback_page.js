@@ -1,18 +1,17 @@
 import React from 'react'
 import Header from '../components/header'
-import Menu from '../components/menu'
-import Images from '../components/carousel_images'
 import Footer from '../components/footer'
+import Packout from '../components/packout'
 
-const home_page = () => {
+
+const packoutpackback_page = () => {
   return (
     <div>
       < Header />
-      < Menu />
-      < Images />
+      < Packout />
       < Footer />
     </div>
   )
 }
 
-export default home_page
+export default packoutpackback_page
