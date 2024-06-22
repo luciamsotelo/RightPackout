@@ -45,7 +45,7 @@ function AutoCloseExample() {
           <Dropdown.Item className="custom-dropdown-item" href="/storage">
             Storage
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/moving">
             Moving Items
           </Dropdown.Item>
           <Dropdown.Item className="custom-dropdown-item" href="#">

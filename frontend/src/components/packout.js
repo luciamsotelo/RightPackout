@@ -7,7 +7,6 @@ import Modal from 'react-bootstrap/Modal'; // Import Modal component
 import picture1 from '../images/Picture1.png';
 import picture5 from '../images/Picture5.png';
 
-
 function GridExample() {
   // Array of objects containing card information
   const cardsData = [
@@ -76,24 +75,26 @@ function GridExample() {
   };
 
   return (
-    <>
+    <div className="" style={{ marginBottom: '100px' }}>
       <div style={{ margin: '20px', textAlign: 'justify' }}>
         <p>"Information needed about Packout and Packback from client"</p>
       </div>
       <Row xs={1} md={2} className="g-4" style={{ margin: '15px' }}>
         {cardsData.map((card, idx) => (
           <Col key={idx}>
-            <Card className="h-100" style={{ border: '10px double red', boxShadow: '-10px -10px 30px blue' }}>
+            <Card className="h-100" style={{ border: '10px double red', boxShadow: '-10px -10px 50px blue' }}>
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{card.name}</Card.Title>
                 <Card.Img variant="top" src={card.image} style={{ height: 'auto', maxWidth: '100%' }} />
                 <Card.Text className="mt-auto" style={{ maxHeight: '200px', overflowY: 'auto', textAlign: 'justify' }}>
                   {card.description}
                 </Card.Text>
+              </Card.Body>
+              <Card.Footer>
                 <Button variant="outline-primary" onClick={handleQuoteButtonClick} style={{ margin: '10px' }}>
                   Request a Quote
                 </Button>
-              </Card.Body>
+              </Card.Footer>
             </Card>
           </Col>
         ))}
@@ -133,7 +134,7 @@ function GridExample() {
           <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }
 

@@ -1,19 +1,17 @@
 import React from 'react'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Packout from '../components/packout'
+import Moving from '../components/moving'
 import Menu from '../components/menu'
-
-
-const packoutpackback_page = () => {
+const moving_page = () => {
   return (
     <div>
       < Header />
       < Menu />
-      < Packout />
+      < Moving />
       < Footer />
     </div>
   )
 }
 
-export default packoutpackback_page
+export default moving_page
