@@ -94,13 +94,13 @@ function AutoCloseExample() {
           Consultation Guidance
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/consultation">
             Contents Consultation
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/consultation">
             Insurance Reports
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/ consultation">
             Total Loss Inventory
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -117,18 +117,15 @@ function AutoCloseExample() {
           Management Services
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/management">
             Site Coordination
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/management">
             Site Management
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
-     
-
-     
     </div>
   );
 }
