@@ -71,14 +71,14 @@ function AutoCloseExample() {
           <Dropdown.Item className="custom-dropdown-item" href="/mold">
             Mold
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/fire">
             Fire
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/restoration">
             Restoration
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
-            Window
+          <Dropdown.Item className="custom-dropdown-item" href="/window">
+            Window Cleaning
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>

@@ -7,6 +7,9 @@ import Moving from './pages/moving_page';
 import Preservations from './pages/preservations_page';
 import Drapery from './pages/drapery_page';
 import Mold from './pages/mold_page';
+import Fire from './pages/fire_page';
+import Restoration from './pages/restoration_page';
+import Window from './pages/window_page';
 
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
       <Route path="/preservations" element={<Preservations />} />
       <Route path="/drapery" element={<Drapery />} />
       <Route path="/mold" element={<Mold />} />
+      <Route path="/fire" element={<Fire />} />
+      <Route path="/restoration" element={<Restoration />} />
+      <Route path="/window" element={<Window />} />
       
       
       </Routes>
