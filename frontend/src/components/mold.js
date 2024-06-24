@@ -3,9 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import picture1 from '../images/Picture1.png'; // Replace with your image path
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Picture1 from '../images/Picture1.png';
 
-function MovingCard() {
+function MoldCards() {
   const [showModal, setShowModal] = useState(false);
   const [quoteFormData, setQuoteFormData] = useState({
     firstName: '',
@@ -41,25 +43,67 @@ function MovingCard() {
       Email: ${quoteFormData.email}
       Message: ${quoteFormData.message}
     `);
-    const emailSubject = encodeURIComponent('Quote Request on Moving');
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
+    // Customize subject based on form data or other conditions
+    let subject = 'Quote Request on Mold Removal';
+    if (quoteFormData.firstName && quoteFormData.lastName) {
+      const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
+      if (fullName !== 'Lucia Sotelo') {
+        subject = `Quote Request for Drapery - ${fullName}`;
+      }
+    }
+
+    // Prepare mailto link with updated subject
+    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+    // Close modal after sending request
     handleCloseModal();
   };
 
+  const cardsData = [
+    {
+      title: 'Mold 1',
+      image: Picture1,
+      description: 'Description of Mold 1.'
+    },
+    {
+      title: 'Mold 2',
+      image: Picture1,
+      description: 'Description of Mold 2.'
+    },
+    {
+      title: 'Mold 3',
+      image: Picture1,
+      description: 'Description of mold 3.'
+    }
+  ];
+
   return (
-    <div className='' style={{ marginBottom: '100px'}}>
-      <div className="d-flex justify-content-center">
-        <Card className="m-3" style={{ maxWidth: '500px', border: '10px double blue'}}>
-          <Card.Img variant="top" src={picture1} />
-          <Card.Body>
-            <Card.Title>Moving</Card.Title>
-            <Card.Text>
-              Moving involves packing, loading, transporting, and unloading your belongings from one location to another. We ensure a smooth and secure transition.
-            </Card.Text>
-            <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-          </Card.Body>
-        </Card>
+    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+      <div className="d-flex justify-content-center mt-3">
+        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
+          <h1>Mold Removal</h1>
+          <p>Mold removal is a critical service aimed at ensuring the safety and health of your home or business environment. Mold growth can occur in areas with excessive moisture, often resulting from leaks, flooding, or high humidity levels. Our professional mold removal process begins with a thorough inspection to identify the source and extent of the mold infestation. Using advanced equipment and proven techniques, we meticulously remove mold and clean affected areas to prevent further contamination. Our team also addresses the underlying moisture issues to inhibit future growth. Trust our experienced professionals to restore your space to a clean, healthy state, free from the harmful effects of mold.</p>
+        </div>
+      </div>
+      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+        {cardsData.map((card, idx) => (
+          <Col key={idx} style={{ marginBottom: '50px' }}>
+            <Card className="h-100">
+              <Card.Img variant="top" src={card.image} />
+              <Card.Body>
+                <Card.Title>{card.title}</Card.Title>
+                <Card.Text>
+                  {card.description}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+
+      <div className="d-flex justify-content-center" style={{ padding: '1px 10px 50px 10px' }}>
+        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
       </div>
 
       <Modal show={showModal} onHide={handleCloseModal}>
@@ -125,4 +169,4 @@ function MovingCard() {
   );
 }
 
-export default MovingCard;
+export default MoldCards;

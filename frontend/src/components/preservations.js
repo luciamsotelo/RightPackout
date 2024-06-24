@@ -3,9 +3,11 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import picture1 from '../images/Picture1.png'; // Replace with your image path
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Picture1 from '../images/Picture1.png';
 
-function MovingCard() {
+function PreservationCards() {
   const [showModal, setShowModal] = useState(false);
   const [quoteFormData, setQuoteFormData] = useState({
     firstName: '',
@@ -41,26 +43,63 @@ function MovingCard() {
       Email: ${quoteFormData.email}
       Message: ${quoteFormData.message}
     `);
-    const emailSubject = encodeURIComponent('Quote Request on Moving');
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
+    // Use a fixed subject for all emails
+    const subject = 'Quote Request on Preservation';
+
+    // Prepare mailto link with fixed subject
+    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+
+    // Close modal after sending request
     handleCloseModal();
   };
 
+  const cardsData = [
+    {
+      title: 'Preservation 1',
+      image: Picture1,
+      description: 'Description of preservation 1.'
+    },
+    {
+      title: 'Preservation 2',
+      image: Picture1,
+      description: 'Description of preservation 2.'
+    },
+    {
+      title: 'Preservation 3',
+      image: Picture1,
+      description: 'Description of preservation 3.'
+    }
+  ];
+
   return (
-    <div className='' style={{ marginBottom: '100px'}}>
-      <div className="d-flex justify-content-center">
-        <Card className="m-3" style={{ maxWidth: '500px', border: '10px double blue'}}>
-          <Card.Img variant="top" src={picture1} />
-          <Card.Body>
-            <Card.Title>Moving</Card.Title>
-            <Card.Text>
-              Moving involves packing, loading, transporting, and unloading your belongings from one location to another. We ensure a smooth and secure transition.
-            </Card.Text>
-            <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-          </Card.Body>
-        </Card>
+    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+      <div className="d-flex justify-content-center mt-3">
+        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
+          <h1>Preservation Services</h1>
+          <p>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. To get started, simply browse through our service offerings and request a quote. Our team is ready to assist you with all your preservation needs.</p>
+          <div className="" style={{ margin: '5px', textAlign: 'center' }}>
+        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
       </div>
+        </div>
+      </div>
+      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+        {cardsData.map((card, idx) => (
+          <Col key={idx} style={{ marginBottom: '5px' }}>
+            <Card className="h-100">
+              <Card.Img variant="top" src={card.image} />
+              <Card.Body >
+                <Card.Title>{card.title}</Card.Title>
+                <Card.Text>
+                  {card.description}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+
+      
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
@@ -125,4 +164,4 @@ function MovingCard() {
   );
 }
 
-export default MovingCard;
+export default PreservationCards;

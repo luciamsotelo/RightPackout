@@ -48,7 +48,7 @@ function AutoCloseExample() {
           <Dropdown.Item className="custom-dropdown-item" href="/moving">
             Moving Items
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/preservations">
             Preservations
           </Dropdown.Item>
         </Dropdown.Menu>
@@ -65,10 +65,10 @@ function AutoCloseExample() {
           Sanitation Solutions
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/drapery">
             Drapery
           </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="#">
+          <Dropdown.Item className="custom-dropdown-item" href="/mold">
             Mold
           </Dropdown.Item>
           <Dropdown.Item className="custom-dropdown-item" href="#">

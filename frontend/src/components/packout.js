@@ -15,12 +15,14 @@ function GridExample() {
       image: picture1,
       description:
         'A packout refers to the process of systematically inventorying, packing, and relocating belongings from one location to another, often during a move or disaster recovery. It involves careful cataloging, wrapping, and boxing of items to ensure their safe transportation. Packouts are crucial in situations such as home relocations, renovations, or restoration after fire or water damage. Professional packout services typically include detailed documentation, secure handling of fragile items, and temporary storage if needed. Effective packouts aim to minimize damage, maintain organization, and facilitate smooth transitions for homeowners or businesses undergoing significant changes or restoration processes.',
+      emailSubject: 'Quote Request for Packout',
     },
     {
       name: 'Packback',
       image: picture5,
       description:
         'A packback is a versatile and ergonomic backpack designed to optimize comfort and utility during outdoor activities or daily commuting. It features multiple compartments for organized storage of essentials like electronics, water bottles, and clothing. Packbacks often include padded shoulder straps and back panels for comfort, as well as durable materials that withstand rugged environments. They may incorporate hydration systems, compression straps, and exterior loops for attaching gear. Whether used for hiking, travel, or everyday use, packbacks prioritize functionality and durability, ensuring users can carry their belongings conveniently and securely in various settings.',
+      emailSubject: 'Quote Request for Packback',
     },
   ];
 
@@ -33,9 +35,10 @@ function GridExample() {
     email: '',
     quoteDetail: ''
   });
+  const [emailSubject, setEmailSubject] = useState('');
 
   // Function to reset form data and show modal
-  const handleShowModal = () => {
+  const handleShowModal = (subject) => {
     // Reset form data
     setQuoteFormData({
       firstName: '',
@@ -44,6 +47,7 @@ function GridExample() {
       email: '',
       quoteDetail: ''
     });
+    setEmailSubject(subject); // Set email subject
     setShowModal(true); // Show modal
   };
 
@@ -52,10 +56,6 @@ function GridExample() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setQuoteFormData({ ...quoteFormData, [name]: value });
-  };
-
-  const handleQuoteButtonClick = () => {
-    handleShowModal();
   };
 
   const handleSendQuoteRequest = () => {
@@ -67,8 +67,7 @@ function GridExample() {
       Email: ${quoteFormData.email}
       Quote Details: ${quoteFormData.quoteDetail}
     `);
-    const emailSubject = encodeURIComponent('Quote Request for Packout and Packback');
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
 
     // Close modal after sending request
     handleCloseModal();
@@ -76,7 +75,7 @@ function GridExample() {
 
   return (
     <div className="" style={{ marginBottom: '100px' }}>
-      <div style={{ margin: '20px', textAlign: 'justify' }}>
+      <div style={{ margin: '-20px 20px -20px 20px', textAlign: 'justify' }}>
         <p>"Information needed about Packout and Packback from client"</p>
       </div>
       <Row xs={1} md={2} className="g-4" style={{ margin: '15px' }}>
@@ -91,7 +90,7 @@ function GridExample() {
                 </Card.Text>
               </Card.Body>
               <Card.Footer>
-                <Button variant="outline-primary" onClick={handleQuoteButtonClick} style={{ margin: '10px' }}>
+                <Button variant="danger" onClick={() => handleShowModal(card.emailSubject)} style={{ margin: '10px' }}>
                   Request a Quote
                 </Button>
               </Card.Footer>
