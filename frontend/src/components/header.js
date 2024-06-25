@@ -88,6 +88,7 @@ function Header() {
               <Nav className="flex-column flex-md-row">
                 <Button variant="outline-danger" href="tel:+6197867089" style={{margin: "10px"}}>619-786-7089</Button>
                 <Button variant="outline-primary" onClick={handleEmailButtonClick} style={{margin: "10px"}}>Contact Us</Button>
+                <Button variant="danger" href="/" style={{margin: "10px"}}>Home</Button>
               </Nav>
             </Col>
           </Row>

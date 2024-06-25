@@ -18,114 +18,114 @@ function AutoCloseExample() {
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '15vh', // Adjusted from '09vh' to '9vh'
-    
-  };
-
-  const dropdownStyle = {
-    margin: '0 10px',
+    height: '50vh', // Adjusted from '09vh' to '9vh'
   };
 
   return (
-    <div style={containerStyle}>
-      <Dropdown
-        className="d-inline mx-2"
-        onMouseEnter={() => handleMouseEnter('dropdown1')}
-        onMouseLeave={handleMouseLeave}
-        show={openDropdown === 'dropdown1'}
-        style={dropdownStyle}
-      >
-        <Dropdown.Toggle id="dropdown-autoclose-true">
-          Content Packing
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="/pack">
-            Packout & Packback
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/storage">
-            Storage
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/moving">
-            Moving Items
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/preservations">
-            Preservations
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+    <div className="container" style={{ ...containerStyle, marginTop: '-13vh', marginBottom: '-13vh' }}>
+      <div className="row w-100">
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
+          <Dropdown
+            className="d-inline-block w-100"
+            onMouseEnter={() => handleMouseEnter('dropdown1')}
+            onMouseLeave={handleMouseLeave}
+            show={openDropdown === 'dropdown1'}
+          >
+            <Dropdown.Toggle id="dropdown-autoclose-true" className="w-100">
+              Content Packing
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="custom-dropdown-item" href="/pack">
+                Packout & Packback
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/storage">
+                Storage
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/moving">
+                Moving Items
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/preservations">
+                Preservations
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
 
-      <Dropdown
-        className="d-inline mx-2"
-        onMouseEnter={() => handleMouseEnter('dropdown2')}
-        onMouseLeave={handleMouseLeave}
-        show={openDropdown === 'dropdown2'}
-        style={dropdownStyle}
-      >
-        <Dropdown.Toggle id="dropdown-autoclose-inside">
-          Sanitation Solutions
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="/drapery">
-            Drapery
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/mold">
-            Mold
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/fire">
-            Fire
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/restoration">
-            Restoration
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/window">
-            Window Cleaning
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
+          <Dropdown
+            className="d-inline-block w-100"
+            onMouseEnter={() => handleMouseEnter('dropdown2')}
+            onMouseLeave={handleMouseLeave}
+            show={openDropdown === 'dropdown2'}
+          >
+            <Dropdown.Toggle id="dropdown-autoclose-inside" className="w-100">
+              Sanitation Solutions
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="custom-dropdown-item" href="/drapery">
+                Drapery
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/mold">
+                Mold
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/fire">
+                Fire
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/restoration">
+                Restoration
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/window">
+                Window Cleaning
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
 
-      <Dropdown
-        className="d-inline mx-2"
-        onMouseEnter={() => handleMouseEnter('dropdown3')}
-        onMouseLeave={handleMouseLeave}
-        show={openDropdown === 'dropdown3'}
-        style={dropdownStyle}
-      >
-        <Dropdown.Toggle id="dropdown-autoclose-outside">
-          Consultation Guidance
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="/consultation">
-            Contents Consultation
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/consultation">
-            Insurance Reports
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/ consultation">
-            Total Loss Inventory
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
+          <Dropdown
+            className="d-inline-block w-100"
+            onMouseEnter={() => handleMouseEnter('dropdown3')}
+            onMouseLeave={handleMouseLeave}
+            show={openDropdown === 'dropdown3'}
+          >
+            <Dropdown.Toggle id="dropdown-autoclose-outside" className="w-100">
+              Consultation Guidance
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="custom-dropdown-item" href="/consultation">
+                Contents Consultation
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/consultation">
+                Insurance Reports
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/consultation">
+                Total Loss Inventory
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
 
-      <Dropdown
-        className="d-inline mx-2"
-        onMouseEnter={() => handleMouseEnter('dropdown4')}
-        onMouseLeave={handleMouseLeave}
-        show={openDropdown === 'dropdown4'}
-        style={dropdownStyle}
-      >
-        <Dropdown.Toggle id="dropdown-autoclose-false">
-          Management Services
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item className="custom-dropdown-item" href="/management">
-            Site Coordination
-          </Dropdown.Item>
-          <Dropdown.Item className="custom-dropdown-item" href="/management">
-            Site Management
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
+          <Dropdown
+            className="d-inline-block w-100"
+            onMouseEnter={() => handleMouseEnter('dropdown4')}
+            onMouseLeave={handleMouseLeave}
+            show={openDropdown === 'dropdown4'}
+          >
+            <Dropdown.Toggle id="dropdown-autoclose-false" className="w-100">
+              Management Services
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="custom-dropdown-item" href="/management">
+                Site Coordination
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/management">
+                Site Management
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      </div>
     </div>
   );
 }

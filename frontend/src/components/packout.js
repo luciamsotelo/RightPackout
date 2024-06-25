@@ -74,14 +74,14 @@ function GridExample() {
   };
 
   return (
-    <div className="" style={{ marginBottom: '100px' }}>
+    <div className="">
       <div style={{ margin: '-20px 20px -20px 20px', textAlign: 'justify' }}>
         <p>"Information needed about Packout and Packback from client"</p>
       </div>
       <Row xs={1} md={2} className="g-4" style={{ margin: '15px' }}>
         {cardsData.map((card, idx) => (
           <Col key={idx}>
-            <Card className="h-100" style={{ border: '10px double red', boxShadow: '-10px -10px 50px blue' }}>
+            <Card className="h-100" style={{ border: '10px double red' }}>
               <Card.Body className="d-flex flex-column">
                 <Card.Title>{card.name}</Card.Title>
                 <Card.Img variant="top" src={card.image} style={{ height: 'auto', maxWidth: '100%' }} />

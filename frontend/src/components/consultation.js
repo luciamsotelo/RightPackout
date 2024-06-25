@@ -3,6 +3,31 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import Image from 'react-bootstrap/Image';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import picture1 from '../images/Picture1.png';
+import picture2 from '../images/Picture2.png'; // Add more pictures as needed
+
+function PictureGallery() {
+  const pictures = [
+    { src: picture1, alt: 'Picture 1' },
+    { src: picture2, alt: 'Picture 2' }, // Add more pictures as needed
+  ];
+
+  return (
+    <Container style={{ marginTop: '30px' }}>
+      <Row>
+        {pictures.map((picture, index) => (
+          <Col key={index} xs={12} md={4}>
+            <Image src={picture.src} alt={picture.alt} thumbnail />
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
+}
 
 function Guidance() {
   const [activeKey, setActiveKey] = useState(null); // State to track active accordion item
@@ -72,7 +97,7 @@ function Guidance() {
   };
 
   return (
-    <div className="container" style={{ marginBottom: '100px' }}>
+    <div className="container" style={{ marginBottom: '396px' }}>
       <Accordion activeKey={activeKey}>
         <Accordion.Item eventKey="0" style={{ border: '3px groove red' }}>
           <Accordion.Header onClick={() => handleAccordionClick('0')}>
@@ -90,9 +115,9 @@ function Guidance() {
             excellence ensures that our consultation reporting not only identifies challenges but also
             proposes effective solutions, empowering you to navigate your project with confidence and clarity.
             <div style={{ marginTop: '30px' }}>
-            <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Contents Consultation')} style={{ marginTop: '10px' }}>
-              Request a Quote
-            </Button>
+              <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Contents Consultation')} style={{ marginTop: '10px' }}>
+                Request a Quote
+              </Button>
             </div>
           </Accordion.Body>
         </Accordion.Item>
@@ -113,9 +138,9 @@ function Guidance() {
             commitment is to advocate for you, providing the necessary documentation and expertise to streamline
             your insurance claims and expedite your recovery.
             <div style={{ marginTop: '30px' }}>
-            <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Insurance Reporting')} style={{ marginTop: '10px' }}>
-              Request a Quote
-            </Button>
+              <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Insurance Reporting')} style={{ marginTop: '10px' }}>
+                Request a Quote
+              </Button>
             </div>
           </Accordion.Body>
         </Accordion.Item>
@@ -135,13 +160,16 @@ function Guidance() {
             is handled with professionalism and care, ensuring a thorough and accurate representation of your losses to aid
             in your recovery journey.
             <div style={{ marginTop: '30px' }}>
-            <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Total Loss Inventory')} >
-              Request a Quote
-            </Button>
+              <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Total Loss Inventory')} >
+                Request a Quote
+              </Button>
             </div>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+
+      {/* Picture Gallery */}
+      <PictureGallery />
 
       {/* Modal for quote request form */}
       <Modal show={showQuoteModal} onHide={handleCloseQuoteModal}>
