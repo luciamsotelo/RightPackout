@@ -2,9 +2,27 @@
   background-color: lightblue !important; 
 }
 
-body {
-  
-  background-color: #f5f5f5 !important;
+.review-card {
+  background-color: blue; 
+  border: 100px solid red; 
+  border-radius: 80px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 40px red;
+  transition: transform 0.3s ease-in-out;
 }
 
+.review-card:hover {
+  transform: translateY(-5px);
+}
 
+.rating-stars {
+  color: blue;
+  border: blue; 
+  margin-bottom: 10px;
+}
+
+.star-icon {
+  font-size: 1.2rem;
+  margin-right: 2px;
+}

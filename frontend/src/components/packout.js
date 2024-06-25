@@ -13,14 +13,14 @@ function GridExample() {
       name: 'Packout',
       image: POAfter1,
       description:
-        'A packout refers to the process of systematically inventorying, packing, and relocating belongings from one location to another, often during a move or disaster recovery. It involves careful cataloging, wrapping, and boxing of items to ensure their safe transportation. Packouts are crucial in situations such as home relocations, renovations, or restoration after fire or water damage. Professional packout services typically include detailed documentation, secure handling of fragile items, and temporary storage if needed. Effective packouts aim to minimize damage, maintain organization, and facilitate smooth transitions for homeowners or businesses undergoing significant changes or restoration processes.',
+        'A packout is the systematic process of inventorying, packing, and moving belongings from one location to another, essential during moves or disaster recovery. It involves cataloging, wrapping, and boxing items for safe transport, crucial for home relocations, renovations, or restoration after fire or water damage. Professional packout services include detailed documentation, secure handling of fragile items, and optional temporary storage. Effective packouts minimize damage, maintain organization, and ensure smooth transitions during significant changes or restoration.',
       emailSubject: 'Quote Request for Packout',
     },
     {
       name: 'Packback',
       image: picture5,
       description:
-        'A packback is a versatile and ergonomic backpack designed to optimize comfort and utility during outdoor activities or daily commuting. It features multiple compartments for organized storage of essentials like electronics, water bottles, and clothing. Packbacks often include padded shoulder straps and back panels for comfort, as well as durable materials that withstand rugged environments. They may incorporate hydration systems, compression straps, and exterior loops for attaching gear. Whether used for hiking, travel, or everyday use, packbacks prioritize functionality and durability, ensuring users can carry their belongings conveniently and securely in various settings.',
+        'Packback is the careful process of systematically returning items to their original positions or designated places, ensuring everything is restored with meticulous attention. It is crucial during reassembly after moves, renovations, or restoration projects like fire or water damage. Professional packback services focus on precision placement, ensuring items are securely repositioned or reinstalled as per specific requirements. Effective packback aims to maintain organization, minimize disruption, and facilitate seamless transitions for homeowners or businesses undergoing significant changes or restoration processes.',
       emailSubject: 'Quote Request for Packback',
     },
   ];
@@ -68,7 +68,7 @@ function GridExample() {
   };
 
   return (
-    <div className="" style={{ marginBottom: '75px' }}>
+    <div className="" style={{ marginTop: '-140px', marginBottom: '75px' }}>
       <h1 style={{ textAlign: 'center' }}>Packout and Packback</h1>
       <p style={{ textAlign: 'center' }}>Information needed about Packout and Packback from client</p>
       <Row xs={1} md={2} className="g-4" style={{ margin: '20px' }}>

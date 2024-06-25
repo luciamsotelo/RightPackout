@@ -1,39 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import './Review.css'; // Custom CSS for styling
-
-const reviewsData = [
-  {
-    id: 1,
-    name: 'John Doe',
-    rating: 5,
-    comment: 'Great service and excellent support! Highly recommended.',
-  },
-  {
-    id: 2,
-    name: 'Jane Smith',
-    rating: 4,
-    comment: 'Nice products and fast delivery. Will buy again!',
-  },
-  {
-    id: 3,
-    name: 'David Brown',
-    rating: 5,
-    comment: 'Awesome experience. The team really cares about customer satisfaction.',
-  },
-];
 
 const Review = () => {
+  const initialReviewsData = JSON.parse(localStorage.getItem('reviews')) || [
+    {
+      id: 1,
+      name: 'John Doe',
+      rating: 5,
+      comment: 'Great service and excellent support! Highly recommended.',
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      rating: 4,
+      comment: 'Nice products and fast delivery. Will buy again!',
+    },
+    {
+      id: 3,
+      name: 'David Brown',
+      rating: 5,
+      comment: 'Awesome experience. The team really cares about customer satisfaction.',
+    },
+  ];
+
   const [showModal, setShowModal] = useState(false);
+  const [reviewsData, setReviewsData] = useState(initialReviewsData);
   const [formData, setFormData] = useState({
     name: '',
     rating: 5,
     comment: '',
   });
+
+  useEffect(() => {
+    localStorage.setItem('reviews', JSON.stringify(reviewsData));
+  }, [reviewsData]);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
@@ -50,14 +54,26 @@ const Review = () => {
       rating: parseInt(formData.rating),
       comment: formData.comment,
     };
-    reviewsData.push(newReview); // Add new review to data array (simulate adding to database)
+    setReviewsData([...reviewsData, newReview]); // Update state with new review
     setFormData({ name: '', rating: 5, comment: '' });
     handleCloseModal();
   };
 
+  // Function to calculate average rating
+  const calculateAverageRating = () => {
+    if (reviewsData.length === 0) return 0;
+
+    const totalRating = reviewsData.reduce((acc, review) => acc + review.rating, 0);
+    return (totalRating / reviewsData.length).toFixed(0); // Return average rounded to one decimal place
+  };
+
   return (
-    <div className="review-container">
+    <div className="review-container" style={{ marginBottom: '60px' }}>
       <h2 className="text-center mb-4">Customer Reviews</h2>
+
+      <div className="average-rating text-center mb-4">
+        <p>Average Rating: {calculateAverageRating()}</p>
+      </div>
 
       <div className="reviews-grid">
         {reviewsData.map((review) => (

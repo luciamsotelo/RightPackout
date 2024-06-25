@@ -15,6 +15,7 @@ import Management from './pages/management_page';
 import About from './pages/about_page';
 import Review from './pages/review_page';
 
+
 function App() {
   return (
     <BrowserRouter>
