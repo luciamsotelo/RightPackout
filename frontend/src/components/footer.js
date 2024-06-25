@@ -9,7 +9,7 @@ const Footer = () => {
                     <Nav.Link style = {{color: "white"}} href="/about">About Us</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li">
-                    <Nav.Link style = {{color: "white"}} href="/about">Reviews</Nav.Link>
+                    <Nav.Link style = {{color: "white"}} href="/review">Reviews</Nav.Link>
                 </Nav.Item>
             </Nav>
         </div>

@@ -13,6 +13,7 @@ import Window from './pages/window_page';
 import Consultation from './pages/consultation_page';
 import Management from './pages/management_page'; 
 import About from './pages/about_page';
+import Review from './pages/review_page';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/consultation" element={<Consultation />} />
         <Route path="/management" element={<Management />} />
         <Route path="/about" element={<About />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
     </BrowserRouter>
   );
