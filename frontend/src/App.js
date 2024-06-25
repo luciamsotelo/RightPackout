@@ -11,7 +11,8 @@ import Fire from './pages/fire_page';
 import Restoration from './pages/restoration_page';
 import Window from './pages/window_page';
 import Consultation from './pages/consultation_page';
-import Management from './pages/management_page'; // Update import for ManagementPage
+import Management from './pages/management_page'; 
+import About from './pages/about_page';
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
         <Route path="/restoration" element={<Restoration />} />
         <Route path="/window" element={<Window />} />
         <Route path="/consultation" element={<Consultation />} />
-        <Route path="/management" element={<Management />} /> {/* Use ManagementPage component here */}
+        <Route path="/management" element={<Management />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );

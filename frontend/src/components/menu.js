@@ -22,7 +22,7 @@ function AutoCloseExample() {
   };
 
   return (
-    <div className="container" style={{ ...containerStyle, marginTop: '-13vh', marginBottom: '-13vh' }}>
+    <div className="container" style={{ ...containerStyle, marginTop: '-13vh', marginBottom: '-10vh' }}>
       <div className="row w-100">
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
           <Dropdown

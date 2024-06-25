@@ -95,7 +95,7 @@ function Management() {
   };
 
   return (
-    <div className="container" style={{ marginBottom: '454px' }}>
+    <div className="container" style={{ marginBottom: '75px' }}>
       <Accordion activeKey={activeKey}>
         <Accordion.Item eventKey="0" style={{ border: '3px groove red' }}>
           <Accordion.Header onClick={() => handleAccordionClick('0')}>
