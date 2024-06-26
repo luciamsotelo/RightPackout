@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 function DarkVariantExample() {
   return (
     
-    <Carousel fade style={{ marginTop: '-175px'}}>
+    <Carousel fade style={{ marginTop: '15px', marginBottom: '50px'}}>
       <Carousel.Item >
         <img
           className="d-block w-100"

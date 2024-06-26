@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import storage1 from '../images/Storerug1.JPEG';
 import storage4 from '../images/storage4.jpeg';
-import storage2 from '../images/Storage2.jpeg';
+import storage11 from '../images/storage11.jpeg';
 
 function MultiImgCardExample() {
   const [showModal, setShowModal] = useState(false);
@@ -55,7 +55,7 @@ function MultiImgCardExample() {
     <div style={{ margin: '20px' }}>
       <div className="d-flex justify-content-between">
         <div style={{ flex: 1, padding: '0 10px' }}>
-          <Card.Img src={storage2} alt="Packout" style={{ width: '100%', height: '60vh' }} />
+          <Card.Img src={storage11} alt="Packout" style={{ width: '100%', height: '60vh' }} />
         </div>
         <div style={{ flex: 1, padding: '0 10px' }}>
           <Card.Img src={storage1} alt="Packback" style={{ width: '100%', height: '60vh' }} />

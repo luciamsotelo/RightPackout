@@ -5,8 +5,10 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Picture1 from '../images/Picture1.png';
-
+import Drapes1 from '../images/Drapes1.jpeg';
+import Drapes5 from '../images/Drapes5.jpg';
+import Drapes4 from '../images/Drapes4.jpg';
+import curtain1 from '../images/curtain1.jpg';
 function DraperyCards() {
   const [showModal, setShowModal] = useState(false);
   const [quoteFormData, setQuoteFormData] = useState({
@@ -63,32 +65,33 @@ function DraperyCards() {
   const cardsData = [
     {
       title: 'Drapery 1',
-      image: Picture1,
+      image: Drapes1,
       description: 'Description of drapery 1.'
     },
     {
       title: 'Drapery 2',
-      image: Picture1,
+      image: Drapes5,
       description: 'Description of drapery 2.'
     },
     {
       title: 'Drapery 3',
-      image: Picture1,
+      image: Drapes4,
       description: 'Description of drapery 3.'
     }
+    
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+    <div className="" style={{ marginBottom: '100px', background: 'ivory'}}>
       <div className="d-flex justify-content-center mt-3">
         <div style={{ maxWidth: '900px', textAlign: 'center' }}>
           <h1>Drapery Services</h1>
           <p>We offer various drapery services to ensure the safety and longevity of your drapery items.</p>
         </div>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+      <Row xs={1} md={2} lg={3} className="g-4 m-3" >
         {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '50px' }}>
+          <Col key={idx} style={{ marginBottom: '50px'}}>
             <Card className="h-100">
               <Card.Img variant="top" src={card.image} />
               <Card.Body>

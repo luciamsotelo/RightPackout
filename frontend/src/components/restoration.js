@@ -5,7 +5,12 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Picture1 from '../images/Picture1.png';
+import Chair1 from '../images/chairCleanB1.jpeg';
+import Chair2 from '../images/ChairCleanA1.jpeg';
+import Shoes1 from '../images/MB&Ashoe.jpeg';
+import Fire4 from '../images/FjacketB3.jpeg';
+import Fire2 from '../images/FjacketA1.jpeg';
+import Fire3 from '../images/FjacketA2.jpeg';
 
 function RestorationCards() {
   const [showModal, setShowModal] = useState(false);
@@ -62,18 +67,33 @@ function RestorationCards() {
 
   const cardsData = [
     {
-      title: 'Restoration ',
-      image: Picture1,
+      title: 'Restoration Before ',
+      image: Chair1,
       description: 'Description of restoration .'
     },
     {
-      title: 'Mold Restoration ',
-      image: Picture1,
+      title: 'Restoration After',
+      image: Chair2,
       description: 'Description of mold restoration .'
     },
     {
-      title: 'Fire Restoration ',
-      image: Picture1,
+      title: 'Mold Restoration Before and After',
+      image: Shoes1,
+      description: 'Description of fire restoration .'
+    },
+    {
+      title: 'Fire Restoration Before ',
+      image: Fire4,
+      description: 'Description of fire restoration .'
+    },
+    {
+      title: 'Fire Restoration After',
+      image: Fire2,
+      description: 'Description of fire restoration .'
+    },
+    {
+      title: 'Fire Restoration After',
+      image: Fire3,
       description: 'Description of fire restoration .'
     }
   ];
@@ -81,9 +101,9 @@ function RestorationCards() {
   return (
     <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
-          <h1>Restoration</h1>
-          <p>At The Right Packout, we specialize in comprehensive restoration services aimed at rejuvenating spaces impacted by disasters such as fire and mold. Our dedicated team excels in restoring properties to their former glory by addressing the aftermath of fires, including meticulous smoke residue cleaning, structural repairs, and effective odor elimination. Similarly, we expertly handle mold issues with detailed inspections, safe mold removal, and proactive measures to prevent future growth. With a commitment to excellence and compassionate service, The Right Packout guides you through every restoration phase, ensuring your property is restored to safety, functionality, and aesthetic appeal. Trust The Right Packout for professional restoration solutions that bring peace of mind during challenging times.</p>
+        <div style={{ textAlign: 'justify', margin: '30px' }}>
+          <h1 style={{ textAlign: 'center' }}>Restoration</h1>
+          <p style={{ marginBottom: '-55px' }}>At The Right Packout, we specialize in comprehensive restoration services aimed at rejuvenating spaces impacted by disasters such as fire and mold. Our dedicated team excels in restoring properties to their former glory by addressing the aftermath of fires, including meticulous smoke residue cleaning, structural repairs, and effective odor elimination. Similarly, we expertly handle mold issues with detailed inspections, safe mold removal, and proactive measures to prevent future growth. With a commitment to excellence and compassionate service, The Right Packout guides you through every restoration phase, ensuring your property is restored to safety, functionality, and aesthetic appeal. Trust The Right Packout for professional restoration solutions that bring peace of mind during challenging times.</p>
         </div>
       </div>
       <Row xs={1} md={2} lg={3} className="g-4 m-3">

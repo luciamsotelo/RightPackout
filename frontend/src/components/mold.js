@@ -5,7 +5,9 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Picture1 from '../images/Picture1.png';
+import Shoes1 from '../images/MB&Ashoe.jpeg';
+import Chamber1 from '../images/MChamb4.JPEG';
+
 
 function MoldCards() {
   const [showModal, setShowModal] = useState(false);
@@ -44,7 +46,6 @@ function MoldCards() {
       Message: ${quoteFormData.message}
     `);
 
-    // Customize subject based on form data or other conditions
     let subject = 'Quote Request on Mold Removal';
     if (quoteFormData.firstName && quoteFormData.lastName) {
       const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
@@ -53,27 +54,24 @@ function MoldCards() {
       }
     }
 
-    // Prepare mailto link with updated subject
     window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-
-    // Close modal after sending request
     handleCloseModal();
   };
 
   const cardsData = [
     {
       title: 'Mold 1',
-      image: Picture1,
+      image: Shoes1,
       description: 'Description of Mold 1.'
     },
     {
       title: 'Mold 2',
-      image: Picture1,
+      image: Chamber1,
       description: 'Description of Mold 2.'
     },
     {
       title: 'Mold 3',
-      image: Picture1,
+      image: Shoes1,
       description: 'Description of mold 3.'
     }
   ];
@@ -90,8 +88,8 @@ function MoldCards() {
         {cardsData.map((card, idx) => (
           <Col key={idx} style={{ marginBottom: '50px' }}>
             <Card className="h-100">
-              <Card.Img variant="top" src={card.image} />
-              <Card.Body>
+              <Card.Img variant="top" src={card.image} className="card-img-top" />
+              <Card.Body className="card-body">
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>
                   {card.description}

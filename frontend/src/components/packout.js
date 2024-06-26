@@ -68,21 +68,21 @@ function GridExample() {
   };
 
   return (
-    <div className="" style={{ marginTop: '-140px', marginBottom: '75px' }}>
+    <div style={{ marginTop: '25px', marginBottom: '75px'}}>
       <h1 style={{ textAlign: 'center' }}>Packout and Packback</h1>
       <p style={{ textAlign: 'center' }}>Information needed about Packout and Packback from client</p>
       <Row xs={1} md={2} className="g-4" style={{ margin: '20px' }}>
         {cardsData.map((card, idx) => (
           <Col key={idx}>
-            <Card className="h-100">
-              <Card.Body className="d-flex flex-column" style={{ border: '4px solid blue', boxShadow:'-10px -10px 50px grey', borderRadius: '10px' }}>
+            <Card className="h-100" style={{ display: 'flex', flexDirection: 'column', border: '4px solid black'}}>
+              <Card.Img variant="top" src={card.image} style={{ objectFit: 'cover', height: '600px' }} />
+              <Card.Body style={{ flex: '1' }}>
                 <Card.Title>{card.name}</Card.Title>
-                <Card.Img variant="top" src={card.image} style={{ height: 'auto', maxWidth: '100%' }} />
-                <Card.Text style={{ maxHeight: '200px', overflowY: 'auto', textAlign: 'justify' }}>
+                <Card.Text style={{ flex: '1', textAlign: 'justify' }}>
                   {card.description}
                 </Card.Text>
-                <div className="mt-auto text-center"> {/* Align buttons to center */}
-                  <Button variant="danger" onClick={() => handleShowModal(card.emailSubject)} style={{ margin: '10px' }}>
+                <div className="d-flex justify-content-center mt-auto">
+                  <Button variant="danger" onClick={() => handleShowModal(card.emailSubject)}>
                     Request a Quote
                   </Button>
                 </div>

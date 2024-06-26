@@ -64,7 +64,7 @@ function Header() {
 
   return (
     
-    <div className='' style={{ backgroundColor: 'transparent' }}>
+    <div className='' style={{ backgroundColor: 'transparent'}}>
       <Navbar>
         <Container>
           <Row className="align-items-center">

@@ -5,7 +5,10 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Picture1 from '../images/Picture1.png';
+import Fire4 from '../images/FjacketB3.jpeg';
+import Fire1 from '../images/FjacketB1.jpeg';
+import Fire2 from '../images/FjacketA1.jpeg';
+import Fire3 from '../images/FjacketA2.jpeg';
 
 function FireCards() {
   const [showModal, setShowModal] = useState(false);
@@ -63,27 +66,32 @@ function FireCards() {
   const cardsData = [
     {
       title: 'Fire Restoration 1',
-      image: Picture1,
+      image: Fire4,
       description: 'Description of fire restoration 1.'
     },
     {
       title: 'Fire Restoration 2',
-      image: Picture1,
+      image: Fire1,
       description: 'Description of fire restoration 2.'
     },
     {
       title: 'Fire Restoration 3',
-      image: Picture1,
+      image: Fire2,
       description: 'Description of fire restoration 3.'
+    },
+    {
+      title: 'Fire Restoration 4',
+      image: Fire3,
+      description: 'Description of fire restoration 4.'
     }
   ];
 
   return (
     <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
-          <h1>Fire Restoration</h1>
-          <p>Fire restoration is a crucial service dedicated to repairing and restoring properties impacted by fire damage. Whether it's a residential home or commercial establishment, our comprehensive fire restoration process begins with a detailed assessment to evaluate the extent of structural damage, smoke residue, and water damage from firefighting efforts. Our skilled technicians employ state-of-the-art equipment and techniques to remove soot, ash, and smoke odors, while salvaging and restoring belongings whenever possible. We prioritize safety, efficiency, and compassion in every restoration project, aiming to swiftly return your property to its pre-fire condition. Trust us to guide you through the restoration process, offering peace of mind during this challenging time</p>
+        <div style={{ textAlign: 'justify', margin: '30px' }}>
+          <h1 style={{ textAlign: 'center' }}>Fire Restoration</h1>
+          <p style={{ marginBottom: '-55px' }}>Fire restoration is a crucial service dedicated to repairing and restoring properties impacted by fire damage. Whether it's a residential home or commercial establishment, our comprehensive fire restoration process begins with a detailed assessment to evaluate the extent of structural damage, smoke residue, and water damage from firefighting efforts. Our skilled technicians employ state-of-the-art equipment and techniques to remove soot, ash, and smoke odors, while salvaging and restoring belongings whenever possible. We prioritize safety, efficiency, and compassion in every restoration project, aiming to swiftly return your property to its pre-fire condition. Trust us to guide you through the restoration process, offering peace of mind during this challenging time</p>
         </div>
       </div>
       <Row xs={1} md={2} lg={3} className="g-4 m-3">
