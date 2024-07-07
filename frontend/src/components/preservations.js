@@ -73,11 +73,12 @@ function PreservationCards() {
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+    <div className="" style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
-          <h1>Preservation Services</h1>
-          <p>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. To get started, simply browse through our service offerings and request a quote. Our team is ready to assist you with all your preservation needs.</p>
+        <div style={{ maxWidth: '700px'}}>
+          <br></br>
+          <h1 style={{ textAlign: 'center'}}>Preservation Services</h1>
+          <p style={{ textAlign: 'center'}}>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. To get started, simply browse through our service offerings and request a quote. Our team is ready to assist you with all your preservation needs.</p>
           <div className="" style={{ margin: '5px', textAlign: 'center' }}>
         <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
       </div>

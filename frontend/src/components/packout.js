@@ -74,7 +74,7 @@ function GridExample() {
       <Row xs={1} md={2} className="g-4" style={{ margin: '20px' }}>
         {cardsData.map((card, idx) => (
           <Col key={idx}>
-            <Card className="h-100" style={{ display: 'flex', flexDirection: 'column', border: '4px solid black'}}>
+            <Card className="h-100" style={{ display: 'flex', flexDirection: 'column', border: '3px outset black' }}>
               <Card.Img variant="top" src={card.image} style={{ objectFit: 'cover', height: '600px' }} />
               <Card.Body style={{ flex: '1' }}>
                 <Card.Title>{card.name}</Card.Title>

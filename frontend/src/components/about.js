@@ -20,7 +20,7 @@ function GridExample() {
 
   return (
     <>
-      <div style={{ margin: "30px",textAlign: "justify" }}>
+      <div style={{ margin: "30px",textAlign: "center" }}>
         <h1 className='about' style={{ textAlign: "center"}}>Together we can meet all of your pack out needs</h1>
         <p>"Both Emilio and Sharon bring extensive training and experience in total loss contents inventory to our team. Their proficiency in this critical area ensures accurate and comprehensive documentation of total loss items, providing peace of mind during challenging times. With a proven track record of collaborating with insurance agents, Emilio and Sharon excel in creating detailed total loss reports and offering expert consultations. Their combined expertise guarantees meticulous attention to detail and exceptional support throughout the insurance process, making them invaluable assets to our clients."</p>
       </div>

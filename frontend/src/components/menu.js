@@ -66,13 +66,13 @@ function AutoCloseExample() {
                 Drapery
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/mold">
-                Mold
+                Mold Restoration
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/fire">
-                Fire
+                Fire Restoration
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/restoration">
-                Restoration
+                Furniture Cleaning
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/window">
                 Window Cleaning

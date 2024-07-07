@@ -79,9 +79,9 @@ function WindowCards() {
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+    <div className="" style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ textAlign: 'justify', margin: '30px' }}>
+        <div style={{ textAlign: 'center', margin: '30px' }}>
           <h1 style={{ textAlign: 'center' }}>Window Cleaning Services</h1>
           <p style={{ marginBottom: '-55px' }}>Our window cleaning services at The Right Packout are designed to enhance the appearance and clarity of your windows, ensuring a pristine and inviting atmosphere for your home or business. Whether you're seeking routine maintenance or preparing for a special event, our skilled team delivers meticulous cleaning using state-of-the-art equipment and eco-friendly products. We tackle both interior and exterior windows, removing dirt, grime, and streaks to provide crystal-clear views and maximize natural light penetration. With a commitment to quality and customer satisfaction, The Right Packout promises streak-free results and a sparkling finish every time. Discover the difference our professional window cleaning services can make for your property today.
 

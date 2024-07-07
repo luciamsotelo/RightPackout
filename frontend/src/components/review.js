@@ -64,15 +64,15 @@ const Review = () => {
     if (reviewsData.length === 0) return 0;
 
     const totalRating = reviewsData.reduce((acc, review) => acc + review.rating, 0);
-    return (totalRating / reviewsData.length).toFixed(0); // Return average rounded to one decimal place
+    return (totalRating / reviewsData.length).toFixed(1); // Return average rounded to one decimal place
   };
 
   return (
-    <div className="review-container" style={{ marginBottom: '60px' }}>
+    <div className="review-container" style={{ margin: '30px 30px 80px 30px' }}>
       <h2 className="text-center mb-4">Customer Reviews</h2>
 
       <div className="average-rating text-center mb-4">
-        <p>Average Rating: {calculateAverageRating()}</p>
+        <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'blue'}}>Average Rating: {calculateAverageRating()}</p>
       </div>
 
       <div className="reviews-grid">

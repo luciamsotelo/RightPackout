@@ -97,8 +97,8 @@ function Guidance() {
   };
 
   return (
-    <div className="container" style={{ marginBottom: '75px' }}>
-      <Accordion activeKey={activeKey}>
+    <div className="container" style={{ marginBottom: '30px' }}>
+      <Accordion activeKey={activeKey} style={{ marginTop: '50px' }}>
         <Accordion.Item eventKey="0" style={{ border: '3px groove red' }}>
           <Accordion.Header onClick={() => handleAccordionClick('0')}>
             Contents Consultation

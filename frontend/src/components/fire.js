@@ -87,7 +87,7 @@ function FireCards() {
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+    <div className="" style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center mt-3">
         <div style={{ textAlign: 'justify', margin: '30px' }}>
           <h1 style={{ textAlign: 'center' }}>Fire Restoration</h1>

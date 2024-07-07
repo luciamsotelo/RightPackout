@@ -77,9 +77,10 @@ function MoldCards() {
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px', background: 'ivory' }}>
+    <div className="" style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center mt-3">
         <div style={{ maxWidth: '900px', textAlign: 'center' }}>
+          <br></br>
           <h1>Mold Removal</h1>
           <p>Mold removal is a critical service aimed at ensuring the safety and health of your home or business environment. Mold growth can occur in areas with excessive moisture, often resulting from leaks, flooding, or high humidity levels. Our professional mold removal process begins with a thorough inspection to identify the source and extent of the mold infestation. Using advanced equipment and proven techniques, we meticulously remove mold and clean affected areas to prevent further contamination. Our team also addresses the underlying moisture issues to inhibit future growth. Trust our experienced professionals to restore your space to a clean, healthy state, free from the harmful effects of mold.</p>
         </div>

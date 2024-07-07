@@ -82,7 +82,7 @@ function DraperyCards() {
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px', background: 'ivory'}}>
+    <div className="" style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center mt-3">
         <div style={{ maxWidth: '900px', textAlign: 'center' }}>
           <h1>Drapery Services</h1>

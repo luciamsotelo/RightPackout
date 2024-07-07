@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
+import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap';
 import storage1 from '../images/Storerug1.JPEG';
 import storage4 from '../images/storage4.jpeg';
 import storage11 from '../images/storage11.jpeg';
@@ -52,21 +49,27 @@ function MultiImgCardExample() {
   };
 
   return (
-    <div style={{ margin: '20px' }}>
-      <div className="d-flex justify-content-between">
-        <div style={{ flex: 1, padding: '0 10px' }}>
-          <Card.Img src={storage11} alt="Packout" style={{ width: '100%', height: '60vh' }} />
-        </div>
-        <div style={{ flex: 1, padding: '0 10px' }}>
-          <Card.Img src={storage1} alt="Packback" style={{ width: '100%', height: '60vh' }} />
-        </div>
-        <div style={{ flex: 1, padding: '0 10px' }}>
-          <Card.Img src={storage4} alt="Packback" style={{ width: '100%', height: '60vh' }} />
-        </div>
-      </div>
-      <Card className="bg-light text-black mt-3" style={{ textAlign: 'justify', padding: '20px', marginBottom: '70px' }}>
-        <Card.Title >Storage</Card.Title>
-        <Card.Text >
+    <Container className="d-flex flex-column align-items-center">
+      <Row className="justify-content-center">
+        <Col sm={4} className="mb-4">
+          <Card>
+            <Card.Img src={storage11} alt="Packout" className="storage" />
+          </Card>
+        </Col>
+        <Col sm={4} className="mb-4">
+          <Card>
+            <Card.Img src={storage1} alt="Packback" className="storage" />
+          </Card>
+        </Col>
+        <Col sm={4} className="mb-4">
+          <Card>
+            <Card.Img src={storage4} alt="Packback" className="storage" />
+          </Card>
+        </Col>
+      </Row>
+      <Card className="bg-light text-black mt-3 text-center" style={{ padding: '20px', marginBottom: '70px' }}>
+        <Card.Title>Storage</Card.Title>
+        <Card.Text>
           We understand the importance of safeguarding your valuable items, whether it's for short-term storage during a renovation or long-term preservation. Our comprehensive storage solutions are designed to meet the unique needs of businesses and individuals alike. We offer secure, climate-controlled storage facilities to ensure your possessions are protected from environmental damage, theft, and loss. Our professional team meticulously catalogs and handles each item with the utmost care, providing you with peace of mind and the convenience of accessing your items whenever needed. Trust us to provide a seamless, reliable storage experience tailored to your specific requirements.
         </Card.Text>
         <div className="d-flex justify-content-center mt-4" style={{ marginBottom: '20px' }}>
@@ -133,7 +136,7 @@ function MultiImgCardExample() {
           <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
         </Modal.Footer>
       </Modal>
-    </div>
+    </Container>
   );
 }
 
