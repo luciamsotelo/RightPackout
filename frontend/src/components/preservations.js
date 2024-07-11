@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Picture1 from '../images/Picture1.png';
+import Imaging from '../images/imagesoon.png';
 
 function PreservationCards() {
   const [showModal, setShowModal] = useState(false);
@@ -57,39 +57,73 @@ function PreservationCards() {
   const cardsData = [
     {
       title: 'Preservation 1',
-      image: Picture1,
+      image: Imaging,
       description: 'Description of preservation 1.'
     },
     {
       title: 'Preservation 2',
-      image: Picture1,
+      image: Imaging,
       description: 'Description of preservation 2.'
     },
     {
       title: 'Preservation 3',
-      image: Picture1,
+      image: Imaging,
       description: 'Description of preservation 3.'
+    },
+    {
+      title: 'Preservation 4',
+      image: Imaging,
+      description: 'Description of preservation 4.'
+    },
+    {
+      title: 'Preservation 5',
+      image: Imaging,
+      description: 'Description of preservation 5.'
+    },
+    {
+      title: 'Preservation 6',
+      image: Imaging,
+      description: 'Description of preservation 6.'
+    },
+    {
+      title: 'Preservation 7',
+      image: Imaging,
+      description: 'Description of preservation 7.'
+    },
+    {
+      title: 'Preservation 8',
+      image: Imaging,
+      description: 'Description of preservation 8.'
     }
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px'}}>
+    <div className="" style={{ marginBottom: '50px'}}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '700px'}}>
+        <div style={{ maxWidth: '100%'}}>
           <br></br>
           <h1 style={{ textAlign: 'center'}}>Preservation Services</h1>
-          <p style={{ textAlign: 'center'}}>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. To get started, simply browse through our service offerings and request a quote. Our team is ready to assist you with all your preservation needs.</p>
+          <p style={{ textAlign: 'justify', margin: '10px'}}>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. 
+          </p>
+          <ul style ={{ paddingBottom: '-100px', color: 'blue', marginLeft: '10px'}}>
+            <li>take down drapery</li> 
+            <li>clean drapery</li>
+            <li>repair if needed</li>
+            <li>ability to make drapes</li>
+            <li>rehang drapery</li>
+          </ul>
+          
           <div className="" style={{ margin: '5px', textAlign: 'center' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-      </div>
+            <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
+          </div>
         </div>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+      <Row xs={1} sm={2} md={3} lg={4} className="g-4 m-3">
         {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '5px' }}>
+          <Col key={idx} style={{ marginBottom: '20px' }}>
             <Card className="h-100">
-              <Card.Img variant="top" src={card.image} />
-              <Card.Body >
+              <Card.Img variant="top" src={card.image} style={{ height: '300px', objectFit: 'cover' }} />
+              <Card.Body style={{ maxHeight: '120px', overflow: 'hidden' }}>
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>
                   {card.description}
@@ -99,8 +133,6 @@ function PreservationCards() {
           </Col>
         ))}
       </Row>
-
-      
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

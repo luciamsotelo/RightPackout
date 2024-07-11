@@ -50,12 +50,12 @@ function MovingCard() {
   return (
     <div className='' style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center">
-        <Card className="m-3" style={{ maxWidth: '500px', border: '10px double blue'}}>
+        <Card className="m-3" style={{ maxWidth: '500px', border: '10px double blue', paddingBottom: '150px'}}>
           <Card.Img variant="top" src={picture1} />
           <Card.Body>
-            <Card.Title>Moving</Card.Title>
-            <Card.Text>
-              Moving involves packing, loading, transporting, and unloading your belongings from one location to another. We ensure a smooth and secure transition.
+            <Card.Title style={{ textAlign: 'center'}}>Moving</Card.Title>
+            <Card.Text style={{ textAlign: 'justify'}}>
+            The Right Pack Out Team understands that moving involves properly packing, loading, transporting, and unloading your belongings from one location to another. Our dedicated team handles your items with the utmost care, treating them as if they were our own treasured pieces, ensuring a smooth, safe, and secure transition to your new home. We strive to make your moving experience as stress-free and efficient as possible.
             </Card.Text>
             <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
           </Card.Body>

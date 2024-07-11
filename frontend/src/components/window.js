@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Picture1 from '../images/Picture1.png';
+import Image from '../images/imagesoon.png';
 
 function WindowCards() {
   const [showModal, setShowModal] = useState(false);
@@ -44,7 +44,6 @@ function WindowCards() {
       Message: ${quoteFormData.message}
     `);
 
-    // Customize subject based on form data or other conditions
     let subject = 'Quote Request on Window Cleaning';
     if (quoteFormData.firstName && quoteFormData.lastName) {
       const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
@@ -53,53 +52,73 @@ function WindowCards() {
       }
     }
 
-    // Prepare mailto link with updated subject
     window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-
-    // Close modal after sending request
     handleCloseModal();
   };
 
   const cardsData = [
     {
       title: 'Window 1',
-      image: Picture1,
+      image: Image,
       description: 'Description of window 1.'
     },
     {
       title: 'Window 2',
-      image: Picture1,
+      image: Image,
       description: 'Description of window 2.'
     },
     {
       title: 'Window 3',
-      image: Picture1,
+      image: Image,
       description: 'Description of window 3.'
+    },
+    {
+      title: 'Window 4',
+      image: Image,
+      description: 'Description of window 4.'
+    },
+    {
+      title: 'Window 5',
+      image: Image,
+      description: 'Description of window 5.'
+    },
+    {
+      title: 'Window 6',
+      image: Image,
+      description: 'Description of window 6.'
+    },
+    {
+      title: 'Window 7',
+      image: Image,
+      description: 'Description of window 7.'
+    },
+    {
+      title: 'Window 8',
+      image: Image,
+      description: 'Description of window 8.'
     }
   ];
 
   return (
     <div className="" style={{ marginBottom: '100px'}}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ textAlign: 'center', margin: '30px' }}>
+        <div style={{ textAlign: 'justify', margin: '30px' }}>
           <h1 style={{ textAlign: 'center' }}>Window Cleaning Services</h1>
-          <p style={{ marginBottom: '-55px' }}>Our window cleaning services at The Right Packout are designed to enhance the appearance and clarity of your windows, ensuring a pristine and inviting atmosphere for your home or business. Whether you're seeking routine maintenance or preparing for a special event, our skilled team delivers meticulous cleaning using state-of-the-art equipment and eco-friendly products. We tackle both interior and exterior windows, removing dirt, grime, and streaks to provide crystal-clear views and maximize natural light penetration. With a commitment to quality and customer satisfaction, The Right Packout promises streak-free results and a sparkling finish every time. Discover the difference our professional window cleaning services can make for your property today.
-
-
-
-
-
-</p>
+          <p style={{ marginBottom: '-55px' }}>Our window cleaning services at The Right Pack Out are designed to enhance the appearance and clarity of your windows, ensuring a pristine and inviting atmosphere for your home or business. Whether you're seeking routine maintenance or preparing for a special event, our skilled team delivers meticulous cleaning using state-of-the-art equipment while using eco-friendly products. Utilizing professional equipment and purified, filtered water, we can effectively clean windows up to three stories high. For interior windows, our careful hand-washing method ensures thorough and delicate cleaning. We tackle both interior and exterior windows, removing dirt, grime, and streaks to provide crystal-clear views and maximize natural light penetration. With a commitment to quality and customer satisfaction, The Right Pack Out promises streak-free results and a sparkling finish every time. Discover the difference our professional window cleaning services can make for your property today.
+          </p>
         </div>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+      <div className="d-flex justify-content-center" style={{ padding: '40px 10px 1px 10px' }}>
+        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
+      </div>
+      <Row xs={1} sm={2} md={4} className="g-4 m-3">
         {cardsData.map((card, idx) => (
           <Col key={idx} style={{ marginBottom: '50px' }}>
             <Card className="h-100">
-              <Card.Img variant="top" src={card.image} />
+              <Card.Img variant="top" src={card.image} style={{ height: '200px', objectFit: 'cover' }} />
               <Card.Body>
                 <Card.Title>{card.title}</Card.Title>
-                <Card.Text>
+                <Card.Text style={{ fontSize: '0.8rem' }}>
                   {card.description}
                 </Card.Text>
               </Card.Body>
@@ -107,10 +126,6 @@ function WindowCards() {
           </Col>
         ))}
       </Row>
-
-      <div className="d-flex justify-content-center" style={{ padding: '1px 10px 50px 10px' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-      </div>
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

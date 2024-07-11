@@ -7,10 +7,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Chair1 from '../images/chairCleanB1.jpeg';
 import Chair2 from '../images/ChairCleanA1.jpeg';
-import Shoes1 from '../images/MB&Ashoe.jpeg';
-import Fire4 from '../images/FjacketB3.jpeg';
-import Fire2 from '../images/FjacketA1.jpeg';
-import Fire3 from '../images/FjacketA2.jpeg';
+import Couch1 from '../images/vomitCouchB5.jpg';
+import Couch2 from '../images/vomitCouchA1.jpg';
 
 function RestorationCards() {
   const [showModal, setShowModal] = useState(false);
@@ -67,51 +65,44 @@ function RestorationCards() {
 
   const cardsData = [
     {
-      title: 'Restoration Before ',
+      title: 'Restoration Before',
       image: Chair1,
-      description: 'Description of restoration .'
+      description: 'Description of restoration before.'
     },
     {
       title: 'Restoration After',
       image: Chair2,
-      description: 'Description of mold restoration .'
+      description: 'Description of mold restoration after.'
     },
     {
-      title: 'Mold Restoration Before and After',
-      image: Shoes1,
-      description: 'Description of fire restoration .'
+      title: 'Couch Cleaning Before',
+      image: Couch1,
+      description: 'Couch with vomit before cleaning.'
     },
     {
-      title: 'Fire Restoration Before ',
-      image: Fire4,
-      description: 'Description of fire restoration .'
+      title: 'Couch Cleaning After',
+      image: Couch2,
+      description: 'Couch with vomit cleaned.'
     },
-    {
-      title: 'Fire Restoration After',
-      image: Fire2,
-      description: 'Description of fire restoration .'
-    },
-    {
-      title: 'Fire Restoration After',
-      image: Fire3,
-      description: 'Description of fire restoration .'
-    }
   ];
 
   return (
-    <div className="" style={{ marginBottom: '100px'}}>
+    <div className="" style={{ marginBottom: '100px' }}>
       <div className="d-flex justify-content-center mt-3">
-        <div style={{ textAlign: 'center', margin: '30px' }}>
+        <div style={{ textAlign: 'justify', margin: '30px' }}>
           <h1 style={{ textAlign: 'center' }}>Furniture Cleaning & Restoration</h1>
-          <p style={{ marginBottom: '-55px' }}>At The Right Packout, we specialize in comprehensive restoration services aimed at rejuvenating spaces impacted by disasters such as fire and mold. Our dedicated team excels in restoring properties to their former glory by addressing the aftermath of fires, including meticulous smoke residue cleaning, structural repairs, and effective odor elimination. Similarly, we expertly handle mold issues with detailed inspections, safe mold removal, and proactive measures to prevent future growth. With a commitment to excellence and compassionate service, The Right Packout guides you through every restoration phase, ensuring your property is restored to safety, functionality, and aesthetic appeal. Trust The Right Packout for professional restoration solutions that bring peace of mind during challenging times.</p>
+          <p style={{ marginBottom: '-55px' }}>At The Right Pack Out, we specialize in comprehensive restoration services aimed at rejuvenating spaces impacted by disasters such as fire and mold. Our dedicated team excels in restoring properties to their former glory by addressing the aftermath of fires, including meticulous smoke residue cleaning, structural repairs, and effective odor elimination. Similarly, we expertly handle mold issues with detailed inspections, safe mold removal, and proactive measures to prevent future growth. With a commitment to excellence and compassionate service, The Right Pack Out guides you through every restoration phase, ensuring your property is restored to safety, functionality, and aesthetic appeal. Trust The Right Pack Out for professional restoration solutions that bring peace of mind during challenging times.</p>
         </div>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+      <div className="d-flex justify-content-center" style={{ padding: '50px 10px 1px 10px' }}>
+        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
+      </div>
+      <Row xs={1} sm={2} md={4} className="g-4 m-3">
         {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '50px' }}>
+          <Col key={idx} style={{ marginBottom: '30px' }}>
             <Card className="h-100">
-              <Card.Img variant="top" src={card.image} />
-              <Card.Body>
+              <Card.Img variant="top" src={card.image} style={{ height: '300px', objectFit: 'cover' }} />
+              <Card.Body style={{ maxHeight: '120px', overflow: 'hidden' }}>
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>
                   {card.description}
@@ -122,9 +113,7 @@ function RestorationCards() {
         ))}
       </Row>
 
-      <div className="d-flex justify-content-center" style={{ padding: '1px 10px 50px 10px' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-      </div>
+      
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

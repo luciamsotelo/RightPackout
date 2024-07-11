@@ -22,8 +22,8 @@ function AutoCloseExample() {
   };
 
   return (
-    <div className="container" style={{ ...containerStyle, marginTop: '-15vh', marginBottom: '-15vh' }}>
-      <div className="row w-100">
+    <div className="container" style={{}}>
+      <div className="row w-100" style={{ textAlign: 'center', margin: '0 auto'}}>
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
           <Dropdown
             className="d-inline-block w-100"
@@ -36,7 +36,7 @@ function AutoCloseExample() {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item className="custom-dropdown-item" href="/pack">
-                Packout & Packback
+                Pack Out & Pack Back
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/storage">
                 Storage
@@ -121,6 +121,27 @@ function AutoCloseExample() {
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/management">
                 Site Management
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+
+        <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
+          <Dropdown
+            className="d-inline-block w-100"
+            onMouseEnter={() => handleMouseEnter('dropdown5')}
+            onMouseLeave={handleMouseLeave}
+            show={openDropdown === 'dropdown5'}
+          >
+            <Dropdown.Toggle id="dropdown-autoclose-specialty" className="w-100">
+              Specialty Cleaning
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="custom-dropdown-item" href="/construction">
+                Construction Clean Up
+              </Dropdown.Item>
+              <Dropdown.Item className="custom-dropdown-item" href="/hoarder">
+                Hoarder Clean Up
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

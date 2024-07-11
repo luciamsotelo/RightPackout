@@ -10,18 +10,58 @@ import picture5 from '../images/Picture5.png';
 function GridExample() {
   const cardsData = [
     {
-      name: 'Packout',
+      name: 'Pack Out',
       image: POAfter1,
       description:
-        'A packout is the systematic process of inventorying, packing, and moving belongings from one location to another, essential during moves or disaster recovery. It involves cataloging, wrapping, and boxing items for safe transport, crucial for home relocations, renovations, or restoration after fire or water damage. Professional packout services include detailed documentation, secure handling of fragile items, and optional temporary storage. Effective packouts minimize damage, maintain organization, and ensure smooth transitions during significant changes or restoration.',
-      emailSubject: 'Quote Request for Packout',
+        '',
+      emailSubject: 'Quote Request for Pack out',
     },
     {
-      name: 'Packback',
+      name: 'Pack Back',
       image: picture5,
       description:
-        'Packback is the careful process of systematically returning items to their original positions or designated places, ensuring everything is restored with meticulous attention. It is crucial during reassembly after moves, renovations, or restoration projects like fire or water damage. Professional packback services focus on precision placement, ensuring items are securely repositioned or reinstalled as per specific requirements. Effective packback aims to maintain organization, minimize disruption, and facilitate seamless transitions for homeowners or businesses undergoing significant changes or restoration processes.',
-      emailSubject: 'Quote Request for Packback',
+        '',
+      emailSubject: 'Quote Request for Pack back',
+    },
+    {
+      name: 'Pack Out',
+      image: POAfter1,
+      description:
+        '',
+    },
+    {
+      name: 'Pack Back',
+      image: picture5,
+      description:
+        '',
+      emailSubject: 'Quote Request for Pack back',
+    },
+    {
+      name: 'Pack Out',
+      image: POAfter1,
+      description:
+        '',
+      emailSubject: 'Quote Request for Pack out',
+    },
+    {
+      name: 'Pack Back',
+      image: picture5,
+      description:
+        '',
+      emailSubject: 'Quote Request for Pack back',
+    },
+    {
+      name: 'Pack Out',
+      image: POAfter1,
+      description:
+        '',
+    },
+    {
+      name: 'Pack Back',
+      image: picture5,
+      description:
+        '',
+      emailSubject: 'Quote Request for Pack back',
     },
   ];
 
@@ -69,28 +109,36 @@ function GridExample() {
 
   return (
     <div style={{ marginTop: '25px', marginBottom: '75px'}}>
-      <h1 style={{ textAlign: 'center' }}>Packout and Packback</h1>
-      <p style={{ textAlign: 'center' }}>Information needed about Packout and Packback from client</p>
-      <Row xs={1} md={2} className="g-4" style={{ margin: '20px' }}>
+      <h1 style={{ textAlign: 'center' }}>Pack Out & Pack Back</h1>
+      <p style={{ textAlign: 'justify', padding: '10px 35px 10px 35px' }}>Discover the essence of our <strong>Pack Out</strong> services. Our experts handle everything from precise cataloging to secure wrapping and boxing, ensuring each item reaches its destination safely. With meticulous attention to detail and optional temporary storage, our professional Pack Out services ensure minimal disruption and seamless transitions. Trust us to restore peace and order swiftly after unexpected events. </p>
+      <p style={{ textAlign: 'justify', padding: '10px 35px 10px 35px' }}>Experience the efficiency of our <strong>Pack Back</strong> services. Our dedicated team meticulously repositions or reinstalls every item with precision, ensuring they are securely placed according to your specific requirements. Whether following a move, renovation, or restoration due to fire or water damage, our professional Pack Back services focus on restoring order and functionality seamlessly. We prioritize meticulous organization, aiming to minimize disruption and facilitate a smooth return to normalcy for homeowners and businesses alike.</p>
+
+      <p style={{ textAlign: 'center', marginTop: '20px' }}>
+        <Button variant="danger" onClick={() => handleShowModal('Quote Request for Pack Out')}>
+          Request Quote for Pack Out
+        </Button>{' '}
+        <Button variant="danger" onClick={() => handleShowModal('Quote Request for Pack Back')}>
+          Request Quote for Pack Back
+        </Button>
+      </p>
+
+      <Row xs={1} md={2} lg={4} className="g-4" style={{ margin: '20px' }}>
         {cardsData.map((card, idx) => (
           <Col key={idx}>
             <Card className="h-100" style={{ display: 'flex', flexDirection: 'column', border: '3px outset black' }}>
-              <Card.Img variant="top" src={card.image} style={{ objectFit: 'cover', height: '600px' }} />
+              <Card.Img variant="top" src={card.image} style={{ objectFit: 'cover', height: '300px' }} />
               <Card.Body style={{ flex: '1' }}>
                 <Card.Title>{card.name}</Card.Title>
-                <Card.Text style={{ flex: '1', textAlign: 'justify' }}>
+                <Card.Text style={{ flex: '1', textAlign: 'justify', fontSize: '14px' }}>
                   {card.description}
                 </Card.Text>
-                <div className="d-flex justify-content-center mt-auto">
-                  <Button variant="danger" onClick={() => handleShowModal(card.emailSubject)}>
-                    Request a Quote
-                  </Button>
-                </div>
               </Card.Body>
             </Card>
           </Col>
         ))}
       </Row>
+
+      
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

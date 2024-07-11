@@ -20,19 +20,18 @@ function GridExample() {
 
   return (
     <>
-      <div style={{ margin: "30px",textAlign: "center" }}>
-        <h1 className='about' style={{ textAlign: "center"}}>Together we can meet all of your pack out needs</h1>
+      <div style={{ margin: "30px", textAlign: "justify" }}>
+        <h1 className='about' style={{ textAlign: "center" }}>Together we can meet all of your pack out needs</h1>
         <p>"Both Emilio and Sharon bring extensive training and experience in total loss contents inventory to our team. Their proficiency in this critical area ensures accurate and comprehensive documentation of total loss items, providing peace of mind during challenging times. With a proven track record of collaborating with insurance agents, Emilio and Sharon excel in creating detailed total loss reports and offering expert consultations. Their combined expertise guarantees meticulous attention to detail and exceptional support throughout the insurance process, making them invaluable assets to our clients."</p>
       </div>
       <Row xs={1} md={2} className="g-4">
         {cardsData.map((card, idx) => (
           <Col key={idx}>
-            <Card className="" style={{ padding: "15px", border: "5px solid #ffb79d", margin: "30px", height: "75%"}}>
-              {/* You can adjust the card's layout as needed */}
-              <Card.Img variant="top" src={card.image} />
-              <Card.Body style={{ height: "100%" }}>
-                <Card.Title style={{ height: "20%", overflow: "hidden" }}>{card.name}</Card.Title>
-                <Card.Text style={{ height: "80%", overflowY: "auto" }}>
+            <Card style={{ padding: "15px", border: "5px solid blue", margin: "30px", height: "100%" }}>
+              <Card.Img variant="top" src={card.image} style={{ height: "200px", objectFit: "cover" }} />
+              <Card.Body>
+                <Card.Title>{card.name}</Card.Title>
+                <Card.Text style={{ maxHeight: "150px", overflowY: "auto" }}>
                   {card.description}
                 </Card.Text>
               </Card.Body>

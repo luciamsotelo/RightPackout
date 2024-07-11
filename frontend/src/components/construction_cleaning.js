@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap';
-import storage1 from '../images/Storerug1.JPEG';
-import storage4 from '../images/storage4.jpeg';
-import storage11 from '../images/storage11.jpeg';
+import Images from '../images/imagesoon.png';
 
-function MultiImgCardExample() {
+const ConstructionCleanup = () => {
   const [showModal, setShowModal] = useState(false);
   const [quoteFormData, setQuoteFormData] = useState({
     firstName: '',
@@ -14,10 +13,7 @@ function MultiImgCardExample() {
     message: ''
   });
 
-  const [emailSubject, setEmailSubject] = useState('');
-
-  const handleShowModal = (subject) => {
-    setEmailSubject(subject);
+  const handleShowModal = () => {
     setQuoteFormData({
       firstName: '',
       lastName: '',
@@ -43,40 +39,45 @@ function MultiImgCardExample() {
       Email: ${quoteFormData.email}
       Message: ${quoteFormData.message}
     `);
+    const emailSubject = encodeURIComponent('Quote Request on Construction Cleanup');
     window.location.href = `mailto:therightpackout@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
     handleCloseModal();
   };
 
+  const cardsData = [
+    { id: 1, image: Images },
+    { id: 2, image: Images },
+    { id: 3, image: Images },
+    { id: 4, image: Images },
+    { id: 5, image: Images },
+    { id: 6, image: Images },
+    { id: 7, image: Images },
+    { id: 8, image: Images }
+  ];
+
   return (
-    <Container>
-      
-      <Card style={{ padding: '20px', marginBottom: '70px' }}>
-        <Card.Title style={{ textAlign: 'center'}}><h1>Storage</h1></Card.Title>
-        <Card.Text style={{ textAlign: 'justify' }}>
-          We understand the importance of safeguarding your valuable items, whether it's for short-term storage during a renovation or long-term preservation. Our comprehensive storage solutions are designed to meet the unique needs of businesses and individuals alike. We offer secure, climate-controlled storage facilities to ensure your possessions are protected from environmental damage, theft, and loss. We also offer on site storage utilizing pods or your own space. Our professional team meticulously catalogs and handles each item with the utmost care, providing you with peace of mind and the convenience of accessing your items whenever needed. Trust us to provide a seamless, reliable storage experience tailored to your specific requirements.
-        </Card.Text>
-        <div className="d-flex justify-content-center mt-4" style={{ marginBottom: '20px' }}>
-          <Button variant="danger" onClick={() => handleShowModal('Quote Request for Storage')}>Request a Quote</Button>
-        </div>
-        <Row className="justify-content-center">
-        <Col sm={4} className="mb-4">
-          <Card>
-            <Card.Img src={storage11} alt="Packout" className="storage" />
-          </Card>
-        </Col>
-        <Col sm={4} className="mb-4">
-          <Card>
-            <Card.Img src={storage1} alt="Packback" className="storage" />
-          </Card>
-        </Col>
-        <Col sm={4} className="mb-4">
-          <Card>
-            <Card.Img src={storage4} alt="Packback" className="storage" />
-          </Card>
+    <Container style={{ marginTop: '50px', textAlign: 'justify' }}>
+      <Row className="mb-5">
+        <Col>
+          <h2 style={{ textAlign: 'center' }}>Construction Cleanup</h2>
+          <p>
+            Construction cleanup is essential for ensuring that a newly constructed or renovated space is clean, safe, and ready for occupancy. This process involves removing dust, debris, and leftover construction materials, as well as detailed cleaning of surfaces, fixtures, and windows. A thorough post-construction cleanup not only enhances the appearance of the space but also ensures a healthy environment by eliminating potential hazards.
+          </p>
+          <div className="d-flex justify-content-center" style={{ padding: '1px 10px 5px 10px' }}>
+            <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
+          </div>
         </Col>
       </Row>
-      </Card>
+      <Row style={{ paddingBottom: '70px'}}>
+        {cardsData.map(card => (
+          <Col key={card.id} xs={12} sm={6} md={3} className="mb-3">
+            <Card>
+              <Card.Img src={card.image} alt="construction" className="construction" />
+            </Card>
+          </Col>
+        ))}
+      </Row>
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
@@ -139,6 +140,6 @@ function MultiImgCardExample() {
       </Modal>
     </Container>
   );
-}
+};
 
-export default MultiImgCardExample;
+export default ConstructionCleanup;

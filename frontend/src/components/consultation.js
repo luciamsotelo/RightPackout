@@ -17,7 +17,7 @@ function PictureGallery() {
   ];
 
   return (
-    <Container style={{ marginTop: '30px' }}>
+    <Container style={{ marginTop: '30px', marginBottom: '80px' }}>
       <Row>
         {pictures.map((picture, index) => (
           <Col key={index} xs={12} md={4}>
@@ -104,14 +104,14 @@ function Guidance() {
             Contents Consultation
           </Accordion.Header>
           <Accordion.Body>
-            Consultation reporting is an essential service offered by The Right Packout,
+            Consultation reporting is an essential service offered by The Right Pack Out,
             providing detailed insights and recommendations tailored to your specific needs.
             Our consultation reports are comprehensive documents that outline findings, analysis,
             and expert advice based on thorough assessments of your property or project.
             Whether you're planning a renovation, dealing with damage restoration, or seeking
             professional advice on preservation, our reports offer clarity and actionable steps forward.
             They encompass detailed observations, cost estimates, and strategic suggestions to help you
-            make informed decisions aligned with your goals. At The Right Packout, our commitment to
+            make informed decisions aligned with your goals. At The Right Pack Out, our commitment to
             excellence ensures that our consultation reporting not only identifies challenges but also
             proposes effective solutions, empowering you to navigate your project with confidence and clarity.
             <div style={{ marginTop: '30px' }}>
@@ -127,13 +127,13 @@ function Guidance() {
             Insurance Reporting
           </Accordion.Header>
           <Accordion.Body>
-            Insurance reporting is a crucial aspect of The Right Packout's services, aimed at facilitating
+            Insurance reporting is a crucial aspect of The Right Pack Out's services, aimed at facilitating
             smooth and efficient claims processes for our clients. Our dedicated team specializes in preparing
             thorough and detailed insurance reports that document the scope of damage, loss, or restoration
             needs accurately. These reports are meticulously crafted to meet the stringent requirements of
             insurance companies, ensuring transparency and compliance throughout the claims process. We provide
             comprehensive documentation, including itemized lists, photographs, and assessments, to support your
-            insurance claim effectively. At The Right Packout, we understand the importance of timely and accurate
+            insurance claim effectively. At The Right Pack Out, we understand the importance of timely and accurate
             reporting in securing the coverage you deserve, offering peace of mind during challenging times. Our
             commitment is to advocate for you, providing the necessary documentation and expertise to streamline
             your insurance claims and expedite your recovery.
@@ -150,13 +150,12 @@ function Guidance() {
             Total Loss Inventory
           </Accordion.Header>
           <Accordion.Body>
-            Total loss inventory reporting is a specialized service offered by The Right Packout, designed to assist
+            Total loss inventory reporting is a specialized service offered by The Right Pack Out, designed to assist
             clients in documenting and managing items deemed irreparable or lost due to unforeseen events such as
             fires, floods, or natural disasters. Our experienced team meticulously catalogues and assesses each item,
-            compiling comprehensive reports that outline the scope of the loss. These reports include detailed descriptions,
-            valuations, and supporting documentation necessary for insurance claims and personal records. We understand the
+            compiling comprehensive reports that outline the scope of the loss. These reports include detailed descriptions and supporting documentation necessary for insurance claims and personal records. We understand the
             emotional and practical challenges of dealing with total losses, and our goal is to provide clarity and support
-            throughout the inventory reporting process. With The Right Packout, you can trust that your total loss inventory
+            throughout the inventory reporting process. With The Right Pack Out, you can trust that your total loss inventory
             is handled with professionalism and care, ensuring a thorough and accurate representation of your losses to aid
             in your recovery journey.
             <div style={{ marginTop: '30px' }}>

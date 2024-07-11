@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Shoes1 from '../images/MB&Ashoe.jpeg';
 import Chamber1 from '../images/MChamb4.JPEG';
-
+import Image1 from '../images/imagesoon.png';
 
 function MoldCards() {
   const [showModal, setShowModal] = useState(false);
@@ -60,36 +60,58 @@ function MoldCards() {
 
   const cardsData = [
     {
-      title: 'Mold 1',
+      title: 'Before and After Mold Removal',
       image: Shoes1,
-      description: 'Description of Mold 1.'
+      description: 'Before and after mold removal.'
     },
     {
-      title: 'Mold 2',
+      title: 'Mold Removal Process',
       image: Chamber1,
-      description: 'Description of Mold 2.'
+      description: 'Process of mold removal.'
     },
     {
-      title: 'Mold 3',
-      image: Shoes1,
-      description: 'Description of mold 3.'
-    }
+      title: 'Mold Before',
+      image: Image1,
+      description: 'Mold before removal.'
+    },
+    {
+      title: 'Mold After Cleaning',
+      image: Image1,
+      description: 'Mold after cleaning.'
+    },
+    {
+      title: 'Mold Before',
+      image: Image1,
+      description: 'Another example of mold before removal.'
+    },
+    {
+      title: 'Mold After Cleaning',
+      image: Image1,
+      description: 'Another example of mold after cleaning.'
+    },
+    {
+      title: 'Mold Before',
+      image: Image1,
+      description: 'Another example of mold before removal.'
+    },
+    {
+      title: 'Mold After Cleaning',
+      image: Image1,
+      description: 'Another example of mold after cleaning.'
+    },
   ];
 
   return (
     <div className="" style={{ marginBottom: '100px'}}>
-      <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
-          <br></br>
-          <h1>Mold Removal</h1>
-          <p>Mold removal is a critical service aimed at ensuring the safety and health of your home or business environment. Mold growth can occur in areas with excessive moisture, often resulting from leaks, flooding, or high humidity levels. Our professional mold removal process begins with a thorough inspection to identify the source and extent of the mold infestation. Using advanced equipment and proven techniques, we meticulously remove mold and clean affected areas to prevent further contamination. Our team also addresses the underlying moisture issues to inhibit future growth. Trust our experienced professionals to restore your space to a clean, healthy state, free from the harmful effects of mold.</p>
-        </div>
+      <div style={{ textAlign: 'justify', margin: '30px' }}>
+          <h1 style={{ textAlign: 'center', padding: '8px' }}>Mold Removal</h1>
+          <p style={{ textAlign: 'justify', padding: '1px 20px 1px 20px' }}>Mold removal is a critical service aimed at ensuring the safety and health of your home or business environment. Mold growth can occur in areas with excessive moisture, often resulting from leaks, flooding, or high humidity levels. Our professional mold removal process begins with a thorough inspection to identify the source and extent of the mold infestation. Using advanced equipment and proven techniques, we meticulously remove mold and clean affected areas to prevent further contamination. Our team also addresses the underlying moisture issues to inhibit future growth. Trust our experienced professionals to restore your space to a clean, healthy state, free from the harmful effects of mold.</p>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+      <Row xs={1} md={2} lg={4} className="g-4 m-3">
         {cardsData.map((card, idx) => (
           <Col key={idx} style={{ marginBottom: '50px' }}>
             <Card className="h-100">
-              <Card.Img variant="top" src={card.image} className="card-img-top" />
+              <Card.Img variant="top" src={card.image} className="card-img-top" style={{ maxHeight: '300px', objectFit: 'cover' }} />
               <Card.Body className="card-body">
                 <Card.Title>{card.title}</Card.Title>
                 <Card.Text>

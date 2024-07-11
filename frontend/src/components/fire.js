@@ -9,6 +9,7 @@ import Fire4 from '../images/FjacketB3.jpeg';
 import Fire1 from '../images/FjacketB1.jpeg';
 import Fire2 from '../images/FjacketA1.jpeg';
 import Fire3 from '../images/FjacketA2.jpeg';
+import Image2 from '../images/imagesoon.png';
 
 function FireCards() {
   const [showModal, setShowModal] = useState(false);
@@ -47,7 +48,6 @@ function FireCards() {
       Message: ${quoteFormData.message}
     `);
 
-    // Customize subject based on form data or other conditions
     let subject = 'Quote Request on Fire Restoration';
     if (quoteFormData.firstName && quoteFormData.lastName) {
       const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
@@ -56,34 +56,52 @@ function FireCards() {
       }
     }
 
-    // Prepare mailto link with updated subject
     window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-
-    // Close modal after sending request
     handleCloseModal();
   };
 
   const cardsData = [
     {
-      title: 'Fire Restoration 1',
+      title: 'Before Fire Restoration',
       image: Fire4,
       description: 'Description of fire restoration 1.'
     },
     {
-      title: 'Fire Restoration 2',
+      title: 'Before Fire Restoration',
       image: Fire1,
       description: 'Description of fire restoration 2.'
     },
     {
-      title: 'Fire Restoration 3',
+      title: 'After Fire Restoration',
       image: Fire2,
       description: 'Description of fire restoration 3.'
     },
     {
-      title: 'Fire Restoration 4',
+      title: 'After Fire Restoration',
       image: Fire3,
       description: 'Description of fire restoration 4.'
+    },
+    {
+      title: 'Fire Restoration',
+      image: Image2,
+      description: 'Description of fire restoration 1.'
+    },
+    {
+      title: 'Fire Restoration',
+      image: Image2,
+      description: 'Description of fire restoration 2.'
+    },
+    {
+      title: 'Fire Restoration',
+      image: Image2,
+      description: 'Description of fire restoration 3.'
+    },
+    {
+      title: 'Fire Restoration',
+      image: Image2,
+      description: 'Description of fire restoration 4.'
     }
+    
   ];
 
   return (
@@ -94,14 +112,17 @@ function FireCards() {
           <p style={{ marginBottom: '-55px' }}>Fire restoration is a crucial service dedicated to repairing and restoring properties impacted by fire damage. Whether it's a residential home or commercial establishment, our comprehensive fire restoration process begins with a detailed assessment to evaluate the extent of structural damage, smoke residue, and water damage from firefighting efforts. Our skilled technicians employ state-of-the-art equipment and techniques to remove soot, ash, and smoke odors, while salvaging and restoring belongings whenever possible. We prioritize safety, efficiency, and compassion in every restoration project, aiming to swiftly return your property to its pre-fire condition. Trust us to guide you through the restoration process, offering peace of mind during this challenging time</p>
         </div>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3">
+      <div className="d-flex justify-content-center" style={{ padding: '60px 10px 5px 10px' }}>
+        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
+      </div>
+      <Row xs={1} sm={2} md={2} lg={4} className="g-4 m-3">
         {cardsData.map((card, idx) => (
           <Col key={idx} style={{ marginBottom: '50px' }}>
             <Card className="h-100">
-              <Card.Img variant="top" src={card.image} />
+              <Card.Img variant="top" src={card.image} style={{ height: '300px', objectFit: 'cover' }} className="img-fluid" />
               <Card.Body>
                 <Card.Title>{card.title}</Card.Title>
-                <Card.Text>
+                <Card.Text style={{ fontSize: '0.9rem' }}>
                   {card.description}
                 </Card.Text>
               </Card.Body>
@@ -110,9 +131,7 @@ function FireCards() {
         ))}
       </Row>
 
-      <div className="d-flex justify-content-center" style={{ padding: '1px 10px 50px 10px' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-      </div>
+      
 
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
