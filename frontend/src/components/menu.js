@@ -18,12 +18,12 @@ function AutoCloseExample() {
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '50vh', // Adjusted from '09vh' to '9vh'
+    height: '30vh', // Adjusted from '09vh' to '9vh'
   };
 
   return (
-    <div className="container" style={{}}>
-      <div className="row w-100" style={{ textAlign: 'center', margin: '0 auto'}}>
+    <div className="container" style={{ ...containerStyle}}>
+      <div className="row w-100" style={{ textAlign: 'center'}}>
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
           <Dropdown
             className="d-inline-block w-100"
