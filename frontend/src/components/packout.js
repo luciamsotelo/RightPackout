@@ -113,14 +113,14 @@ function GridExample() {
       <p style={{ textAlign: 'justify', padding: '10px 35px 10px 35px' }}>Discover the essence of our <strong>Pack Out</strong> services. Our experts handle everything from precise cataloging to secure wrapping and boxing, ensuring each item reaches its destination safely. With meticulous attention to detail and optional temporary storage, our professional Pack Out services ensure minimal disruption and seamless transitions. Trust us to restore peace and order swiftly after unexpected events. </p>
       <p style={{ textAlign: 'justify', padding: '10px 35px 10px 35px' }}>Experience the efficiency of our <strong>Pack Back</strong> services. Our dedicated team meticulously repositions or reinstalls every item with precision, ensuring they are securely placed according to your specific requirements. Whether following a move, renovation, or restoration due to fire or water damage, our professional Pack Back services focus on restoring order and functionality seamlessly. We prioritize meticulous organization, aiming to minimize disruption and facilitate a smooth return to normalcy for homeowners and businesses alike.</p>
 
-      <p style={{ textAlign: 'center', marginTop: '20px' }}>
-        <Button variant="danger" onClick={() => handleShowModal('Quote Request for Pack Out')}>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <Button variant="danger" onClick={() => handleShowModal('Quote Request for Pack Out')} style ={{ marginTop: '10px' }}>
           Request Quote for Pack Out
         </Button>{' '}
-        <Button variant="danger" onClick={() => handleShowModal('Quote Request for Pack Back')}>
+        <Button variant="danger" onClick={() => handleShowModal('Quote Request for Pack Back')} style ={{ marginTop: '10px' }}>
           Request Quote for Pack Back
         </Button>
-      </p>
+      </div>
 
       <Row xs={1} md={2} lg={4} className="g-4" style={{ margin: '20px' }}>
         {cardsData.map((card, idx) => (
