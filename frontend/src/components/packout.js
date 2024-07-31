@@ -23,46 +23,20 @@ function GridExample() {
         '',
       emailSubject: 'Quote Request for Pack back',
     },
-    {
-      name: 'Pack Out',
-      image: POAfter1,
-      description:
-        '',
-    },
-    {
-      name: 'Pack Back',
-      image: picture5,
-      description:
-        '',
-      emailSubject: 'Quote Request for Pack back',
-    },
-    {
-      name: 'Pack Out',
-      image: POAfter1,
-      description:
-        '',
-      emailSubject: 'Quote Request for Pack out',
-    },
-    {
-      name: 'Pack Back',
-      image: picture5,
-      description:
-        '',
-      emailSubject: 'Quote Request for Pack back',
-    },
-    {
-      name: 'Pack Out',
-      image: POAfter1,
-      description:
-        '',
-    },
-    {
-      name: 'Pack Back',
-      image: picture5,
-      description:
-        '',
-      emailSubject: 'Quote Request for Pack back',
-    },
+    // {
+    //   name: 'Pack Out',
+    //   image: POAfter1,
+    //   description:
+    //     '',
+    // },
+    // {
+    //   name: 'Pack Back',
+    //   image: picture5,
+    //   description:
+    //     '',
+    //   emailSubject: 'Quote Request for Pack back',
+    // },
+    
   ];
 
   const [showModal, setShowModal] = useState(false);
@@ -108,7 +82,7 @@ function GridExample() {
   };
 
   return (
-    <div style={{ marginTop: '25px', marginBottom: '75px'}}>
+    <div style={{ marginTop: '1px', marginBottom: '75px'}}>
       <h1 style={{ textAlign: 'center' }}>Pack Out & Pack Back</h1>
       <p style={{ textAlign: 'justify', padding: '10px 35px 10px 35px' }}>Discover the essence of our <strong>Pack Out</strong> services. Our experts handle everything from precise cataloging to secure wrapping and boxing, ensuring each item reaches its destination safely. With meticulous attention to detail and optional temporary storage, our professional Pack Out services ensure minimal disruption and seamless transitions. Trust us to restore peace and order swiftly after unexpected events. </p>
       <p style={{ textAlign: 'justify', padding: '10px 35px 10px 35px' }}>Experience the efficiency of our <strong>Pack Back</strong> services. Our dedicated team meticulously repositions or reinstalls every item with precision, ensuring they are securely placed according to your specific requirements. Whether following a move, renovation, or restoration due to fire or water damage, our professional Pack Back services focus on restoring order and functionality seamlessly. We prioritize meticulous organization, aiming to minimize disruption and facilitate a smooth return to normalcy for homeowners and businesses alike.</p>

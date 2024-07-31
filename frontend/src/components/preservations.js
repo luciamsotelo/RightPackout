@@ -60,41 +60,22 @@ function PreservationCards() {
       image: Imaging,
       description: 'Description of preservation 1.'
     },
-    {
-      title: 'Preservation 2',
-      image: Imaging,
-      description: 'Description of preservation 2.'
-    },
-    {
-      title: 'Preservation 3',
-      image: Imaging,
-      description: 'Description of preservation 3.'
-    },
-    {
-      title: 'Preservation 4',
-      image: Imaging,
-      description: 'Description of preservation 4.'
-    },
-    {
-      title: 'Preservation 5',
-      image: Imaging,
-      description: 'Description of preservation 5.'
-    },
-    {
-      title: 'Preservation 6',
-      image: Imaging,
-      description: 'Description of preservation 6.'
-    },
-    {
-      title: 'Preservation 7',
-      image: Imaging,
-      description: 'Description of preservation 7.'
-    },
-    {
-      title: 'Preservation 8',
-      image: Imaging,
-      description: 'Description of preservation 8.'
-    }
+    // {
+    //   title: 'Preservation 2',
+    //   image: Imaging,
+    //   description: 'Description of preservation 2.'
+    // },
+    // {
+    //   title: 'Preservation 3',
+    //   image: Imaging,
+    //   description: 'Description of preservation 3.'
+    // },
+    // {
+    //   title: 'Preservation 4',
+    //   image: Imaging,
+    //   description: 'Description of preservation 4.'
+    // },
+   
   ];
 
   return (
