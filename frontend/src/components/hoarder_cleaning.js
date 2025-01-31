@@ -60,9 +60,9 @@ const HoarderServices = () => {
     <Container style={{ marginTop: '50px', textAlign: 'justify' }}>
       <Row className="mb-5">
         <Col>
-          <h2 style={{ textAlign: 'center' }}>Hoarder Cleanup</h2>
+          <h2 style={{ textAlign: 'center' }}>Hoarder HouseCleanup</h2>
           <p>
-            Hoarder cleanup is a specialized service designed to address the challenging and sensitive task of cleaning up homes affected by hoarding. This process involves removing excessive clutter, sorting and organizing belongings, and thoroughly cleaning and sanitizing the space. Professional hoarder cleanup services are equipped to handle bio-hazards, structural damage, and the emotional challenges associated with hoarding situations, ensuring a safe and livable environment for the occupants.
+            Hoarder house cleanup is a specialized service designed to address the challenging and sensitive task of cleaning up homes affected by hoarding. This process involves removing excessive clutter, sorting and organizing belongings, and thoroughly cleaning and sanitizing the space. Professional hoarder cleanup services are equipped to handle bio-hazards, structural damage, and the emotional challenges associated with hoarding situations, ensuring a safe and livable environment for the occupants.
           </p>
           <div className="d-flex justify-content-center" style={{ padding: '1px 10px 5px 10px' }}>
             <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>

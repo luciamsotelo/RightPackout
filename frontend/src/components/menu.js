@@ -141,7 +141,7 @@ function AutoCloseExample() {
                 Construction Clean Up
               </Dropdown.Item>
               <Dropdown.Item className="custom-dropdown-item" href="/hoarder">
-                Hoarder Clean Up
+                Hoarder House Cleaning
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
