@@ -87,6 +87,15 @@ function DraperyCards() {
         <div style={{ maxWidth: '900px', textAlign: 'center' }}>
           <h1>Drapery Services</h1>
           <p>We offer various drapery services to ensure the safety and longevity of your drapery items.</p>
+
+          <ul style ={{ paddingBottom: '-100px', color: 'blue', marginLeft: '10px'}}>
+            <li>take down drapery</li> 
+            <li>clean drapery</li>
+            <li>repair if needed</li>
+            <li>ability to make drapes</li>
+            <li>rehang drapery</li>
+          </ul>
+
         </div>
       </div>
       <Row xs={1} md={2} lg={3} className="g-4 m-3" >

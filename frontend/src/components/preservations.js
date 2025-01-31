@@ -86,14 +86,6 @@ function PreservationCards() {
           <h1 style={{ textAlign: 'center'}}>Preservation Services</h1>
           <p style={{ textAlign: 'justify', margin: '10px'}}>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. 
           </p>
-          <ul style ={{ paddingBottom: '-100px', color: 'blue', marginLeft: '10px'}}>
-            <li>take down drapery</li> 
-            <li>clean drapery</li>
-            <li>repair if needed</li>
-            <li>ability to make drapes</li>
-            <li>rehang drapery</li>
-          </ul>
-          
           <div className="" style={{ margin: '5px', textAlign: 'center' }}>
             <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
           </div>
