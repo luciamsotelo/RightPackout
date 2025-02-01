@@ -52,3 +52,37 @@
   width: 100%;
 }
 
+.emergency-banner {
+  background: linear-gradient(to right, red, white, blue);
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 15px;
+}
+
+.emergency-text {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.subtext {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 5px;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.call-now {
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.call-now:hover {
+  text-decoration: underline;
+}

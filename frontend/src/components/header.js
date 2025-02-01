@@ -80,10 +80,8 @@ function Header() {
                 />{' '}
               </Navbar.Brand>
             </Col>
-            
           </Row>
-
-          <Row className="mt-3 mt-md-0">
+          <Row className="align-items-center">
             <Col xs="auto">
               <Nav className="flex-column flex-md-row">
                 <Button variant="outline-danger" href="tel:+6197867089" style={{margin: "10px"}}>619-786-7089</Button>
@@ -92,7 +90,6 @@ function Header() {
               </Nav>
             </Col>
           </Row>
-
           {/* Email Modal */}
           <Modal show={showEmailModal} onHide={handleCloseEmailModal}>
             <Modal.Header closeButton style={{backgroundColor: "lightblue", color: "black"}}> 
