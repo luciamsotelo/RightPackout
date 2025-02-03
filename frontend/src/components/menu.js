@@ -13,13 +13,6 @@ function AutoCloseExample() {
     setOpenDropdown(null);
   };
 
-  const containerStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '30vh', // Adjusted from '09vh' to '9vh'
-  };
 
   return (
     <>
@@ -32,7 +25,7 @@ function AutoCloseExample() {
         <p className="subtext">Disasters Don’t Wait – Neither Do We! Contact Us Anytime, Day or Night.</p>
       </div>
 
-      <div className="container" style={containerStyle}>
+      <div className="container mt-3 mb-3 d-flex justify-content-center">
         <div className="row w-100" style={{ textAlign: 'center' }}>
           <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
             <Dropdown
