@@ -16,15 +16,7 @@ function AutoCloseExample() {
 
   return (
     <>
-      {/* Emergency Banner */}
-      <div className="emergency-banner">
-        <p className="emergency-text">
-          🚨 <strong>Emergency Packout & Restoration Services</strong> – Available 24/7! <br />
-          📞 <a href="tel:+6197867089" className="call-now">Call Now for Immediate Assistance</a>
-        </p>
-        <p className="subtext">Disasters Don’t Wait – Neither Do We! Contact Us Anytime, Day or Night.</p>
-      </div>
-
+    
       <div className="container mt-3 mb-3 d-flex justify-content-center">
         <div className="row w-100" style={{ textAlign: 'center' }}>
           <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">

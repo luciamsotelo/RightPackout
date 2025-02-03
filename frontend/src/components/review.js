@@ -1,135 +1,90 @@
-import React, { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import React, { useEffect, useState } from "react";
+import Papa from "papaparse";
 
-const Review = () => {
-  const initialReviewsData = JSON.parse(localStorage.getItem('reviews')) || [
-    {
-      id: 1,
-      name: 'John Doe',
-      rating: 5,
-      comment: 'Great service and excellent support! Highly recommended.',
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      rating: 4,
-      comment: 'Nice products and fast delivery. Will buy again!',
-    },
-    {
-      id: 3,
-      name: 'David Brown',
-      rating: 5,
-      comment: 'Awesome experience. The team really cares about customer satisfaction.',
-    },
-  ];
-
-  const [showModal, setShowModal] = useState(false);
-  const [reviewsData, setReviewsData] = useState(initialReviewsData);
-  const [formData, setFormData] = useState({
-    name: '',
-    rating: 5,
-    comment: '',
-  });
+const FeedbackDisplay = () => {
+  const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem('reviews', JSON.stringify(reviewsData));
-  }, [reviewsData]);
+    const fetchFeedback = async () => {
+      try {
+        const response = await fetch(
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEMVSF5E2NrHnkSKGXxKGPHGDo7zGYLNIkYFcrtUQu6ASMo0-IAIgtVMFJA3bwDK-fFpOiwffFGRuK/pub?output=csv"
+        );
 
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+        const text = await response.text();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+        // Use PapaParse to parse the CSV data
+        Papa.parse(text, {
+          header: true, // Use the first row as headers
+          skipEmptyLines: true, // Skip empty lines
+          complete: (result) => {
+            const feedbackData = result.data.map((row) => {
+              return {
+                name: row["Your Name"]?.replace(/"/g, "").trim() || "Anonymous", // Adjusted column name
+                email: row["Your Email Address"]?.replace(/"/g, "").trim(),
+                rating: row["How Would You Rate Your Experience?"]?.replace(/"/g, "").trim(),
+                message: row["Share Your Experience"]?.replace(/"/g, "").trim() || "", // Adjusted column name
+              };
+            });
 
-  const handleAddReview = () => {
-    const newReview = {
-      id: reviewsData.length + 1,
-      name: formData.name,
-      rating: parseInt(formData.rating),
-      comment: formData.comment,
+            setFeedback(feedbackData);
+          },
+        });
+      } catch (error) {
+        console.error("Error fetching feedback:", error);
+      }
     };
-    setReviewsData([...reviewsData, newReview]); // Update state with new review
-    setFormData({ name: '', rating: 5, comment: '' });
-    handleCloseModal();
-  };
 
-  // Function to calculate average rating
-  const calculateAverageRating = () => {
-    if (reviewsData.length === 0) return 0;
+    fetchFeedback();
+  }, []);
 
-    const totalRating = reviewsData.reduce((acc, review) => acc + review.rating, 0);
-    return (totalRating / reviewsData.length).toFixed(1); // Return average rounded to one decimal place
+  const formatMessage = (message) => {
+    return message ? message.replace(/\n/g, "<br />") : ""; // Only replace newlines if message exists
   };
 
   return (
-    <div className="review-container" style={{ margin: '30px 30px 80px 30px' }}>
-      <h2 className="text-center mb-4">Customer Reviews</h2>
-
-      <div className="average-rating text-center mb-4">
-        <p style={{ fontSize: '24px', fontWeight: 'bold', color: 'blue'}}>Average Rating: {calculateAverageRating()}</p>
-      </div>
-
-      <div className="reviews-grid">
-        {reviewsData.map((review) => (
-          <Card key={review.id} className="review-card">
-            <Card.Body>
-              <div className="rating-stars">
-                {[...Array(review.rating)].map((star, index) => (
-                  <FontAwesomeIcon icon={faStar} key={index} className="star-icon" />
-                ))}
-              </div>
-              <Card.Title>{review.name}</Card.Title>
-              <Card.Text>{review.comment}</Card.Text>
-            </Card.Body>
-          </Card>
-        ))}
-      </div>
-
-      <div className="text-center mt-4">
-        <Button variant="primary" onClick={handleShowModal}>
-          Leave a Review
-        </Button>
-      </div>
-
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Leave a Review</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form>
-            <div className="mb-3">
-              <label htmlFor="name" className="form-label">Your Name:</label>
-              <input type="text" className="form-control" id="name" name="name" value={formData.name} onChange={handleInputChange} />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="rating" className="form-label">Rating:</label>
-              <select className="form-select" id="rating" name="rating" value={formData.rating} onChange={handleInputChange}>
-                <option value="5">5 - Excellent</option>
-                <option value="4">4 - Very Good</option>
-                <option value="3">3 - Good</option>
-                <option value="2">2 - Fair</option>
-                <option value="1">1 - Poor</option>
-              </select>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="comment" className="form-label">Comment:</label>
-              <textarea className="form-control" id="comment" name="comment" rows="3" value={formData.comment} onChange={handleInputChange}></textarea>
-            </div>
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-          <Button variant="primary" onClick={handleAddReview}>Submit Review</Button>
-        </Modal.Footer>
-      </Modal>
+    <div style={styles.container}>
+      <h2>Customer Reviews</h2>
+      {feedback.length === 0 ? (
+        <p>No feedback available yet.</p>
+      ) : (
+        <ul style={styles.list}>
+          {feedback.map((item, index) => (
+            <li key={index} style={styles.feedbackItem}>
+              <strong>{item.name}</strong> ⭐ {item.rating}/5
+              <p>
+                <em
+                  dangerouslySetInnerHTML={{
+                    __html: formatMessage(item.message),
+                  }}
+                />
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
 
-export default Review;
+const styles = {
+  container: {
+    padding: "1rem",
+    textAlign: "center",
+  },
+  feedbackItem: {
+    border: "2px solid red",
+    listStyle: "none",
+    marginBottom: "10px",
+    textAlign: "justify",
+    maxWidth: "100%",
+    margin: "0 auto",
+    background: "#f0f0f0",
+    borderRadius: "10px",
+    padding: "10px",
+    whiteSpace: "pre-wrap", // Ensures the text wraps correctly
+    wordWrap: "break-word", // Prevents long words from overflowing
+  },
+};
+
+export default FeedbackDisplay;

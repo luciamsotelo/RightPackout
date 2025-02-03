@@ -16,6 +16,7 @@ import About from './pages/about_page';
 import Review from './pages/review_page';
 import Construction from './pages/construction_page';
 import Hoarder from './pages/hoarder_page';
+import Feedback from './pages/feedback_page';
 
 
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/review" element={<Review />} />
         <Route path="/construction" element={<Construction />} />
         <Route path="/hoarder" element={<Hoarder />} />
+        <Route path="/feedback" element={<Feedback />} />
       </Routes>
     </BrowserRouter>
   );
