@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import Papa from "papaparse";
 
 const FeedbackDisplay = () => {
@@ -15,17 +16,15 @@ const FeedbackDisplay = () => {
 
         // Use PapaParse to parse the CSV data
         Papa.parse(text, {
-          header: true, // Use the first row as headers
-          skipEmptyLines: true, // Skip empty lines
+          header: true,
+          skipEmptyLines: true,
           complete: (result) => {
-            const feedbackData = result.data.map((row) => {
-              return {
-                name: row["Your Name"]?.replace(/"/g, "").trim() || "Anonymous", // Adjusted column name
-                email: row["Your Email Address"]?.replace(/"/g, "").trim(),
-                rating: row["How Would You Rate Your Experience?"]?.replace(/"/g, "").trim(),
-                message: row["Share Your Experience"]?.replace(/"/g, "").trim() || "", // Adjusted column name
-              };
-            });
+            const feedbackData = result.data.map((row) => ({
+              name: row["Your Name"]?.replace(/"/g, "").trim() || "Anonymous",
+              email: row["Your Email Address"]?.replace(/"/g, "").trim(),
+              rating: row["How Would You Rate Your Experience?"]?.replace(/"/g, "").trim(),
+              message: row["Share Your Experience"]?.replace(/"/g, "").trim() || "",
+            }));
 
             setFeedback(feedbackData);
           },
@@ -38,53 +37,45 @@ const FeedbackDisplay = () => {
     fetchFeedback();
   }, []);
 
-  const formatMessage = (message) => {
-    return message ? message.replace(/\n/g, "<br />") : ""; // Only replace newlines if message exists
-  };
-
   return (
-    <div style={styles.container}>
-      <h2>Customer Reviews</h2>
+    <Container
+      className="py-4"
+      style={{
+        background: "linear-gradient(to bottom, #003366, #ffffff, #cc0000)",
+        minHeight: "100vh",
+        borderRadius: "10px",
+      }}
+    >
+      <h2 className="text-center mb-4 text-white">Customer Reviews</h2>
       {feedback.length === 0 ? (
-        <p>No feedback available yet.</p>
+        <p className="text-center text-white">No feedback available yet.</p>
       ) : (
-        <ul style={styles.list}>
-          {feedback.map((item, index) => (
-            <li key={index} style={styles.feedbackItem}>
-              <strong>{item.name}</strong> ⭐ {item.rating}/5
-              <p>
-                <em
-                  dangerouslySetInnerHTML={{
-                    __html: formatMessage(item.message),
+        <Row className="justify-content-center">
+          <Col md={10} lg={8}>
+            <ul className="list-unstyled">
+              {feedback.map((item, index) => (
+                <li
+                  key={index}
+                  className="p-3 mb-4 border border-primary rounded shadow"
+                  style={{
+                    backgroundColor: "rgba(255, 255, 255, 0.9)",
+                    transition: "transform 0.2s ease-in-out",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                   }}
-                />
-              </p>
-            </li>
-          ))}
-        </ul>
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                >
+                  <h5 className="text-center text-primary">{item.name}</h5>
+                  <p className="text-center text-warning">⭐ {item.rating}/5</p>
+                  <p className="text-justify text-dark">{item.message}</p>
+                </li>
+              ))}
+            </ul>
+          </Col>
+        </Row>
       )}
-    </div>
+    </Container>
   );
-};
-
-const styles = {
-  container: {
-    padding: "1rem",
-    textAlign: "center",
-  },
-  feedbackItem: {
-    border: "2px solid red",
-    listStyle: "none",
-    marginBottom: "10px",
-    textAlign: "justify",
-    maxWidth: "100%",
-    margin: "0 auto",
-    background: "#f0f0f0",
-    borderRadius: "10px",
-    padding: "10px",
-    whiteSpace: "pre-wrap", // Ensures the text wraps correctly
-    wordWrap: "break-word", // Prevents long words from overflowing
-  },
 };
 
 export default FeedbackDisplay;
