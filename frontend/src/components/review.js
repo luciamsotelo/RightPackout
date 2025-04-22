@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Papa from "papaparse";
 
 const FeedbackDisplay = () => {
   const [feedback, setFeedback] = useState([]);
@@ -8,34 +7,17 @@ const FeedbackDisplay = () => {
   useEffect(() => {
     const fetchFeedback = async () => {
       try {
-        const response = await fetch(
-          "https://docs.google.com/spreadsheets/d/e/2PACX-1vQEMVSF5E2NrHnkSKGXxKGPHGDo7zGYLNIkYFcrtUQu6ASMo0-IAIgtVMFJA3bwDK-fFpOiwffFGRuK/pub?output=csv"
-        );
-
-        const text = await response.text();
-
-        // Use PapaParse to parse the CSV data
-        Papa.parse(text, {
-          header: true,
-          skipEmptyLines: true,
-          complete: (result) => {
-            const feedbackData = result.data.map((row) => ({
-              name: row["Your Name"]?.replace(/"/g, "").trim() || "Anonymous",
-              email: row["Your Email Address"]?.replace(/"/g, "").trim(),
-              rating: row["How Would You Rate Your Experience?"]?.replace(/"/g, "").trim(),
-              message: row["Share Your Experience"]?.replace(/"/g, "").trim() || "",
-            }));
-
-            setFeedback(feedbackData);
-          },
-        });
+        const response = await fetch("http://localhost:5000/api/reviews");
+        const data = await response.json();
+        setFeedback(data);
       } catch (error) {
         console.error("Error fetching feedback:", error);
       }
     };
-
+  
     fetchFeedback();
   }, []);
+  
 
   return (
     <Container

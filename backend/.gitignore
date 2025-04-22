@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Sequelize CLI build files
+*.sqlite
+*.sqlite3
+
+# Optional: VSCode settings (if sharing with others, you might want to ignore this)
+.vscode/
+
+# Optional: Ignore build artifacts if any
+dist/
+build/

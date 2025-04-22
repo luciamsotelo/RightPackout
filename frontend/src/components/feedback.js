@@ -1,65 +1,82 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Form, Button, Alert } from "react-bootstrap";
 
 const FeedbackForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    rating: "",
+    message: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      const response = await fetch("http://localhost:5000/api/reviews", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", rating: "", message: "" });
+      } else {
+        const result = await response.json();
+        setError(result.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setError("Failed to connect to the server.");
+    }
+  };
+
   return (
-    <div 
-      style={{
-        minHeight: "100vh", // Ensures full-page background
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "linear-gradient(to bottom, #cc0000, #ffffff, #003366)", // Vertical Red-White-Blue gradient
-        padding: "2rem",
-      }}
-    >
-      <Container 
-        className="text-center py-4" 
-        style={{
-          backgroundColor: "#ffffff",
-          borderRadius: "12px",
-          padding: "2rem",
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-          borderTop: "5px solid #003366", // Subtle blue accent on top
-          maxWidth: "900px",
-        }}
-      >
-        <h2 
-          className="mb-4"
-          style={{
-            color: "#003366",
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            letterSpacing: "1px",
-            borderBottom: "3px solid #cc0000", // Thin red underline
-            display: "inline-block",
-            paddingBottom: "5px",
-          }}
-        >
-          Leave Your Feedback
-        </h2>
-        <Row className="justify-content-center">
-          <Col xs={12} md={8}>
-            <iframe
-              title="Feedback Form"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSf3mOyRg4Ul7Khbg36BBR9hlBvbuSnu6jAAPaW49Ue9tLE8oQ/viewform?embedded=true"
-              width="100%"
-              height="800"
-              frameBorder="0"
-              style={{
-                maxWidth: "100%",
-                borderRadius: "10px",
-                border: "3px solid rgba(204, 0, 0, 0.7)", // Soft red border
-                boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-              }}
-            >
-              Loading…
-            </iframe>
-          </Col>
-        </Row>
+    <div style={{ minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "linear-gradient(to bottom, #cc0000, #ffffff, #003366)", padding: "2rem" }}>
+      <Container style={{ backgroundColor: "#ffffff", borderRadius: "12px", padding: "2rem", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", maxWidth: "700px" }}>
+        <h2 className="mb-4 text-center text-primary">Leave Your Feedback</h2>
+        {submitted && <Alert variant="success">Thank you! Your review has been submitted.</Alert>}
+        {error && <Alert variant="danger">{error}</Alert>}
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Label>Name*</Form.Label>
+            <Form.Control type="text" name="name" value={formData.name} onChange={handleChange} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email*</Form.Label>
+            <Form.Control type="email" name="email" value={formData.email} onChange={handleChange} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Phone (Optional)</Form.Label>
+            <Form.Control type="text" name="phone" value={formData.phone} onChange={handleChange} />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Rating (1-5)*</Form.Label>
+            <Form.Control type="number" name="rating" value={formData.rating} onChange={handleChange} min="1" max="5" required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Message*</Form.Label>
+            <Form.Control as="textarea" name="message" value={formData.message} onChange={handleChange} rows={4} required />
+          </Form.Group>
+          <Button variant="primary" type="submit">Submit</Button>
+        </Form>
       </Container>
     </div>
   );
 };
 
 export default FeedbackForm;
+
