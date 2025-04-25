@@ -47,4 +47,3 @@ module.exports = {
     await queryInterface.bulkDelete('Reviews', null, {});
   }
 };
-
