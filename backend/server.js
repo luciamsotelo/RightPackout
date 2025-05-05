@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use('/api', reviewRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, async () => {
   console.log(`Server running on http://localhost:${PORT}`);
