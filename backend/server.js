@@ -6,7 +6,9 @@ const { sequelize } = require('./models');
 const reviewRoutes = require('./routes/reviewRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'www.therightpackout.com'
+}));
 app.use(express.json());
 
 app.use('/api', reviewRoutes);

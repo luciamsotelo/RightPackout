@@ -7,7 +7,7 @@ const FeedbackDisplay = () => {
   useEffect(() => {
     const fetchFeedback = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/reviews");
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/reviews`);
         const data = await response.json();
         setFeedback(data);
       } catch (error) {

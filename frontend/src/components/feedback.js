@@ -23,8 +23,9 @@ const FeedbackForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
-      const response = await fetch("http://localhost:5001/api/reviews", {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,8 +46,25 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", justifyContent: "center", alignItems: "center", background: "linear-gradient(to bottom, #cc0000, #ffffff, #003366)", padding: "2rem" }}>
-      <Container style={{ backgroundColor: "#ffffff", borderRadius: "12px", padding: "2rem", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", maxWidth: "700px" }}>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "linear-gradient(to bottom, #cc0000, #ffffff, #003366)",
+        padding: "2rem",
+      }}
+    >
+      <Container
+        style={{
+          backgroundColor: "#ffffff",
+          borderRadius: "12px",
+          padding: "2rem",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          maxWidth: "700px",
+        }}
+      >
         <h2 className="mb-4 text-center text-primary">Leave Your Feedback</h2>
         {submitted && <Alert variant="success">Thank you! Your review has been submitted.</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
@@ -79,4 +97,3 @@ const FeedbackForm = () => {
 };
 
 export default FeedbackForm;
-
