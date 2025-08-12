@@ -1,3 +1,4 @@
+// controllers/reviewController.js
 const { Review } = require('../models');
 
 exports.createReview = async (req, res) => {
@@ -5,7 +6,8 @@ exports.createReview = async (req, res) => {
     const review = await Review.create(req.body);
     res.status(201).json(review);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: 'Failed to create review' });
   }
 };
 
@@ -14,6 +16,9 @@ exports.getAllReviews = async (req, res) => {
     const reviews = await Review.findAll();
     res.json(reviews);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch reviews' });
   }
 };
+
+
