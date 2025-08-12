@@ -13,12 +13,16 @@ exports.createReview = async (req, res) => {
 
 exports.getAllReviews = async (req, res) => {
   try {
-    const reviews = await Review.findAll();
+    const limit = parseInt(req.query.limit) || 20; // default to 20
+    const offset = parseInt(req.query.offset) || 0;
+
+    const reviews = await Review.findAll({ limit, offset });
     res.json(reviews);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to fetch reviews' });
   }
 };
+
 
 
