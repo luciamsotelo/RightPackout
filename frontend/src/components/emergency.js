@@ -1,17 +1,27 @@
 import React from "react";
+import "../App.css";
 
 const Emergency = () => {
   return (
-    <div className="emergency-banner">
-      {/* Emergency Banner */}
-      <p className="emergency-text">
-        🚨 <strong>Emergency Packout & Restoration Services</strong> – Available 24/7! <br />
-        📞 <a href="tel:+6197867089" className="call-now">Call Now for Immediate Assistance</a>
-      </p>
-      <p className="subtext">
-        Disasters Don’t Wait – Neither Do We! Contact Us Anytime, Day or Night.
-      </p>
-    </div>
+    <section className="emergency-banner" aria-label="Emergency services">
+      <div className="emergency-banner-content">
+        <div className="emergency-badge" aria-hidden="true">
+          24/7
+        </div>
+
+        <div className="emergency-copy">
+          <h2>Emergency Packout & Restoration Services</h2>
+          <p>
+            Disasters do not wait—and neither do we. Call anytime for immediate
+            assistance.
+          </p>
+        </div>
+
+        <a href="tel:+16197867089" className="emergency-call-button">
+          Call 619-786-7089
+        </a>
+      </div>
+    </section>
   );
 };
 
