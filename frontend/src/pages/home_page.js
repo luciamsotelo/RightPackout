@@ -4,6 +4,7 @@ import Menu from "../components/menu";
 import Images from "../components/carousel_images";
 import Footer from "../components/footer";
 import Emergency from "../components/emergency";
+import HomeReviews from "../components/home_reviews";
 import "../App.css";
 
 const HomePage = () => {
@@ -75,6 +76,8 @@ const HomePage = () => {
             <Images />
           </div>
         </section>
+
+        <HomeReviews />
       </main>
 
       <Footer />
