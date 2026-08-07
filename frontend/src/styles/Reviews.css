@@ -1,0 +1,304 @@
+/* ==========================================
+   HOMEPAGE REVIEWS
+========================================== */
+
+.home-reviews-section {
+  padding: 3.5rem 1rem;
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 56, 108, 0.97),
+    rgba(6, 75, 145, 0.94)
+  );
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.home-reviews-heading {
+  max-width: 720px;
+  margin: 0 auto 1.6rem;
+  text-align: center;
+}
+
+.home-reviews-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.home-reviews-heading h2 {
+  margin: 0 0 0.4rem;
+  color: #ffffff;
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.home-reviews-heading p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* ==========================================
+   REVIEW GRID
+========================================== */
+
+.home-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* ==========================================
+   REVIEW CARD
+========================================== */
+
+.home-review-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 210px;
+  padding: 1.2rem;
+  overflow: hidden;
+  color: #1f2937;
+  background-color: #ffffff;
+  border-top: 4px solid #c9232d;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.home-review-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================
+   QUOTATION MARK
+========================================== */
+
+.review-quote-mark {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.8rem;
+  color: rgba(7, 56, 108, 0.08);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.2rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.home-review-stars,
+.home-review-card blockquote,
+.home-review-customer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   STARS & REVIEW TEXT
+========================================== */
+
+.home-review-stars {
+  margin-bottom: 0.65rem;
+  color: #d89a00;
+  font-size: 0.95rem;
+  letter-spacing: 0.08rem;
+}
+
+.home-review-card blockquote {
+  flex: 1;
+  margin: 0 0 0.9rem;
+  color: #445064;
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   CUSTOMER DETAILS
+========================================== */
+
+.home-review-customer {
+  display: flex;
+  align-items: center;
+  padding-top: 0.8rem;
+  border-top: 1px solid #e4e9ef;
+}
+
+.review-customer-details {
+  min-width: 0;
+}
+
+.review-customer-details strong {
+  display: block;
+  color: #07386c;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.verified-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+  color: #5f6b7a;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.verified-review::before {
+  content: "✓";
+  color: #16a34a;
+  font-size: 0.85rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ==========================================
+   REVIEW BUTTONS
+========================================== */
+
+.home-reviews-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.4rem;
+}
+
+.review-primary-button,
+.review-outline-button {
+  display: inline-block;
+  padding: 0.65rem 0.95rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.review-primary-button {
+  color: #07386c;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.review-primary-button:hover {
+  color: #ffffff;
+  background-color: #c9232d;
+  border-color: #c9232d;
+  transform: translateY(-1px);
+}
+
+.review-outline-button {
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.72);
+}
+
+.review-outline-button:hover {
+  color: #07386c;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   LOADING & EMPTY STATES
+========================================== */
+
+.reviews-loading,
+.reviews-empty {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: center;
+  color: #5f6b7a;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.reviews-empty p {
+  margin-bottom: 0.85rem;
+}
+
+.reviews-empty .review-outline-button {
+  color: #c9232d;
+  border-color: #c9232d;
+}
+
+.reviews-empty .review-outline-button:hover {
+  color: #ffffff;
+  background-color: #c9232d;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .home-review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-review-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .home-reviews-section {
+    padding: 2.75rem 1rem;
+  }
+
+  .home-reviews-heading {
+    margin-bottom: 1.25rem;
+  }
+
+  .home-review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-review-card,
+  .home-review-card:last-child {
+    min-height: auto;
+    grid-column: auto;
+  }
+
+  .home-review-customer {
+    align-items: flex-start;
+  }
+
+  .home-reviews-actions {
+    flex-direction: column;
+  }
+
+  .review-primary-button,
+  .review-outline-button {
+    width: 100%;
+    text-align: center;
+  }
+}

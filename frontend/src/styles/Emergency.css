@@ -1,0 +1,107 @@
+/* ==========================================
+   EMERGENCY BANNER
+========================================== */
+
+.emergency-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  background-color: #ffffff;
+  border-top: 4px solid #c9232d;
+  border-bottom: 1px solid #dbe3ec;
+  border-radius: 0;
+  box-shadow: 0 4px 14px rgba(15, 35, 60, 0.06);
+  text-align: left;
+}
+
+.emergency-banner-content {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emergency-badge {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  background-color: #07386c;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.emergency-copy {
+  flex: 1;
+}
+
+.emergency-copy h2 {
+  margin: 0 0 0.15rem;
+  color: #07386c;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.emergency-copy p {
+  margin: 0;
+  color: #5f6b7a;
+  font-size: 0.95rem;
+}
+
+.emergency-call-button {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  color: #ffffff;
+  background-color: #c9232d;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.emergency-call-button:hover {
+  color: #ffffff;
+  background-color: #a81721;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .emergency-banner {
+    padding: 0.75rem;
+  }
+
+  .emergency-banner-content {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .emergency-badge {
+    width: 48px;
+    height: 48px;
+    font-size: 0.8rem;
+  }
+
+  .emergency-copy h2 {
+    font-size: 1rem;
+  }
+
+  .emergency-copy p {
+    font-size: 0.9rem;
+  }
+
+  .emergency-call-button {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,15 +1,15 @@
 import Carousel from "react-bootstrap/Carousel";
 import Furniture from "../images/FurnitureAfter.jpeg";
-import "../App.css";
+import "../styles/Carousel.css";
 
 function HomeCarousel() {
   return (
-    <Carousel fade interval={5000} className="professional-carousel">
+    <Carousel fade className="professional-carousel">
       <Carousel.Item>
         <img
           className="d-block w-100 professional-carousel-image"
           src={Furniture}
-          alt="Restored furniture and contents"
+          alt="Professionally cleaned and restored furniture"
         />
 
         <Carousel.Caption className="professional-carousel-caption">

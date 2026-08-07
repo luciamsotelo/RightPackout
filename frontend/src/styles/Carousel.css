@@ -1,0 +1,185 @@
+/* ==========================================
+   HOMEPAGE CAROUSEL SECTION
+========================================== */
+
+.home-carousel-section {
+  padding: 2.5rem 1rem 3.5rem;
+  background-color: #ffffff;
+}
+
+.home-carousel-section .carousel {
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 35, 60, 0.14);
+}
+
+/* ==========================================
+   CAROUSEL
+========================================== */
+
+.professional-carousel {
+  overflow: hidden;
+  background-color: #07386c;
+  border-radius: 16px;
+}
+
+.professional-carousel-image {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  filter: brightness(0.88);
+}
+
+/* ==========================================
+   CAROUSEL CAPTION
+========================================== */
+
+.professional-carousel-caption {
+  left: 2rem;
+  right: auto;
+  bottom: 2rem;
+  width: 430px;
+  max-width: calc(100% - 4rem);
+  padding: 1rem 1.2rem;
+  text-align: left;
+  background: rgba(7, 56, 108, 0.68);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-left: 5px solid #c9232d;
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: #ffffff;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.88;
+}
+
+.professional-carousel-caption h2 {
+  margin: 0 0 0.4rem;
+  color: #ffffff;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.professional-carousel-caption p {
+  margin: 0 0 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   CAROUSEL BUTTON
+========================================== */
+
+.carousel-link-button {
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  color: #ffffff;
+  background-color: #c9232d;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.carousel-link-button:hover {
+  color: #ffffff;
+  background-color: #a81721;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   CAROUSEL CONTROLS
+========================================== */
+
+.professional-carousel .carousel-control-prev,
+.professional-carousel .carousel-control-next {
+  width: 7%;
+}
+
+.professional-carousel .carousel-indicators {
+  margin-bottom: 0.8rem;
+}
+
+.professional-carousel .carousel-indicators button {
+  width: 30px;
+  height: 4px;
+  border-radius: 5px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .professional-carousel-image {
+    height: 470px;
+  }
+
+  .professional-carousel-caption {
+    width: 390px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .home-carousel-section {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .professional-carousel-image {
+    height: 430px;
+  }
+
+  .professional-carousel-caption {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.5rem;
+    width: auto;
+    max-width: none;
+    padding: 1rem;
+  }
+
+  .professional-carousel-caption h2 {
+    font-size: 1.45rem;
+  }
+
+  .professional-carousel-caption p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .professional-carousel-image {
+    height: 390px;
+  }
+
+  .professional-carousel-caption {
+    bottom: 1rem;
+  }
+
+  .carousel-link-button {
+    width: 100%;
+    text-align: center;
+  }
+}

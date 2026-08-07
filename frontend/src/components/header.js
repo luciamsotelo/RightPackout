@@ -8,7 +8,7 @@ import {
   Form,
 } from "react-bootstrap";
 import logo from "../images/logo1.png";
-import "../App.css";
+import "../styles/Header.css";
 
 function Header() {
   const [showContactModal, setShowContactModal] = useState(false);
@@ -47,7 +47,7 @@ Email: ${quoteFormData.email}
 
 Quote Details:
 ${quoteFormData.quoteDetail}
-    `;
+`;
 
     const subject = encodeURIComponent(
       `Quote Request - ${quoteFormData.firstName} ${quoteFormData.lastName}`
@@ -77,12 +77,13 @@ ${quoteFormData.quoteDetail}
             <Navbar.Brand href="/" className="header-brand">
               <img
                 src={logo}
-                alt="The Right Pack Out"
+                alt="The Right Pack Out logo"
                 className="header-logo"
               />
 
               <div className="brand-text d-none d-md-block">
                 <span className="brand-name">The Right Pack Out</span>
+
                 <span className="brand-tagline">
                   Contents Care, Cleaning & Restoration
                 </span>
@@ -174,6 +175,7 @@ ${quoteFormData.quoteDetail}
             <div className="row">
               <Form.Group className="col-md-6 mb-3">
                 <Form.Label>First Name</Form.Label>
+
                 <Form.Control
                   type="text"
                   name="firstName"
@@ -185,6 +187,7 @@ ${quoteFormData.quoteDetail}
 
               <Form.Group className="col-md-6 mb-3">
                 <Form.Label>Last Name</Form.Label>
+
                 <Form.Control
                   type="text"
                   name="lastName"
@@ -197,6 +200,7 @@ ${quoteFormData.quoteDetail}
 
             <Form.Group className="mb-3">
               <Form.Label>Phone Number</Form.Label>
+
               <Form.Control
                 type="tel"
                 name="phoneNumber"
@@ -208,6 +212,7 @@ ${quoteFormData.quoteDetail}
 
             <Form.Group className="mb-3">
               <Form.Label>Email Address</Form.Label>
+
               <Form.Control
                 type="email"
                 name="email"
@@ -219,6 +224,7 @@ ${quoteFormData.quoteDetail}
 
             <Form.Group>
               <Form.Label>How can we help?</Form.Label>
+
               <Form.Control
                 as="textarea"
                 rows={5}

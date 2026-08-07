@@ -1,11 +1,14 @@
 import React from "react";
 import Header from "../components/header";
 import Menu from "../components/menu";
-import Images from "../components/carousel_images";
 import Footer from "../components/footer";
 import Emergency from "../components/emergency";
 import HomeReviews from "../components/home_reviews";
-import "../App.css";
+import BeforeAfterGallery from "../components/before_after_gallery";
+
+import heroImage from "../images/FurnitureAfter.jpeg";
+
+import "../styles/HomePage.css";
 
 const HomePage = () => {
   return (
@@ -14,68 +17,113 @@ const HomePage = () => {
       <Emergency />
 
       <main>
-        <section className="home-introduction">
-          <div className="container">
-            <span className="home-eyebrow">
-              Professional Contents Care
-            </span>
+        <section className="premium-home-hero">
+          <div className="container premium-home-hero-grid">
+            <div className="premium-home-hero-content">
+              <span className="home-eyebrow">
+                Professional Contents Care
+              </span>
 
-            <h1>
-              Packout, Cleaning, Storage and Restoration Support You Can Trust
-            </h1>
+              <h1>
+                Protecting Your Contents.
+                <span>Restoring Your Peace of Mind.</span>
+              </h1>
 
-            <p>
-              The Right Pack Out helps homeowners, contractors, and insurance
-              professionals protect, document, clean, store, and restore
-              valuable contents with care.
-            </p>
+              <p className="premium-home-hero-description">
+                When disaster strikes, every belonging matters. From careful
+                packout and documentation to specialized cleaning, secure
+                storage, and restoration, The Right Pack Out helps families
+                and businesses recover with confidence.
+              </p>
 
-            <div className="home-introduction-actions">
-              <a href="/pack" className="primary-home-button">
-                Explore Packout Services
-              </a>
+              <div className="home-introduction-actions">
+                <a
+                  href="mailto:therightpackout@gmail.com?subject=Quote%20Request"
+                  className="primary-home-button"
+                >
+                  Request a Quote
+                </a>
 
-              <a
-                href="mailto:therightpackout@gmail.com?subject=Quote%20Request"
-                className="secondary-home-button"
+                <a
+                  href="#featured-work"
+                  className="secondary-home-button"
+                >
+                  View Our Work
+                </a>
+              </div>
+
+              <div
+                className="hero-trust-list"
+                aria-label="Company service highlights"
               >
-                Request a Quote
-              </a>
-            </div>
-          </div>
-        </section>
+                <div className="hero-trust-item">
+                  <span className="hero-trust-check" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span>24/7 Emergency Response</span>
+                </div>
 
-        <section className="trust-strip">
-          <div className="container trust-strip-grid">
-            <div className="trust-item">
-              <strong>24/7</strong>
-              <span>Emergency Response</span>
+                <div className="hero-trust-item">
+                  <span className="hero-trust-check" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span>Detailed Inventory Reporting</span>
+                </div>
+
+                <div className="hero-trust-item">
+                  <span className="hero-trust-check" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span>Careful Cleaning & Storage</span>
+                </div>
+              </div>
             </div>
 
-            <div className="trust-item">
-              <strong>Experienced</strong>
-              <span>Contents Professionals</span>
-            </div>
+            <div className="premium-home-hero-visual">
+              <div className="hero-image-frame">
+                <img
+                  src={heroImage}
+                  alt="Professionally cleaned and restored home furnishings"
+                  className="premium-home-hero-image"
+                />
 
-            <div className="trust-item">
-              <strong>Detailed</strong>
-              <span>Inventory Reporting</span>
-            </div>
+                <div className="hero-image-overlay">
+                  <span className="hero-image-overlay-label">
+                    Trusted Contents Care
+                  </span>
 
-            <div className="trust-item">
-              <strong>Careful</strong>
-              <span>Cleaning & Storage</span>
+                  <strong>
+                    Careful service from packout to return.
+                  </strong>
+                </div>
+
+                <div className="hero-response-badge">
+                  <strong>24/7</strong>
+                  <span>Response</span>
+                </div>
+              </div>
+
+              <div className="hero-experience-card">
+                <span className="hero-experience-icon" aria-hidden="true">
+                  ✓
+                </span>
+
+                <div>
+                  <strong>Professional Care</strong>
+                  <span>
+                    Packout, cleaning, documentation, storage, and restoration
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <Menu />
 
-        <section className="home-carousel-section">
-          <div className="container">
-            <Images />
-          </div>
-        </section>
+        <div id="featured-work">
+          <BeforeAfterGallery featuredOnly />
+        </div>
 
         <HomeReviews />
       </main>

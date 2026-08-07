@@ -1,0 +1,187 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ==========================================
+   IMAGES
+========================================== */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ==========================================
+   LINKS
+========================================== */
+
+a {
+  text-decoration: none;
+  transition: all .25s ease;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button {
+  transition: all .25s ease;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: #07386c;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   PARAGRAPHS
+========================================== */
+
+p {
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   LISTS
+========================================== */
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+/* ==========================================
+   CONTAINERS
+========================================== */
+
+.container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+
+/* ==========================================
+   UTILITIES
+========================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-primary {
+  color: #07386c;
+}
+
+.text-danger {
+  color: #c9232d;
+}
+
+.bg-primary {
+  background: #07386c;
+}
+
+.bg-light {
+  background: #f8fafc;
+}
+
+.rounded {
+  border-radius: 12px;
+}
+
+.shadow {
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+
+/* ==========================================
+   SECTIONS
+========================================== */
+
+section {
+  position: relative;
+}
+
+
+/* ==========================================
+   SELECTION COLOR
+========================================== */
+
+::selection {
+  background: #07386c;
+  color: white;
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf2f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #07386c;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #064b91;
+}

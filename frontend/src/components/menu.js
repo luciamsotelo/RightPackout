@@ -1,13 +1,12 @@
 import React from "react";
-import "../App.css";
+import "../styles/Menu.css";
 
 function Menu() {
   const serviceGroups = [
     {
       icon: "📦",
       title: "Content Packing",
-      description:
-        "Careful packing, inventory, transportation, storage, and return of your belongings.",
+      description: "Careful handling from packout through return.",
       items: [
         { label: "Pack Out & Pack Back", href: "/pack" },
         { label: "Storage", href: "/storage" },
@@ -18,8 +17,7 @@ function Menu() {
     {
       icon: "✨",
       title: "Cleaning & Restoration",
-      description:
-        "Specialized cleaning and restoration for furniture, drapery, fire, mold, and windows.",
+      description: "Specialized cleaning for damaged contents and furnishings.",
       items: [
         { label: "Drapery Services", href: "/drapery" },
         { label: "Mold Restoration", href: "/mold" },
@@ -32,7 +30,7 @@ function Menu() {
       icon: "📋",
       title: "Consultation Guidance",
       description:
-        "Professional documentation and guidance for property owners and insurance professionals.",
+        "Clear documentation for owners and insurance professionals.",
       items: [
         { label: "Contents Consultation", href: "/consultation" },
         { label: "Insurance Reports", href: "/consultation" },
@@ -42,8 +40,7 @@ function Menu() {
     {
       icon: "🤝",
       title: "Management Services",
-      description:
-        "Organized project coordination to help keep each phase moving efficiently.",
+      description: "Organized coordination from start to completion.",
       items: [
         { label: "Site Coordination", href: "/management" },
         { label: "Site Management", href: "/management" },
@@ -52,8 +49,7 @@ function Menu() {
     {
       icon: "🧹",
       title: "Specialty Cleaning",
-      description:
-        "Thoughtful cleanup solutions for challenging residential and commercial environments.",
+      description: "Thoughtful solutions for challenging environments.",
       items: [
         { label: "Construction Cleanup", href: "/construction" },
         { label: "Hoarder House Cleaning", href: "/hoarder" },
@@ -62,7 +58,11 @@ function Menu() {
   ];
 
   return (
-    <section className="services-navigation" aria-labelledby="services-title">
+    <section
+      id="services"
+      className="services-navigation"
+      aria-labelledby="services-title"
+    >
       <div className="container">
         <div className="services-navigation-heading">
           <span className="services-eyebrow">Explore Our Services</span>
@@ -70,30 +70,31 @@ function Menu() {
           <h2 id="services-title">How The Right Pack Out Can Help</h2>
 
           <p>
-            From careful packouts and secure storage to specialized cleaning,
-            restoration, and detailed reporting, our team is here to help.
+            Select a service category to learn more about our packout,
+            cleaning, restoration, storage, and consultation services.
           </p>
         </div>
 
-        <div className="service-card-grid">
+        <div className="compact-service-grid">
           {serviceGroups.map((group) => (
-            <article className="service-category-card" key={group.title}>
-              <div className="service-card-icon" aria-hidden="true">
-                {group.icon}
+            <article className="compact-service-card" key={group.title}>
+              <div className="compact-service-header">
+                <div className="compact-service-icon" aria-hidden="true">
+                  {group.icon}
+                </div>
+
+                <div>
+                  <h3>{group.title}</h3>
+                  <p>{group.description}</p>
+                </div>
               </div>
 
-              <h3>{group.title}</h3>
-
-              <p className="service-card-description">
-                {group.description}
-              </p>
-
-              <div className="service-card-links">
+              <div className="compact-service-links">
                 {group.items.map((item) => (
                   <a
                     href={item.href}
                     key={`${group.title}-${item.label}`}
-                    className="service-card-link"
+                    className="compact-service-link"
                   >
                     <span>{item.label}</span>
                     <span aria-hidden="true">→</span>

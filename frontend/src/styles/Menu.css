@@ -1,0 +1,247 @@
+/* ==========================================
+   SERVICES SECTION
+========================================== */
+
+.services-navigation {
+  padding: 2.75rem 1rem 3rem;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  scroll-margin-top: 120px;
+}
+
+/* ==========================================
+   SECTION HEADING
+========================================== */
+
+.services-navigation-heading {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.services-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  color: #c9232d;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.services-navigation-heading h2 {
+  margin: 0 0 0.45rem;
+  color: #07386c;
+  font-size: clamp(1.55rem, 2.5vw, 2rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.services-navigation-heading p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #5f6b7a;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ==========================================
+   SERVICE GRID
+========================================== */
+
+.compact-service-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+/* ==========================================
+   SERVICE CARDS
+========================================== */
+
+.compact-service-card {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1.05rem;
+  background-color: #ffffff;
+  border: 1px solid #dbe3ec;
+  border-top: 4px solid #064b91;
+  border-radius: 12px;
+  box-shadow: 0 7px 20px rgba(15, 35, 60, 0.07);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-top-color 0.22s ease;
+}
+
+.compact-service-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.compact-service-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.compact-service-card:hover {
+  transform: translateY(-3px);
+  border-top-color: #c9232d;
+  box-shadow: 0 12px 27px rgba(15, 35, 60, 0.12);
+}
+
+/* ==========================================
+   CARD HEADER
+========================================== */
+
+.compact-service-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.compact-service-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background-color: #eaf4ff;
+  border-radius: 9px;
+  font-size: 1.1rem;
+}
+
+.compact-service-header h3 {
+  margin: 0 0 0.18rem;
+  color: #07386c;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.compact-service-header p {
+  margin: 0;
+  color: #647184;
+  font-size: 0.79rem;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   SERVICE LINKS
+========================================== */
+
+.compact-service-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: auto;
+  padding-top: 0.45rem;
+  border-top: 1px solid #e5eaf0;
+}
+
+.compact-service-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  padding: 0.48rem 0.4rem;
+  color: #064b91;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  border-bottom: 1px solid #edf1f5;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.compact-service-link:nth-child(odd) {
+  border-right: 1px solid #edf1f5;
+}
+
+.compact-service-link:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.compact-service-link:hover {
+  color: #c9232d;
+  background-color: #f8fafc;
+}
+
+.compact-service-link span:first-child {
+  min-width: 0;
+}
+
+.compact-service-link span:last-child {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .compact-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compact-service-card,
+  .compact-service-card:nth-child(4),
+  .compact-service-card:nth-child(5) {
+    grid-column: auto;
+  }
+
+  .compact-service-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .services-navigation {
+    padding: 2.35rem 1rem 2.5rem;
+    scroll-margin-top: 90px;
+  }
+
+  .services-navigation-heading {
+    margin-bottom: 1.2rem;
+  }
+
+  .services-navigation-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  .services-navigation-heading p {
+    font-size: 0.88rem;
+  }
+
+  .compact-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-service-card,
+  .compact-service-card:last-child {
+    grid-column: auto;
+  }
+
+  .compact-service-links {
+    grid-template-columns: 1fr;
+  }
+
+  .compact-service-link,
+  .compact-service-link:nth-child(odd),
+  .compact-service-link:nth-last-child(-n + 2) {
+    border-right: none;
+    border-bottom: 1px solid #edf1f5;
+  }
+
+  .compact-service-link:last-child {
+    border-bottom: none;
+  }
+}
