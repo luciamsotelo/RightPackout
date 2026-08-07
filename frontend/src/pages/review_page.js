@@ -1,18 +1,20 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Review from '../components/review'
-import Menu from '../components/menu'
+import React from "react";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Review from "../components/review";
 
-const review_page = () => {
+const ReviewPage = () => {
   return (
-    <div>
+    <div className="site-page">
       <Header />
-      <Menu />
-      <Review />
+
+      <main>
+        <Review />
+      </main>
+
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default review_page
+export default ReviewPage;

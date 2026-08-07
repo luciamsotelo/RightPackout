@@ -1,0 +1,578 @@
+/* ==========================================
+   REVIEW PAGE HERO
+========================================== */
+
+.review-page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 1rem 3.75rem;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(201, 35, 45, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 15%,
+      rgba(6, 75, 145, 0.11),
+      transparent 31%
+    ),
+    linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border-bottom: 1px solid #e4e9ef;
+}
+
+.review-page-hero::before {
+  content: "";
+  position: absolute;
+  top: -190px;
+  right: -150px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(7, 56, 108, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.review-page-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.review-page-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  color: #c9232d;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.review-page-hero h1 {
+  max-width: 760px;
+  margin: 0 auto 0.85rem;
+  color: #07386c;
+  font-size: clamp(2.1rem, 4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.review-page-hero p {
+  max-width: 660px;
+  margin: 0 auto;
+  color: #5f6b7a;
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.review-page-hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.review-page-primary-button,
+.review-page-secondary-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 47px;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.review-page-primary-button {
+  color: #ffffff;
+  background-color: #c9232d;
+  border: 2px solid #c9232d;
+}
+
+.review-page-primary-button:hover {
+  color: #ffffff;
+  background-color: #a81721;
+  border-color: #a81721;
+  transform: translateY(-1px);
+}
+
+.review-page-secondary-button {
+  color: #07386c;
+  background-color: #ffffff;
+  border: 2px solid #07386c;
+}
+
+.review-page-secondary-button:hover {
+  color: #ffffff;
+  background-color: #07386c;
+  border-color: #07386c;
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   REVIEW CONTENT
+========================================== */
+
+.review-page-content {
+  padding: 3.75rem 1rem;
+  background-color: #f8fafc;
+}
+
+/* ==========================================
+   REVIEW SUMMARY
+========================================== */
+
+.review-summary {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #dbe3ec;
+  border-top: 4px solid #064b91;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(15, 35, 60, 0.08);
+  text-align: center;
+}
+
+.review-summary-score strong,
+.review-summary-count strong {
+  display: block;
+  color: #07386c;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.review-summary-score span,
+.review-summary-count span {
+  display: block;
+  margin-top: 0.3rem;
+  color: #647184;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.review-summary-stars {
+  color: #d89a00;
+  font-size: 1.25rem;
+  letter-spacing: 0.1rem;
+}
+
+/* ==========================================
+   REVIEW GRID
+========================================== */
+
+.review-page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* ==========================================
+   REVIEW CARDS
+========================================== */
+
+.review-page-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 235px;
+  padding: 1.3rem;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #dbe3ec;
+  border-top: 4px solid #c9232d;
+  border-radius: 13px;
+  box-shadow: 0 10px 26px rgba(15, 35, 60, 0.08);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.review-page-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 32px rgba(15, 35, 60, 0.13);
+}
+
+.review-page-quote-mark {
+  position: absolute;
+  top: 0.15rem;
+  right: 0.8rem;
+  color: rgba(7, 56, 108, 0.08);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4.3rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.review-page-stars,
+.review-page-card blockquote,
+.review-page-customer {
+  position: relative;
+  z-index: 1;
+}
+
+.review-page-stars {
+  margin-bottom: 0.7rem;
+  color: #d89a00;
+  font-size: 0.95rem;
+  letter-spacing: 0.08rem;
+}
+
+.review-page-card blockquote {
+  flex: 1;
+  margin: 0 0 1rem;
+  color: #445064;
+  font-size: 0.92rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.review-page-customer {
+  padding-top: 0.85rem;
+  border-top: 1px solid #e4e9ef;
+}
+
+.review-page-customer strong {
+  display: block;
+  color: #07386c;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.review-page-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+  color: #5f6b7a;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.review-page-verified::before {
+  content: "✓";
+  color: #16a34a;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+/* ==========================================
+   REVIEW CTA
+========================================== */
+
+.review-page-cta {
+  margin-top: 2rem;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  color: #ffffff;
+  background: linear-gradient(
+    120deg,
+    #052b53 0%,
+    #07386c 55%,
+    #064b91 100%
+  );
+  border-top: 4px solid #c9232d;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(15, 35, 60, 0.12);
+}
+
+.review-page-cta .review-page-eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.review-page-cta h2 {
+  margin: 0 0 0.35rem;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 800;
+}
+
+.review-page-cta p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.review-page-cta .review-page-primary-button {
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   STATUS MESSAGES
+========================================== */
+
+.review-page-status,
+.review-page-empty {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: #5f6b7a;
+  background-color: #ffffff;
+  border: 1px solid #dbe3ec;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(15, 35, 60, 0.08);
+}
+
+.review-page-empty h2 {
+  color: #07386c;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.review-page-empty p {
+  margin-bottom: 1rem;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .review-page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-page-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .review-page-hero {
+    padding: 3rem 1rem;
+  }
+
+  .review-page-content {
+    padding: 3rem 1rem;
+  }
+
+  .review-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-summary {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .review-page-card {
+    min-height: auto;
+  }
+
+  .review-page-hero-actions,
+  .review-page-primary-button,
+  .review-page-secondary-button {
+    width: 100%;
+  }
+
+  .review-page-cta .review-page-primary-button {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   COMPACT PROFESSIONAL REVIEW PAGE
+========================================== */
+
+.review-page-hero {
+  padding: 2.75rem 1rem 2.5rem;
+}
+
+.review-page-hero-content {
+  max-width: 720px;
+}
+
+.review-page-hero h1 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.85rem, 3.2vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.review-page-hero p {
+  max-width: 590px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.review-page-hero-actions {
+  margin-top: 1rem;
+}
+
+.review-page-primary-button,
+.review-page-secondary-button {
+  min-height: 43px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+/* Main review area */
+
+.review-page-content {
+  padding: 2.5rem 1rem;
+}
+
+/* Compact review summary */
+
+.review-summary {
+  max-width: 680px;
+  margin-bottom: 1.4rem;
+  padding: 0.9rem 1.2rem;
+  gap: 1rem;
+  border-radius: 12px;
+}
+
+.review-summary-score strong,
+.review-summary-count strong {
+  font-size: 1.35rem;
+}
+
+.review-summary-score span,
+.review-summary-count span {
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+}
+
+.review-summary-stars {
+  font-size: 1.05rem;
+}
+
+/* Tighter review grid */
+
+.review-page-grid {
+  gap: 0.85rem;
+}
+
+.review-page-card {
+  min-height: 185px;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.review-page-quote-mark {
+  right: 0.65rem;
+  font-size: 3.5rem;
+}
+
+.review-page-stars {
+  margin-bottom: 0.5rem;
+  font-size: 0.86rem;
+}
+
+.review-page-card blockquote {
+  margin-bottom: 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.review-page-customer {
+  padding-top: 0.65rem;
+}
+
+.review-page-customer strong {
+  font-size: 0.84rem;
+}
+
+.review-page-verified {
+  margin-top: 0.15rem;
+  font-size: 0.68rem;
+}
+
+/* Compact bottom CTA */
+
+.review-page-cta {
+  margin-top: 1.4rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: 12px;
+}
+
+.review-page-cta h2 {
+  margin-bottom: 0.25rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.review-page-cta p {
+  max-width: 580px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* ==========================================
+   COMPACT REVIEW PAGE — TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .review-page-card {
+    min-height: 175px;
+  }
+}
+
+/* ==========================================
+   COMPACT REVIEW PAGE — MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .review-page-hero {
+    padding: 2.5rem 1rem;
+  }
+
+  .review-page-content {
+    padding: 2.25rem 1rem;
+  }
+
+  .review-summary {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0.85rem;
+  }
+
+  .review-summary-stars {
+    font-size: 0.88rem;
+    letter-spacing: 0.04rem;
+  }
+
+  .review-page-card {
+    min-height: auto;
+  }
+
+  .review-page-cta {
+    padding: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-summary {
+    grid-template-columns: 1fr;
+  }
+}

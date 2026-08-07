@@ -35,19 +35,15 @@ const Footer = () => {
               Professional packout, contents cleaning, secure storage,
               restoration support, and detailed reporting delivered with care.
             </p>
-
-            <a
-              href="tel:+16197867089"
-              className="footer-emergency-button"
-            >
-              24/7 Emergency Call: 619-786-7089
-            </a>
           </div>
 
           <div className="footer-column">
             <h2>Quick Links</h2>
 
-            <nav className="footer-links" aria-label="Footer navigation">
+            <nav
+              className="footer-links"
+              aria-label="Footer navigation"
+            >
               <a href="/">Home</a>
               <a href="/about">Meet Our Team</a>
               <a href="/review">Client Reviews</a>
@@ -58,7 +54,10 @@ const Footer = () => {
           <div className="footer-column">
             <h2>Popular Services</h2>
 
-            <nav className="footer-links" aria-label="Popular services">
+            <nav
+              className="footer-links"
+              aria-label="Popular services"
+            >
               <a href="/pack">Pack Out & Pack Back</a>
               <a href="/storage">Secure Storage</a>
               <a href="/fire">Fire Restoration</a>
@@ -81,10 +80,16 @@ const Footer = () => {
                 <span>therightpackout@gmail.com</span>
               </a>
 
-              <div>
-                <span aria-hidden="true">◷</span>
-                <span>Emergency assistance available 24/7</span>
-              </div>
+              <a
+                href="tel:+16197867089"
+                className="footer-emergency-button"
+              >
+                24/7 Emergency Call
+              </a>
+
+              <span className="footer-availability">
+                Available 24 Hours a Day, 7 Days a Week
+              </span>
             </div>
           </div>
         </div>

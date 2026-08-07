@@ -1,65 +1,230 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useMemo, useState } from "react";
+import "../styles/ReviewPage.css";
 
-const FeedbackDisplay = () => {
+const REVIEWS_PER_PAGE = 6;
+
+const Review = () => {
   const [feedback, setFeedback] = useState([]);
+  const [status, setStatus] = useState("loading");
+  const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
 
   useEffect(() => {
     const fetchFeedback = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/reviews`);
+        const apiUrl = process.env.REACT_APP_API_URL;
 
+        if (!apiUrl) {
+          throw new Error("The API URL is not configured.");
+        }
+
+        const response = await fetch(`${apiUrl}/api/reviews`);
+
+        if (!response.ok) {
+          throw new Error("Unable to load customer reviews.");
+        }
 
         const data = await response.json();
-        setFeedback(data);
+
+        const sortedFeedback = [...data].sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt),
+        );
+
+        setFeedback(sortedFeedback);
+        setStatus("success");
       } catch (error) {
         console.error("Error fetching feedback:", error);
+        setStatus("error");
       }
     };
-  
+
     fetchFeedback();
   }, []);
-  
+
+  const averageRating = useMemo(() => {
+    if (feedback.length === 0) {
+      return 0;
+    }
+
+    const total = feedback.reduce(
+      (sum, review) => sum + (Number(review.rating) || 0),
+      0,
+    );
+
+    return total / feedback.length;
+  }, [feedback]);
+
+  const visibleReviews = feedback.slice(0, visibleCount);
+  const hasMoreReviews = visibleCount < feedback.length;
+
+  const renderStars = (rating) => {
+    const safeRating = Math.max(
+      1,
+      Math.min(5, Math.round(Number(rating) || 1)),
+    );
+
+    return "★".repeat(safeRating) + "☆".repeat(5 - safeRating);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((currentCount) =>
+      Math.min(currentCount + REVIEWS_PER_PAGE, feedback.length),
+    );
+  };
 
   return (
-    <Container
-      className="py-4"
-      style={{
-        background: "linear-gradient(to bottom, #003366, #ffffff, #cc0000)",
-        minHeight: "100vh",
-        borderRadius: "10px",
-      }}
-    >
-      <h2 className="text-center mb-4 text-white">Customer Reviews</h2>
-      {feedback.length === 0 ? (
-        <p className="text-center text-white">No feedback available yet.</p>
-      ) : (
-        <Row className="justify-content-center">
-          <Col md={10} lg={8}>
-            <ul className="list-unstyled">
-              {feedback.map((item, index) => (
-                <li
-                  key={index}
-                  className="p-3 mb-4 border border-primary rounded shadow"
-                  style={{
-                    backgroundColor: "rgba(255, 255, 255, 0.9)",
-                    transition: "transform 0.2s ease-in-out",
-                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+    <>
+      <section className="review-page-hero">
+        <div className="container review-page-hero-content">
+          <span className="review-page-eyebrow">
+            Customer Experiences
+          </span>
+
+          <h1>Reviews From the People We Serve</h1>
+
+          <p>
+            Read what customers have shared about their experience with The
+            Right Pack Out and our approach to careful, dependable service.
+          </p>
+
+          <div className="review-page-hero-actions">
+            <a href="/feedback" className="review-page-primary-button">
+              Leave Your Feedback
+            </a>
+
+            <a
+              href="tel:+16197867089"
+              className="review-page-secondary-button"
+            >
+              Call 619-786-7089
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="review-page-content">
+        <div className="container">
+          {status === "loading" ? (
+            <div className="review-page-status">
+              Loading customer reviews...
+            </div>
+          ) : status === "error" ? (
+            <div className="review-page-status">
+              Reviews are temporarily unavailable. Please check again soon.
+            </div>
+          ) : feedback.length === 0 ? (
+            <div className="review-page-empty">
+              <h2>Be the First to Share Your Experience</h2>
+
+              <p>
+                Customer reviews will appear here as they are received.
+              </p>
+
+              <a href="/feedback" className="review-page-primary-button">
+                Leave a Review
+              </a>
+            </div>
+          ) : (
+            <>
+              <div className="review-summary">
+                <div className="review-summary-score">
+                  <strong>{averageRating.toFixed(1)}</strong>
+                  <span>Average Rating</span>
+                </div>
+
+                <div
+                  className="review-summary-stars"
+                  aria-label={`${averageRating.toFixed(1)} out of 5 stars`}
                 >
-                  <h5 className="text-center text-primary">{item.name}</h5>
-                  <p className="text-center text-warning">⭐ {item.rating}/5</p>
-                  <p className="text-justify text-dark">{item.message}</p>
-                </li>
-              ))}
-            </ul>
-          </Col>
-        </Row>
-      )}
-    </Container>
+                  {renderStars(averageRating)}
+                </div>
+
+                <div className="review-summary-count">
+                  <strong>{feedback.length}</strong>
+
+                  <span>
+                    {feedback.length === 1
+                      ? "Customer Review"
+                      : "Customer Reviews"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="review-page-grid">
+                {visibleReviews.map((item, index) => (
+                  <article
+                    className="review-page-card"
+                    key={item.id || `${item.name}-${index}`}
+                  >
+                    <span
+                      className="review-page-quote-mark"
+                      aria-hidden="true"
+                    >
+                      “
+                    </span>
+
+                    <div
+                      className="review-page-stars"
+                      aria-label={`${item.rating} out of 5 stars`}
+                    >
+                      {renderStars(item.rating)}
+                    </div>
+
+                    <blockquote>“{item.message}”</blockquote>
+
+                    <div className="review-page-customer">
+                      <strong>{item.name}</strong>
+
+                      <span className="review-page-verified">
+                        Verified Customer
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {hasMoreReviews && (
+                <div className="review-load-more-wrapper">
+                  <button
+                    type="button"
+                    className="review-load-more-button"
+                    onClick={handleLoadMore}
+                  >
+                    Load More Reviews
+                  </button>
+
+                  <span className="review-load-more-count">
+                    Showing {visibleReviews.length} of {feedback.length}
+                  </span>
+                </div>
+              )}
+
+              <section className="review-page-cta">
+                <div>
+                  <span className="review-page-eyebrow">
+                    Share Your Experience
+                  </span>
+
+                  <h2>Have You Worked With The Right Pack Out?</h2>
+
+                  <p>
+                    Your feedback helps future customers feel confident when
+                    choosing a team to care for their belongings.
+                  </p>
+                </div>
+
+                <a
+                  href="/feedback"
+                  className="review-page-primary-button"
+                >
+                  Leave Your Feedback
+                </a>
+              </section>
+            </>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 
-export default FeedbackDisplay;
+export default Review;

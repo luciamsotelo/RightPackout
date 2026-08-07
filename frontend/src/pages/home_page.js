@@ -12,7 +12,7 @@ import "../styles/HomePage.css";
 
 const HomePage = () => {
   return (
-    <div className="site-page">
+    <div>
       <Header />
       <Emergency />
 
@@ -26,54 +26,65 @@ const HomePage = () => {
 
               <h1>
                 Protecting Your Contents.
-                <span>Restoring Your Peace of Mind.</span>
+                <span> Restoring Your Peace of Mind.</span>
               </h1>
 
               <p className="premium-home-hero-description">
-                When disaster strikes, every belonging matters. From careful
-                packout and documentation to specialized cleaning, secure
-                storage, and restoration, The Right Pack Out helps families
-                and businesses recover with confidence.
+                Professional packout, cleaning, inventory, secure storage,
+                and restoration services delivered with care when you need
+                them most.
               </p>
 
-              <div className="home-introduction-actions">
-                <a
-                  href="mailto:therightpackout@gmail.com?subject=Quote%20Request"
-                  className="primary-home-button"
-                >
-                  Request a Quote
-                </a>
+             <div className="home-introduction-actions">
+  <a
+    href="tel:+16197867089"
+    className="primary-home-button"
+  >
+    Start Your Recovery
+  </a>
 
-                <a
-                  href="#featured-work"
-                  className="secondary-home-button"
-                >
-                  View Our Work
-                </a>
-              </div>
+  <a
+    href="#featured-work"
+    className="secondary-home-button"
+  >
+    View Our Work
+  </a>
+</div>
 
               <div
                 className="hero-trust-list"
                 aria-label="Company service highlights"
               >
                 <div className="hero-trust-item">
-                  <span className="hero-trust-check" aria-hidden="true">
+                  <span
+                    className="hero-trust-check"
+                    aria-hidden="true"
+                  >
                     ✓
                   </span>
+
                   <span>24/7 Emergency Response</span>
                 </div>
 
                 <div className="hero-trust-item">
-                  <span className="hero-trust-check" aria-hidden="true">
+                  <span
+                    className="hero-trust-check"
+                    aria-hidden="true"
+                  >
                     ✓
                   </span>
+
                   <span>Detailed Inventory Reporting</span>
                 </div>
 
                 <div className="hero-trust-item">
-                  <span className="hero-trust-check" aria-hidden="true">
+                  <span
+                    className="hero-trust-check"
+                    aria-hidden="true"
+                  >
                     ✓
                   </span>
+
                   <span>Careful Cleaning & Storage</span>
                 </div>
               </div>
@@ -104,14 +115,19 @@ const HomePage = () => {
               </div>
 
               <div className="hero-experience-card">
-                <span className="hero-experience-icon" aria-hidden="true">
+                <span
+                  className="hero-experience-icon"
+                  aria-hidden="true"
+                >
                   ✓
                 </span>
 
                 <div>
                   <strong>Professional Care</strong>
+
                   <span>
-                    Packout, cleaning, documentation, storage, and restoration
+                    Packout, cleaning, documentation, storage,
+                    and restoration
                   </span>
                 </div>
               </div>
