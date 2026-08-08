@@ -96,12 +96,13 @@ import storedRug from "../images/Storerug1.jpeg";
 ========================================== */
 
 const filters = [
-  { label: "All Work", value: "all" },
+  
   { label: "Fire & Smoke", value: "fire" },
   { label: "Water & Mold", value: "water" },
   { label: "Contents Cleaning", value: "cleaning" },
   { label: "Drapery & Textiles", value: "drapery" },
   { label: "Packout & Storage", value: "packout" },
+  { label: "All Work", value: "all" }
 ];
 
 /* ==========================================

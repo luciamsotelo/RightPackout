@@ -75,10 +75,13 @@ const Footer = () => {
                 <span>619-786-7089</span>
               </a>
 
-              <a href="mailto:therightpackout@gmail.com">
-                <span aria-hidden="true">✉</span>
-                <span>therightpackout@gmail.com</span>
-              </a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=therightpackout@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer">
+  <span aria-hidden="true">✉</span>
+  <span>therightpackout@gmail.com</span>
+</a>
 
               <a
                 href="tel:+16197867089"
