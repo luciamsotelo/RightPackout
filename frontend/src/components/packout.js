@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import POAfter1 from '../images/POAfter1.JPEG';
+import POAfter1 from '../images/POAfter1.jpeg';
 import picture5 from '../images/Picture5.png';
 
 function GridExample() {

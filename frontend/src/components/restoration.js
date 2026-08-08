@@ -7,8 +7,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Chair1 from '../images/chairCleanB1.jpeg';
 import Chair2 from '../images/ChairCleanA1.jpeg';
-import Couch1 from '../images/vomitCouchB5.jpg';
-import Couch2 from '../images/vomitCouchA1.jpg';
+import Couch1 from '../images/vomitCouchB5.jpeg';
+import Couch2 from '../images/vomitCouchA1.jpeg';
 
 function RestorationCards() {
   const [showModal, setShowModal] = useState(false);

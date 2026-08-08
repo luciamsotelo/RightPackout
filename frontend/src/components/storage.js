@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap';
-import storage1 from '../images/Storerug1.JPEG';
+import storage1 from '../images/Storerug1.jpeg';
 import storage4 from '../images/storage4.jpeg';
 import storage11 from '../images/storage11.jpeg';
 

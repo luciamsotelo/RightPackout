@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from '../images/imagesoon.png';
+import Image from '../images/imagesoon.jpeg';
 
 function WindowCards() {
   const [showModal, setShowModal] = useState(false);

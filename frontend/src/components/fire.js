@@ -9,7 +9,7 @@ import Fire4 from '../images/FjacketB3.jpeg';
 import Fire1 from '../images/FjacketB1.jpeg';
 import Fire2 from '../images/FjacketA1.jpeg';
 import Fire3 from '../images/FjacketA2.jpeg';
-import Image2 from '../images/imagesoon.png';
+import Image2 from '../images/imagesoon.jpeg';
 
 function FireCards() {
   const [showModal, setShowModal] = useState(false);

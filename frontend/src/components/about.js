@@ -1,22 +1,27 @@
 import React from "react";
 import "../styles/AboutPage.css";
 
+/* ==========================================
+   TEAM PHOTOS
+========================================== */
+
+import emilioPhoto from "../images/replacDrape3.jpeg";
+import sharonPhoto from "../images/sharonheadshot.jpeg";
+
 const teamMembers = [
   {
     name: "Sharon Ward",
     role: "Contents Inventory & Operations",
-    image:
-      "https://img.freepik.com/fotos-kostenlos/laptop-auf-steinoberflaeche-und-meer-hintergrund_1232-430.jpg",
-    imageAlt: "Temporary placeholder image for Sharon Ward",
+    image: sharonPhoto,
+    imageAlt: "Sharon Ward",
     description:
       "Sharon is IICRC certified in odor control and brings specialized training in contents inventory and cleaning. Her experience coordinating schedules, managing vendors, and preparing Xactimate estimates supports organized projects, accurate planning, and dependable service.",
   },
   {
     name: "Emilio Vargas",
     role: "Contents Processing & Preservation",
-    image:
-      "https://t4.ftcdn.net/jpg/01/28/49/55/360_F_128495561_AxOj0KERPU6Vp4w3OWJqnkDySIsRMqHM.jpg",
-    imageAlt: "Temporary placeholder image for Emilio Vargas",
+    image: emilioPhoto,
+    imageAlt: "Emilio Vargas",
     description:
       "Emilio is IICRC certified in Contents Processing and has specialized training in wedding gown preservation. With nearly 30 years of dry-cleaning experience, including owning and operating his own business, he brings extensive knowledge of garment care, cleaning, and preservation.",
   },
@@ -25,6 +30,10 @@ const teamMembers = [
 function About() {
   return (
     <>
+      {/* ==========================================
+          ABOUT HERO
+      ========================================== */}
+
       <section className="about-hero">
         <div className="container about-hero-content">
           <span className="about-eyebrow">
@@ -41,6 +50,10 @@ function About() {
           </p>
         </div>
       </section>
+
+      {/* ==========================================
+          ABOUT STORY
+      ========================================== */}
 
       <section className="about-story-section">
         <div className="container about-story-grid">
@@ -88,6 +101,10 @@ function About() {
         </div>
       </section>
 
+      {/* ==========================================
+          TEAM SECTION
+      ========================================== */}
+
       <section className="about-team-section">
         <div className="container">
           <div className="about-team-heading">
@@ -98,9 +115,7 @@ function About() {
             <h2>The People Behind The Right Pack Out</h2>
 
             <p>
-              Experienced professionals committed to protecting, restoring,
-              and carefully managing the belongings that matter most.
-            </p>
+              Decades of hands-on experience in contents care, cleaning, preservation, and restoration.</p>
           </div>
 
           <div className="about-team-grid">
@@ -112,7 +127,13 @@ function About() {
                 <img
                   src={member.image}
                   alt={member.imageAlt}
-                  className="about-team-image"
+                  className={
+                    member.name === "Sharon Ward"
+                      ? "about-team-image sharon-team-image"
+                      : member.name === "Emilio Vargas"
+                      ? "about-team-image emilio-team-image"
+                      : "about-team-image"
+                  }
                 />
 
                 <div className="about-team-card-content">
@@ -129,6 +150,10 @@ function About() {
           </div>
         </div>
       </section>
+
+      {/* ==========================================
+          ABOUT CTA
+      ========================================== */}
 
       <section className="about-cta">
         <div className="container about-cta-content">

@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Imaging from '../images/imagesoon.png';
+import Imaging from '../images/imagesoon.jpeg';
 
 function PreservationCards() {
   const [showModal, setShowModal] = useState(false);

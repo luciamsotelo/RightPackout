@@ -1,10 +1,14 @@
 import React from "react";
+
 import ChairBefore from "../images/chairCleanB1.jpeg";
 import ChairAfter from "../images/ChairCleanA1.jpeg";
-import CouchBefore from "../images/vomitCouchB5.jpg";
-import CouchAfter from "../images/vomitCouchA1.jpg";
+
+import CouchBefore from "../images/vomitCouchB5.jpeg";
+import CouchAfter from "../images/vomitCouchA1.jpeg";
+
 import FireBefore from "../images/FjacketB3.jpeg";
 import FireAfter from "../images/FjacketA1.jpeg";
+
 import "../styles/BeforeAfterGallery.css";
 
 const BeforeAfterGallery = ({ featuredOnly = false }) => {
@@ -17,6 +21,7 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
       beforeImage: ChairBefore,
       afterImage: ChairAfter,
     },
+
     {
       id: 2,
       title: "Upholstery Cleaning",
@@ -25,6 +30,7 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
       beforeImage: CouchBefore,
       afterImage: CouchAfter,
     },
+
     {
       id: 3,
       title: "Fire-Damaged Garment Restoration",
@@ -35,7 +41,9 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
     },
   ];
 
-  const visibleProjects = featuredOnly ? projects.slice(0, 1) : projects;
+  const visibleProjects = featuredOnly
+    ? projects.slice(0, 1)
+    : projects;
 
   return (
     <section
@@ -47,7 +55,9 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
       <div className="container">
         <div className="before-after-heading">
           <span className="before-after-eyebrow">
-            {featuredOnly ? "Featured Transformation" : "Our Work"}
+            {featuredOnly
+              ? "Featured Transformation"
+              : "Our Work"}
           </span>
 
           <h2 id="before-after-title">
@@ -55,14 +65,17 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
           </h2>
 
           <p>
-            Explore examples of contents cleaning and restoration performed
-            with careful attention to detail.
+            Explore examples of contents cleaning and restoration
+            performed with careful attention to detail.
           </p>
         </div>
 
         <div className="before-after-grid">
           {visibleProjects.map((project) => (
-            <article className="before-after-card" key={project.id}>
+            <article
+              className="before-after-card"
+              key={project.id}
+            >
               <div className="before-after-images">
                 <figure className="project-image-wrapper">
                   <img
@@ -76,7 +89,10 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
                   </span>
                 </figure>
 
-                <div className="comparison-arrow" aria-hidden="true">
+                <div
+                  className="comparison-arrow"
+                  aria-hidden="true"
+                >
                   →
                 </div>
 
@@ -95,9 +111,13 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
 
               <div className="before-after-card-content">
                 <h3>{project.title}</h3>
+
                 <p>{project.description}</p>
 
-                <a href="/restoration" className="project-details-link">
+                <a
+                  href="/restoration"
+                  className="project-details-link"
+                >
                   Explore Restoration Services
                   <span aria-hidden="true">→</span>
                 </a>
@@ -107,12 +127,15 @@ const BeforeAfterGallery = ({ featuredOnly = false }) => {
         </div>
 
         <div className="before-after-actions">
-          <a href="/restoration" className="before-after-primary-button">
-            View Restoration Services
+          <a
+            href="/our-work"
+            className="before-after-primary-button"
+          >
+            View All Our Work
           </a>
 
           <a
-            href="mailto:therightpackout@gmail.com?subject=Restoration%20Assistance"
+            href="/request-assistance"
             className="before-after-outline-button"
           >
             Request Assistance

@@ -1,143 +1,86 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap';
-import Images from '../images/imagesoon.png';
+import React from "react";
+import { Container, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ConstructionCleanup = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [quoteFormData, setQuoteFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    message: ''
-  });
-
-  const handleShowModal = () => {
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      message: ''
-    });
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuoteFormData({ ...quoteFormData, [name]: value });
-  };
-
-  const handleSendQuoteRequest = () => {
-    const emailBody = encodeURIComponent(`
-      First Name: ${quoteFormData.firstName}
-      Last Name: ${quoteFormData.lastName}
-      Phone Number: ${quoteFormData.phoneNumber}
-      Email: ${quoteFormData.email}
-      Message: ${quoteFormData.message}
-    `);
-    const emailSubject = encodeURIComponent('Quote Request on Construction Cleanup');
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-    handleCloseModal();
-  };
-
-  const cardsData = [
-    { id: 1, image: Images },
-    { id: 2, image: Images },
-    { id: 3, image: Images },
-    { id: 4, image: Images },
-    { id: 5, image: Images },
-    { id: 6, image: Images },
-    { id: 7, image: Images },
-    { id: 8, image: Images }
-  ];
-
   return (
-    <Container style={{ marginTop: '50px', textAlign: 'justify' }}>
-      <Row className="mb-5">
-        <Col>
-          <h2 style={{ textAlign: 'center' }}>Construction Cleanup</h2>
-          <p>
-            Construction cleanup is essential for ensuring that a newly constructed or renovated space is clean, safe, and ready for occupancy. This process involves removing dust, debris, and leftover construction materials, as well as detailed cleaning of surfaces, fixtures, and windows. A thorough post-construction cleanup not only enhances the appearance of the space but also ensures a healthy environment by eliminating potential hazards.
-          </p>
-          <div className="d-flex justify-content-center" style={{ padding: '1px 10px 5px 10px' }}>
-            <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-          </div>
-        </Col>
-      </Row>
-      <Row style={{ paddingBottom: '70px'}}>
-        {cardsData.map(card => (
-          <Col key={card.id} xs={12} sm={6} md={3} className="mb-3">
-            <Card>
-              <Card.Img src={card.image} alt="construction" className="construction" />
-            </Card>
-          </Col>
-        ))}
-      </Row>
+    <Container
+      style={{
+        marginTop: "50px",
+        marginBottom: "50px",
+        textAlign: "center",
+        maxWidth: "900px",
+      }}
+    >
+      <span
+        style={{
+          display: "inline-block",
+          marginBottom: "8px",
+          color: "#c9232d",
+          fontSize: "0.7rem",
+          fontWeight: "800",
+          letterSpacing: "0.14em",
+          textTransform: "uppercase",
+        }}
+      >
+        Specialty Cleaning
+      </span>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request a Quote</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="firstName">
-              <Form.Label>First Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={quoteFormData.firstName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="lastName" className="mt-2">
-              <Form.Label>Last Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={quoteFormData.lastName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="phoneNumber" className="mt-2">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                value={quoteFormData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="email" className="mt-2">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={quoteFormData.email}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="message" className="mt-2">
-              <Form.Label>Message:</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="message"
-                value={quoteFormData.message}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-          <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
-        </Modal.Footer>
-      </Modal>
+      <h2
+        style={{
+          color: "#07386c",
+          fontWeight: "800",
+          marginBottom: "16px",
+        }}
+      >
+        Construction Cleanup
+      </h2>
+
+      <p
+        style={{
+          color: "#5f6b7a",
+          lineHeight: "1.7",
+          maxWidth: "760px",
+          margin: "0 auto 24px",
+        }}
+      >
+        Construction cleanup helps prepare newly constructed or renovated
+        spaces for use by removing dust, debris, and leftover materials.
+        Detailed cleaning of surfaces, fixtures, windows, and surrounding
+        areas helps create a cleaner, safer, and more presentable
+        environment.
+      </p>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "12px",
+          flexWrap: "wrap",
+        }}
+      >
+        <Button
+          href="/request-assistance"
+          variant="danger"
+          style={{
+            fontWeight: "700",
+            padding: "10px 18px",
+          }}
+        >
+          Request Assistance
+        </Button>
+
+        <Button
+          href="tel:+16197867089"
+          variant="outline-danger"
+          style={{
+            fontWeight: "700",
+            padding: "10px 18px",
+          }}
+        >
+          Call 619-786-7089
+        </Button>
+      </div>
     </Container>
   );
 };

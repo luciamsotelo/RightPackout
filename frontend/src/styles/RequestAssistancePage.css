@@ -1,0 +1,510 @@
+/* ==========================================
+   REQUEST ASSISTANCE PAGE
+========================================== */
+
+.request-page-hero,
+.request-page-section {
+  position: relative;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.request-page-hero {
+  overflow: hidden;
+  padding: 2.35rem 1rem 2.2rem;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(201, 35, 45, 0.07),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 15%,
+      rgba(6, 75, 145, 0.09),
+      transparent 31%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f8fbff 100%
+    );
+}
+
+.request-page-hero::before {
+  content: "";
+  position: absolute;
+  top: -190px;
+  right: -150px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(7, 56, 108, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.request-page-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.request-page-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  color: #c9232d;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.request-page-hero h1 {
+  margin: 0 0 0.45rem;
+  color: #07386c;
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.request-page-hero p {
+  max-width: 610px;
+  margin: 0 auto;
+  color: #5f6b7a;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   HERO EMERGENCY LINE
+========================================== */
+
+.request-page-emergency-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+  color: #647184;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.request-page-emergency-line a {
+  color: #c9232d;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.request-page-emergency-line a:hover {
+  text-decoration: underline;
+}
+
+.request-emergency-card small {
+  display: block;
+  margin-top: 0.2rem;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.66rem;
+}
+
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
+
+.request-page-section {
+  padding: 2.45rem 1rem;
+  background:
+    linear-gradient(
+      180deg,
+      #f4f7fb 0%,
+      #eef3f8 100%
+    );
+}
+
+.request-page-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 0.78fr)
+    minmax(0, 1.22fr);
+  align-items: start;
+  gap: 1.75rem;
+}
+
+
+/* ==========================================
+   LEFT INTRO
+========================================== */
+
+.request-page-intro {
+  padding: 0.6rem 0;
+}
+
+.request-page-intro h2 {
+  margin: 0 0 0.55rem;
+  color: #07386c;
+  font-size: clamp(1.35rem, 2.1vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.request-page-intro > p {
+  margin: 0;
+  color: #5f6b7a;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   BENEFIT CARDS
+========================================== */
+
+.request-benefits {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.15rem;
+}
+
+.request-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.78);
+  border-radius: 10px;
+  box-shadow:
+    0 8px 20px rgba(15, 35, 60, 0.05),
+    0 2px 6px rgba(15, 35, 60, 0.025);
+}
+
+.request-benefit > span {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #ffffff;
+  background-color: #16a34a;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.request-benefit strong {
+  display: block;
+  color: #07386c;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.request-benefit p {
+  margin: 0.12rem 0 0;
+  color: #647184;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* ==========================================
+   EMERGENCY CARD
+========================================== */
+
+.request-emergency-card {
+  margin-top: 0.8rem;
+  padding: 0.9rem 1rem;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      120deg,
+      #07386c 0%,
+      #0a4b87 100%
+    );
+  border-left: 3px solid #c9232d;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(7, 56, 108, 0.12);
+}
+
+.request-emergency-card span,
+.request-emergency-card strong {
+  display: block;
+}
+
+.request-emergency-card span {
+  margin-bottom: 0.15rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.request-emergency-card strong {
+  color: #ffffff;
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.request-emergency-card a {
+  display: inline-block;
+  margin-top: 0.3rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.request-emergency-card a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==========================================
+   FORM CARD
+========================================== */
+
+.request-form-card {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.35rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow:
+    0 18px 42px rgba(15, 35, 60, 0.09),
+    0 3px 10px rgba(15, 35, 60, 0.04);
+}
+
+.request-form-heading {
+  margin-bottom: 1rem;
+}
+
+.request-form-heading h2 {
+  margin: 0 0 0.18rem;
+  color: #07386c;
+  font-size: 1.22rem;
+  font-weight: 800;
+}
+
+.request-form-heading p {
+  margin: 0;
+  color: #647184;
+  font-size: 0.72rem;
+}
+
+.request-form-heading span {
+  display: block;
+  margin-top: 0.2rem;
+  color: #16a34a;
+  font-size: 0.69rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.request-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.request-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.request-field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.request-field label {
+  color: #07386c;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.request-field input,
+.request-field select,
+.request-field textarea {
+  width: 100%;
+  padding: 0.66rem 0.75rem;
+  color: #1f2937;
+  background-color: #ffffff;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.84rem;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.request-field input,
+.request-field select {
+  min-height: 42px;
+}
+
+.request-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.request-field input:focus,
+.request-field select:focus,
+.request-field textarea:focus {
+  border-color: #064b91;
+  box-shadow: 0 0 0 3px rgba(6, 75, 145, 0.12);
+}
+
+.request-field input::placeholder,
+.request-field textarea::placeholder {
+  color: #98a2b3;
+}
+
+
+/* ==========================================
+   SUCCESS MESSAGE
+========================================== */
+
+.request-message-success {
+  margin-bottom: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  color: #166534;
+  background-color: #ecfdf3;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   SUBMIT BUTTON
+========================================== */
+
+.request-submit-button {
+  min-height: 50px;
+  padding: 0.72rem 1rem;
+  color: #ffffff;
+  background-color: #c9232d;
+  border: 2px solid #c9232d;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.request-submit-button:hover:not(:disabled),
+.request-submit-button:focus:not(:disabled) {
+  background-color: #a81721;
+  border-color: #a81721;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(201, 35, 45, 0.18);
+}
+
+.request-submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+
+/* ==========================================
+   PRIVACY NOTE
+========================================== */
+
+.request-privacy-note {
+  margin: -0.2rem 0 0;
+  color: #7a8492;
+  font-size: 0.67rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .request-page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .request-page-intro {
+    max-width: 760px;
+  }
+
+  .request-benefits {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .request-emergency-card {
+    max-width: 430px;
+  }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .request-page-hero {
+    padding: 2rem 1rem;
+  }
+
+  .request-page-section {
+    padding: 2rem 1rem;
+  }
+
+  .request-page-emergency-line {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .request-benefits,
+  .request-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .request-form-card {
+    padding: 1.1rem;
+  }
+
+  .request-emergency-card {
+    max-width: none;
+  }
+
+  .request-submit-button {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+  .request-page-hero {
+    padding: 1.85rem 1rem;
+  }
+
+  .request-page-section {
+    padding: 1.85rem 0.85rem;
+  }
+}

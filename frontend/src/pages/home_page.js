@@ -35,13 +35,13 @@ const HomePage = () => {
                 them most.
               </p>
 
-             <div className="home-introduction-actions">
+            <div className="home-introduction-actions">
   <a
-    href="tel:+16197867089"
-    className="primary-home-button"
-  >
-    Start Your Recovery
-  </a>
+  href="/request-assistance"
+  className="primary-home-button"
+>
+  Start Your Recovery
+</a>
 
   <a
     href="#featured-work"

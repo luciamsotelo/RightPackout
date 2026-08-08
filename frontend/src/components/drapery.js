@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Drapes1 from '../images/Drapes1.jpeg';
-import Drapes5 from '../images/Drapes5.jpg';
-import Drapes4 from '../images/Drapes4.jpg';
+import Drapes5 from '../images/Drapes5.jpeg';
+import Drapes4 from '../images/Drapes4.jpeg';
 
 function DraperyCards() {
   const [showModal, setShowModal] = useState(false);

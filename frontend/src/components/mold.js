@@ -6,8 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Shoes1 from '../images/MB&Ashoe.jpeg';
-import Chamber1 from '../images/MChamb4.JPEG';
-import Image1 from '../images/imagesoon.png';
+import Chamber1 from '../images/MChamb4.jpeg';
+import Image1 from '../images/imagesoon.jpeg';
 
 function MoldCards() {
   const [showModal, setShowModal] = useState(false);

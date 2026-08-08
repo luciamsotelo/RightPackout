@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap';
-import Images from '../images/imagesoon.png';
+import Images from '../images/imagesoon.jpeg';
 
 const HoarderServices = () => {
   const [showModal, setShowModal] = useState(false);
