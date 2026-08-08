@@ -69,7 +69,7 @@ function Header() {
                 variant="danger"
                 className="header-action-button"
               >
-                Request Assistance
+                Request A Consultation
               </Button>
             </Nav>
           </Navbar.Collapse>

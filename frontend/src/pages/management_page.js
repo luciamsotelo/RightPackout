@@ -1,18 +1,21 @@
-import React from 'react';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Management from '../components/management';
-import Menu from '../components/menu';
+import React from "react";
+
+import Header from "../components/header";
+import Management from "../components/management";
+import Footer from "../components/footer";
 
 const ManagementPage = () => {
   return (
     <div>
       <Header />
-      <Menu />
-      <Management />
+
+      <main>
+        <Management />
+      </main>
+
       <Footer />
     </div>
   );
-}
+};
 
 export default ManagementPage;

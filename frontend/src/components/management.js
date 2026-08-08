@@ -1,169 +1,375 @@
-import React, { useState } from 'react';
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Image from 'react-bootstrap/Image';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import picture1 from '../images/Picture1.png';
-import picture2 from '../images/Picture2.png'; // Add more pictures as needed
+import React from "react";
 
-function PictureGallery() {
-  const pictures = [
-    { src: picture1, alt: 'Picture 1' },
-    { src: picture2, alt: 'Picture 2' }, // Add more pictures as needed
-  ];
-
-  return (
-    <Container style={{ marginTop: '30px' }}>
-      <Row>
-        {pictures.map((picture, index) => (
-          <Col key={index} xs={12} md={4}>
-            <Image src={picture.src} alt={picture.alt} thumbnail />
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
-}
+import "../styles/ManagementPage.css";
 
 function Management() {
-  const [activeKey, setActiveKey] = useState(null); // State to track active accordion item
-  const [showQuoteModal, setShowQuoteModal] = useState(false); // State for showing quote request modal
-  const [quoteFormData, setQuoteFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    quoteDetail: '',
-  });
-  const [quoteSubject, setQuoteSubject] = useState(''); // State for quote subject
-
-  // Function to handle accordion item click and toggle active state
-  const handleAccordionClick = (eventKey) => {
-    setActiveKey(activeKey === eventKey ? null : eventKey);
-  };
-
-  // Function to handle showing modal for quote request form
-  const handleShowQuoteModal = (subject) => {
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      quoteDetail: '',
-    });
-    setQuoteSubject(subject);
-    setShowQuoteModal(true);
-  };
-
-  // Function to handle closing modal for quote request form
-  const handleCloseQuoteModal = () => {
-    setShowQuoteModal(false);
-    // Reset form data when modal is closed
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      quoteDetail: '',
-    });
-  };
-
-  // Function to handle input change in quote request form
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuoteFormData({ ...quoteFormData, [name]: value });
-  };
-
-  // Function to handle sending quote request
-  const handleSendQuoteRequest = () => {
-    const emailBody = encodeURIComponent(`
-      First Name: ${quoteFormData.firstName}
-      Last Name: ${quoteFormData.lastName}
-      Phone Number: ${quoteFormData.phoneNumber}
-      Email: ${quoteFormData.email}
-      Quote Details: ${quoteFormData.quoteDetail}
-    `);
-    const emailSubject = encodeURIComponent(quoteSubject);
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-    // Close modal after sending request
-    handleCloseQuoteModal();
-  };
-
   return (
-    <div className="container" style={{ marginBottom: '75px' }}>
-      <Accordion activeKey={activeKey} style={{ marginTop: '30px' }}>
-        <Accordion.Item eventKey="0" style={{ border: '3px groove red' }}>
-          <Accordion.Header onClick={() => handleAccordionClick('0')}>
-            Site Coordination
-          </Accordion.Header>
-          <Accordion.Body>
-            Site coordination is a critical aspect of project management, ensuring seamless communication and efficient operations across all phases of a construction or renovation project. At The Right Pack Out, our site coordination services are designed to streamline workflows, minimize disruptions, and enhance productivity on-site. Our experienced coordinators work closely with contractors, suppliers, and stakeholders to oversee scheduling, logistics, and resource allocation. From initial planning to final execution, we prioritize safety, quality control, and adherence to timelines. Our comprehensive approach fosters collaboration and ensures that every aspect of the project is meticulously managed, allowing our clients to achieve their goals with confidence and efficiency.
-            <div style={{ marginTop: '30px' }}>
-              <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Site Coordination')}>
-                Request a Quote
-              </Button>
+    <main className="management-page">
+
+      {/* ==========================================
+          BACK TO SERVICES
+      ========================================== */}
+
+      <div className="management-back">
+        <a
+          href="/#services"
+          className="management-back-link"
+        >
+          ← Back to All Services
+        </a>
+      </div>
+
+      {/* ==========================================
+          HERO
+      ========================================== */}
+
+      <section className="management-hero">
+        <span className="management-eyebrow">
+          Project Coordination
+        </span>
+
+        <h1>
+          Keeping Your Project on Track
+        </h1>
+
+        <p>
+          The Right Pack Out helps keep every stage of your project organized
+          through clear communication, coordinated scheduling, and careful
+          oversight from start to finish.
+        </p>
+      </section>
+
+      {/* ==========================================
+          TRUST STRIP
+      ========================================== */}
+
+      <section className="management-trust-strip">
+
+        <div className="management-trust-item">
+          <strong>
+            Clear Communication
+          </strong>
+
+          <span>
+            Homeowners, contractors, vendors, and project partners stay informed
+          </span>
+        </div>
+
+        <div className="management-trust-item">
+          <strong>
+            Coordinated Scheduling
+          </strong>
+
+          <span>
+            Project activities are organized around access, timelines, and priorities
+          </span>
+        </div>
+
+        <div className="management-trust-item">
+          <strong>
+            Organized Oversight
+          </strong>
+
+          <span>
+            Contents-related work is tracked from planning through completion
+          </span>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          PROJECT COORDINATION SERVICES
+      ========================================== */}
+
+      <section className="management-services">
+
+        <div className="management-divider"></div>
+
+        <div className="management-section-heading">
+          <span>
+            What's Included
+          </span>
+
+          <h2>
+            Organized Support From Planning to Completion
+          </h2>
+
+          <p>
+            Restoration projects can involve many moving parts. Our role is
+            to help coordinate the details so everyone involved has a clearer
+            understanding of timing, responsibilities, and next steps.
+          </p>
+        </div>
+
+        <div className="management-service-grid">
+
+          <article className="management-service-card">
+            <div className="management-service-icon">
+              📅
             </div>
-          </Accordion.Body>
-        </Accordion.Item>
 
-        <Accordion.Item eventKey="1" style={{ border: '3px groove white' }}>
-          <Accordion.Header onClick={() => handleAccordionClick('1')}>
-            Site Management
-          </Accordion.Header>
-          <Accordion.Body>
-            Site management is the cornerstone of effective project execution at The Right Pack Out, encompassing a range of responsibilities aimed at ensuring smooth operations and achieving project objectives. Our dedicated site managers oversee every aspect of the project lifecycle, from initial planning and resource allocation to execution and closeout. They are adept at coordinating with subcontractors, suppliers, and stakeholders to maintain timelines, quality standards, and budgetary constraints. Our commitment to site management includes rigorous safety protocols, proactive problem-solving, and regular progress updates to keep all parties informed and aligned. At The Right Pack Out, our focus on meticulous planning and execution underpins successful project delivery, ensuring client satisfaction and project success.
-            <div style={{ marginTop: '30px' }}>
-              <Button variant="danger" onClick={() => handleShowQuoteModal('Request for Site Management')}>
-                Request a Quote
-              </Button>
+            <h3>
+              Schedule Coordination
+            </h3>
+
+            <p>
+              Project timing, access, and service activities are coordinated
+              around restoration, construction, and occupancy needs.
+            </p>
+          </article>
+
+          <article className="management-service-card">
+            <div className="management-service-icon">
+              🤝
             </div>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
 
-      {/* Picture Gallery */}
-      <PictureGallery />
+            <h3>
+              Vendor Coordination
+            </h3>
 
-      {/* Modal for quote request form */}
-      <Modal show={showQuoteModal} onHide={handleCloseQuoteModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request a Quote</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3">
-              <Form.Label>First Name:</Form.Label>
-              <Form.Control type="text" name="firstName" value={quoteFormData.firstName} onChange={handleInputChange} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Last Name:</Form.Label>
-              <Form.Control type="text" name="lastName" value={quoteFormData.lastName} onChange={handleInputChange} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control type="tel" name="phoneNumber" value={quoteFormData.phoneNumber} onChange={handleInputChange} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control type="email" name="email" value={quoteFormData.email} onChange={handleInputChange} />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>What do you want a quote on?</Form.Label>
-              <Form.Control as="textarea" rows={3} name="quoteDetail" value={quoteFormData.quoteDetail} onChange={handleInputChange} />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseQuoteModal}>Close</Button>
-          <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+            <p>
+              Communication with contractors, vendors, and service providers
+              helps keep responsibilities clear and reduce unnecessary delays.
+            </p>
+          </article>
+
+          <article className="management-service-card">
+            <div className="management-service-icon">
+              📦
+            </div>
+
+            <h3>
+              Contents Logistics
+            </h3>
+
+            <p>
+              Packout, storage, cleaning, delivery, and return activities can
+              be organized as the project moves through each phase.
+            </p>
+          </article>
+
+          <article className="management-service-card">
+            <div className="management-service-icon">
+              📋
+            </div>
+
+            <h3>
+              Progress Tracking
+            </h3>
+
+            <p>
+              Project stages are monitored to help identify what has been
+              completed and what still requires attention.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          FEATURE SECTION
+      ========================================== */}
+
+      <section className="management-feature">
+
+        <div className="management-feature-copy">
+          <span className="management-eyebrow">
+            Coordinated From Start to Finish
+          </span>
+
+          <h2>
+            One Organized Approach to a Complex Project
+          </h2>
+
+          <p>
+            Contents restoration often overlaps with construction, insurance,
+            specialty cleaning, storage, and multiple service providers.
+            Without clear coordination, schedules and responsibilities can
+            quickly become difficult to manage.
+          </p>
+
+          <p>
+            The Right Pack Out helps connect the moving parts through
+            organized communication, project planning, and thoughtful
+            coordination throughout the recovery process.
+          </p>
+        </div>
+
+        <div className="management-feature-panel">
+          <span className="management-feature-label">
+            Project Oversight
+          </span>
+
+          <h3>
+            Plan. Coordinate. Complete.
+          </h3>
+
+          <p>
+            Clear communication and organized project oversight help support
+            a smoother transition from the first phase of recovery through
+            final completion.
+          </p>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          PROJECT SUPPORT
+      ========================================== */}
+
+      <section className="management-details">
+
+        <div className="management-section-heading">
+          <span>
+            Project Support
+          </span>
+
+          <h2>
+            Site Coordination and Project Management
+          </h2>
+
+          <p>
+            These services work together to help keep contents-related work
+            organized and moving in the right direction.
+          </p>
+        </div>
+
+        <div className="management-detail-grid">
+
+          <article className="management-detail-card">
+            <span className="management-detail-label">
+              Site Coordination
+            </span>
+
+            <h3>
+              Keeping On-Site Activities Aligned
+            </h3>
+
+            <p>
+              Site coordination focuses on scheduling, access, communication,
+              logistics, and the day-to-day details needed to keep
+              contents-related services moving efficiently.
+            </p>
+          </article>
+
+          <article className="management-detail-card">
+            <span className="management-detail-label">
+              Project Management
+            </span>
+
+            <h3>
+              Organized Oversight Through Every Phase
+            </h3>
+
+            <p>
+              Project management brings together planning, progress tracking,
+              communication, and coordination so each stage remains organized
+              from beginning to completion.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          WHY CHOOSE US
+      ========================================== */}
+
+      <section className="management-benefits">
+
+        <div className="management-section-heading">
+          <span>
+            Why Choose The Right Pack Out
+          </span>
+
+          <h2>
+            Clear Communication. Organized Execution.
+          </h2>
+
+          <p>
+            Strong coordination helps reduce confusion, clarify
+            responsibilities, and support a smoother restoration process.
+          </p>
+        </div>
+
+        <div className="management-benefit-grid">
+
+          <div className="management-benefit-item">
+            <strong>
+              Central Communication
+            </strong>
+
+            <span>
+              Clear communication helps keep homeowners, contractors,
+              vendors, and project partners aligned.
+            </span>
+          </div>
+
+          <div className="management-benefit-item">
+            <strong>
+              Schedule Coordination
+            </strong>
+
+            <span>
+              Project timing and access can be coordinated around
+              restoration and construction activities.
+            </span>
+          </div>
+
+          <div className="management-benefit-item">
+            <strong>
+              Contents Logistics
+            </strong>
+
+            <span>
+              Packout, storage, cleaning, delivery, and return activities
+              can be organized throughout the project.
+            </span>
+          </div>
+
+          <div className="management-benefit-item">
+            <strong>
+              Progress Tracking
+            </strong>
+
+            <span>
+              Project stages are monitored to help identify what has been
+              completed and what requires attention.
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          CLOSING SECTION
+      ========================================== */}
+
+      <section className="management-cta">
+
+        <div className="management-cta-content">
+
+          <div>
+            <span>
+              Here From Start to Finish
+            </span>
+
+            <h2>
+              Coordinated Support Through Every Stage of the Project.
+            </h2>
+
+            <p className="management-cta-text">
+              When you are ready to discuss site coordination or project
+              management, use the Request Assistance button in the header
+              and our team can help determine the next steps.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }
 

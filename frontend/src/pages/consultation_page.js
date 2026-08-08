@@ -1,18 +1,21 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Consultation from '../components/consultation'
-import Menu from '../components/menu'
+import React from "react";
 
-const consultation_page = () => {
+import Header from "../components/header";
+import Consultation from "../components/consultation";
+import Footer from "../components/footer";
+
+const ConsultationPage = () => {
   return (
     <div>
       <Header />
-      <Menu />
-      <Consultation />
+
+      <main>
+        <Consultation />
+      </main>
+
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default consultation_page
+export default ConsultationPage;

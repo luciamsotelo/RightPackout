@@ -14,44 +14,51 @@ function Menu() {
         { label: "Preservation Services", href: "/preservations" },
       ],
     },
+
     {
       icon: "✨",
       title: "Cleaning & Restoration",
-      description: "Specialized cleaning for damaged contents and furnishings.",
+      description:
+        "Specialized cleaning and restoration for damaged contents and furnishings.",
       items: [
-        { label: "Drapery Services", href: "/drapery" },
-        { label: "Mold Restoration", href: "/mold" },
-        { label: "Fire Restoration", href: "/fire" },
-        { label: "Furniture Cleaning", href: "/restoration" },
-        { label: "Window Cleaning", href: "/window" },
+        { label: "Fire Damage Restoration", href: "/fire" },
+        { label: "Water & Mold Contents", href: "/mold" },
+        { label: "Drapery Cleaning", href: "/drapery" },
+        { label: "Furniture Restoration", href: "/restoration" },
+        { label: "Window Treatments", href: "/window" },
       ],
     },
+
     {
       icon: "📋",
-      title: "Consultation Guidance",
+      title: "Contents Documentation",
       description:
-        "Clear documentation for owners and insurance professionals.",
+        "Professional inventory and documentation for owners, contractors, and insurance claims.",
       items: [
-        { label: "Contents Consultation", href: "/consultation" },
-        { label: "Insurance Reports", href: "/consultation" },
+        { label: "Contents Inventory", href: "/consultation" },
+        { label: "Insurance Documentation", href: "/consultation" },
         { label: "Total Loss Inventory", href: "/consultation" },
       ],
     },
+
     {
       icon: "🤝",
-      title: "Management Services",
-      description: "Organized coordination from start to completion.",
+      title: "Project Coordination",
+      description:
+        "Organized coordination from packout through restoration and return.",
       items: [
         { label: "Site Coordination", href: "/management" },
-        { label: "Site Management", href: "/management" },
+        { label: "Project Management", href: "/management" },
       ],
     },
+
     {
       icon: "🧹",
       title: "Specialty Cleaning",
-      description: "Thoughtful solutions for challenging environments.",
+      description:
+        "Thoughtful solutions for challenging spaces and specialized cleaning needs.",
       items: [
-        { label: "Construction Cleanup", href: "/construction" },
+        { label: "Construction Dust Cleaning", href: "/construction" },
         { label: "Hoarder House Cleaning", href: "/hoarder" },
       ],
     },
@@ -64,22 +71,46 @@ function Menu() {
       aria-labelledby="services-title"
     >
       <div className="container">
-        <div className="services-navigation-heading">
-          <span className="services-eyebrow">Explore Our Services</span>
 
-          <h2 id="services-title">How The Right Pack Out Can Help</h2>
+        {/* ==========================================
+            SECTION HEADING
+        ========================================== */}
+
+        <div className="services-navigation-heading">
+          <span className="services-eyebrow">
+            Our Services
+          </span>
+
+          <h2 id="services-title">
+            Complete Contents Care, From Packout to Return
+          </h2>
 
           <p>
-            Select a service category to learn more about our packout,
-            cleaning, restoration, storage, and consultation services.
+            Professional packing, cleaning, restoration, storage, and
+            documentation services designed to protect your belongings
+            through every stage of recovery.
           </p>
         </div>
 
+        {/* ==========================================
+            SERVICE GRID
+        ========================================== */}
+
         <div className="compact-service-grid">
           {serviceGroups.map((group) => (
-            <article className="compact-service-card" key={group.title}>
+            <article
+              className="compact-service-card"
+              key={group.title}
+            >
+              {/* ==========================================
+                  CARD HEADER
+              ========================================== */}
+
               <div className="compact-service-header">
-                <div className="compact-service-icon" aria-hidden="true">
+                <div
+                  className="compact-service-icon"
+                  aria-hidden="true"
+                >
                   {group.icon}
                 </div>
 
@@ -88,6 +119,10 @@ function Menu() {
                   <p>{group.description}</p>
                 </div>
               </div>
+
+              {/* ==========================================
+                  CARD LINKS
+              ========================================== */}
 
               <div className="compact-service-links">
                 {group.items.map((item) => (
@@ -104,6 +139,7 @@ function Menu() {
             </article>
           ))}
         </div>
+
       </div>
     </section>
   );

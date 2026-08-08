@@ -1,18 +1,21 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Menu from '../components/menu' 
-import Window from '../components/window'
+import React from "react";
 
-const window_page = () => {
+import Header from "../components/header";
+import Window from "../components/window";
+import Footer from "../components/footer";
+
+const WindowPage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Window />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default window_page
+      <main>
+        <Window />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default WindowPage;

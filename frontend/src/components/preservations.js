@@ -1,173 +1,360 @@
-import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Imaging from '../images/imagesoon.jpeg';
+import React from "react";
 
-function PreservationCards() {
-  const [showModal, setShowModal] = useState(false);
-  const [quoteFormData, setQuoteFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    message: ''
-  });
+import RugsDrying from "../images/RugsDrying.jpeg";
 
-  const handleShowModal = () => {
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      message: ''
-    });
-    setShowModal(true);
-  };
+import "../styles/PreservationsPage.css";
 
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuoteFormData({ ...quoteFormData, [name]: value });
-  };
-
-  const handleSendQuoteRequest = () => {
-    const emailBody = encodeURIComponent(`
-      First Name: ${quoteFormData.firstName}
-      Last Name: ${quoteFormData.lastName}
-      Phone Number: ${quoteFormData.phoneNumber}
-      Email: ${quoteFormData.email}
-      Message: ${quoteFormData.message}
-    `);
-
-    // Use a fixed subject for all emails
-    const subject = 'Quote Request on Preservation';
-
-    // Prepare mailto link with fixed subject
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-
-    // Close modal after sending request
-    handleCloseModal();
-  };
-
-  const cardsData = [
-    {
-      title: 'Preservation 1',
-      image: Imaging,
-      description: 'Description of preservation 1.'
-    },
-    // {
-    //   title: 'Preservation 2',
-    //   image: Imaging,
-    //   description: 'Description of preservation 2.'
-    // },
-    // {
-    //   title: 'Preservation 3',
-    //   image: Imaging,
-    //   description: 'Description of preservation 3.'
-    // },
-    // {
-    //   title: 'Preservation 4',
-    //   image: Imaging,
-    //   description: 'Description of preservation 4.'
-    // },
-   
-  ];
-
+function Preservations() {
   return (
-    <div className="" style={{ marginBottom: '50px'}}>
-      <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '100%'}}>
-          <br></br>
-          <h1 style={{ textAlign: 'center'}}>Preservation Services</h1>
-          <p style={{ textAlign: 'justify', margin: '10px'}}>We invite you to explore our comprehensive Preservation Services and see how we can help you protect your valuable possessions. 
-          </p>
-          <div className="" style={{ margin: '5px', textAlign: 'center' }}>
-            <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-          </div>
-        </div>
-      </div>
-      <Row xs={1} sm={2} md={3} lg={4} className="g-4 m-3">
-        {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '20px' }}>
-            <Card className="h-100">
-              <Card.Img variant="top" src={card.image} style={{ height: '300px', objectFit: 'cover' }} />
-              <Card.Body style={{ maxHeight: '120px', overflow: 'hidden' }}>
-                <Card.Title>{card.title}</Card.Title>
-                <Card.Text>
-                  {card.description}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+    <main className="preservation-page">
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request a Quote</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="firstName">
-              <Form.Label>First Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={quoteFormData.firstName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="lastName" className="mt-2">
-              <Form.Label>Last Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={quoteFormData.lastName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="phoneNumber" className="mt-2">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                value={quoteFormData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="email" className="mt-2">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={quoteFormData.email}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="message" className="mt-2">
-              <Form.Label>Message:</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="message"
-                value={quoteFormData.message}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-          <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+      {/* ==========================================
+          BACK TO SERVICES
+      ========================================== */}
+
+      <div className="preservation-back">
+        <a
+          href="/#services"
+          className="preservation-back-link"
+        >
+          ← Back to All Services
+        </a>
+      </div>
+
+      {/* ==========================================
+          HERO
+      ========================================== */}
+
+      <section className="preservation-hero">
+        <span className="preservation-eyebrow">
+          Preservation Services
+        </span>
+
+        <h1>
+          Preserving the Things That Carry Meaning.
+        </h1>
+
+        <p>
+          Some belongings carry more than material value. The Right Pack Out
+          provides thoughtful preservation services designed to protect
+          specialty contents, textiles, and meaningful belongings throughout
+          the restoration process.
+        </p>
+      </section>
+
+      {/* ==========================================
+          TRUST STRIP
+      ========================================== */}
+
+      <section className="preservation-trust-strip">
+
+        <div className="preservation-trust-item">
+          <strong>
+            Individual Assessment
+          </strong>
+
+          <span>
+            Each item is reviewed based on its material and condition
+          </span>
+        </div>
+
+        <div className="preservation-trust-item">
+          <strong>
+            Delicate Handling
+          </strong>
+
+          <span>
+            Specialty contents receive careful and thoughtful attention
+          </span>
+        </div>
+
+        <div className="preservation-trust-item">
+          <strong>
+            Protective Care
+          </strong>
+
+          <span>
+            Preservation helps reduce unnecessary exposure and deterioration
+          </span>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          PRESERVATION SERVICES
+      ========================================== */}
+
+      <section className="preservation-services">
+
+        <div className="preservation-divider"></div>
+
+        <div className="preservation-section-heading">
+          <span>
+            What's Included
+          </span>
+
+          <h2>
+            Thoughtful Care for Specialty Contents
+          </h2>
+
+          <p>
+            Preservation begins with understanding the item, its condition,
+            and the type of care needed to help protect it throughout the
+            restoration process.
+          </p>
+        </div>
+
+        <div className="preservation-service-grid">
+
+          <article className="preservation-service-card">
+            <div className="preservation-service-icon">
+              🔎
+            </div>
+
+            <h3>
+              Condition Review
+            </h3>
+
+            <p>
+              Items are carefully inspected before preservation work begins
+              so the appropriate approach can be selected.
+            </p>
+          </article>
+
+          <article className="preservation-service-card">
+            <div className="preservation-service-icon">
+              🧼
+            </div>
+
+            <h3>
+              Careful Cleaning
+            </h3>
+
+            <p>
+              Cleaning methods are chosen based on the material, condition,
+              and needs of the individual item.
+            </p>
+          </article>
+
+          <article className="preservation-service-card">
+            <div className="preservation-service-icon">
+              🧵
+            </div>
+
+            <h3>
+              Specialty Handling
+            </h3>
+
+            <p>
+              Textiles, garments, rugs, and other specialty contents receive
+              careful handling throughout the process.
+            </p>
+          </article>
+
+          <article className="preservation-service-card">
+            <div className="preservation-service-icon">
+              🛡️
+            </div>
+
+            <h3>
+              Protective Preparation
+            </h3>
+
+            <p>
+              Items are prepared to help reduce unnecessary exposure,
+              handling, and long-term deterioration.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          FEATURE AREA
+      ========================================== */}
+
+      <section className="preservation-feature">
+
+        <div className="preservation-feature-copy">
+          <span className="preservation-eyebrow">
+            Specialty Preservation
+          </span>
+
+          <h2>
+            Protecting More Than Just an Item
+          </h2>
+
+          <p>
+            Preservation is about protecting the meaning and value attached
+            to a belonging. Some contents require more thoughtful care than
+            everyday cleaning or storage can provide.
+          </p>
+
+          <p>
+            Our approach focuses on careful inspection, appropriate treatment,
+            and protective handling throughout each stage of the restoration
+            process.
+          </p>
+        </div>
+
+        <div className="preservation-feature-panel">
+          <span className="preservation-feature-label">
+            Thoughtful Care
+          </span>
+
+          <h3>
+            Inspect. Protect. Preserve.
+          </h3>
+
+          <p>
+            Each item is approached individually so the preservation process
+            reflects its material, condition, and importance.
+          </p>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          PRESERVATION EXAMPLE
+      ========================================== */}
+
+      <section className="preservation-projects">
+
+        <div className="preservation-section-heading">
+          <span>
+            Preservation in Practice
+          </span>
+
+          <h2>
+            Professional Care for Specialty Contents
+          </h2>
+
+          <p>
+            Careful drying, cleaning, handling, and protection can help preserve
+            specialty contents throughout restoration.
+          </p>
+        </div>
+
+        <article className="preservation-project-card">
+          <img
+            src={RugsDrying}
+            alt="Professional rug drying and preservation services"
+          />
+
+          <div className="preservation-project-card-content">
+            <span className="preservation-project-label">
+              Specialty Preservation
+            </span>
+
+            <h3>
+              Professional Preservation Solutions
+            </h3>
+
+            <p>
+              Specialty contents such as rugs and textiles may require careful
+              drying, treatment, and handling to help protect their condition
+              throughout the restoration process.
+            </p>
+          </div>
+        </article>
+
+      </section>
+
+      {/* ==========================================
+          WHY CHOOSE US
+      ========================================== */}
+
+      <section className="preservation-benefits">
+
+        <div className="preservation-section-heading">
+          <span>
+            Why Choose The Right Pack Out
+          </span>
+
+          <h2>
+            Thoughtful Care for Meaningful Belongings
+          </h2>
+        </div>
+
+        <div className="preservation-benefit-grid">
+
+          <div className="preservation-benefit-item">
+            <strong>
+              Individual Attention
+            </strong>
+
+            <span>
+              Each item is considered based on its material, condition,
+              and preservation needs.
+            </span>
+          </div>
+
+          <div className="preservation-benefit-item">
+            <strong>
+              Delicate Handling
+            </strong>
+
+            <span>
+              Specialty belongings receive careful and limited handling
+              throughout the process.
+            </span>
+          </div>
+
+          <div className="preservation-benefit-item">
+            <strong>
+              Specialized Knowledge
+            </strong>
+
+            <span>
+              Experience with textiles and specialty contents helps guide
+              appropriate care decisions.
+            </span>
+          </div>
+
+          <div className="preservation-benefit-item">
+            <strong>
+              Long-Term Protection
+            </strong>
+
+            <span>
+              Preservation helps support the continued care of meaningful
+              belongings after restoration.
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          CLOSING SECTION
+      ========================================== */}
+
+      <section className="preservation-cta">
+
+        <div className="preservation-cta-content">
+
+          <div>
+            <span>
+              Protecting What Matters
+            </span>
+
+            <h2>
+              Thoughtful Preservation From Start to Finish.
+            </h2>
+
+            <p className="preservation-cta-text">
+              When you are ready to discuss a specialty item or preservation
+              need, use the Request Assistance button in the header and our
+              team can help determine the next steps.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }
 
-export default PreservationCards;
+export default Preservations;

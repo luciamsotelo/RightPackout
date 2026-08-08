@@ -1,18 +1,21 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Mold from '../components/mold'
-import Menu from '../components/menu'
+import React from "react";
 
-const mold_page = () => {
+import Header from "../components/header";
+import Mold from "../components/mold";
+import Footer from "../components/footer";
+
+const MoldPage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Mold />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default mold_page
+      <main>
+        <Mold />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default MoldPage;

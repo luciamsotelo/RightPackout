@@ -1,193 +1,386 @@
-import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Shoes1 from '../images/MB&Ashoe.jpeg';
-import Chamber1 from '../images/MChamb4.jpeg';
-import Image1 from '../images/imagesoon.jpeg';
+import React from "react";
 
-function MoldCards() {
-  const [showModal, setShowModal] = useState(false);
-  const [quoteFormData, setQuoteFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    message: ''
-  });
+import MoldShoe from "../images/MB&Ashoe.jpeg";
+import MoldChamber from "../images/MChamb4.jpeg";
 
-  const handleShowModal = () => {
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      message: ''
-    });
-    setShowModal(true);
-  };
+import "../styles/MoldPage.css";
 
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuoteFormData({ ...quoteFormData, [name]: value });
-  };
-
-  const handleSendQuoteRequest = () => {
-    const emailBody = encodeURIComponent(`
-      First Name: ${quoteFormData.firstName}
-      Last Name: ${quoteFormData.lastName}
-      Phone Number: ${quoteFormData.phoneNumber}
-      Email: ${quoteFormData.email}
-      Message: ${quoteFormData.message}
-    `);
-
-    let subject = 'Quote Request on Mold Removal';
-    if (quoteFormData.firstName && quoteFormData.lastName) {
-      const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
-      if (fullName !== 'Lucia Sotelo') {
-        subject = `Quote Request for Drapery - ${fullName}`;
-      }
-    }
-
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-    handleCloseModal();
-  };
-
-  const cardsData = [
-    {
-      title: 'Before and After Mold Removal',
-      image: Shoes1,
-      description: 'Before and after mold removal.'
-    },
-    {
-      title: 'Mold Removal Process',
-      image: Chamber1,
-      description: 'Process of mold removal.'
-    },
-    {
-      title: 'Mold Before',
-      image: Image1,
-      description: 'Mold before removal.'
-    },
-    {
-      title: 'Mold After Cleaning',
-      image: Image1,
-      description: 'Mold after cleaning.'
-    },
-    {
-      title: 'Mold Before',
-      image: Image1,
-      description: 'Another example of mold before removal.'
-    },
-    {
-      title: 'Mold After Cleaning',
-      image: Image1,
-      description: 'Another example of mold after cleaning.'
-    },
-    {
-      title: 'Mold Before',
-      image: Image1,
-      description: 'Another example of mold before removal.'
-    },
-    {
-      title: 'Mold After Cleaning',
-      image: Image1,
-      description: 'Another example of mold after cleaning.'
-    },
-  ];
-
+function Mold() {
   return (
-    <div className="" style={{ marginBottom: '100px'}}>
-      <div style={{ textAlign: 'justify', margin: '30px' }}>
-          <h1 style={{ textAlign: 'center', padding: '8px' }}>Mold Removal</h1>
-          <p style={{ textAlign: 'justify', padding: '1px 20px 1px 20px' }}>Mold removal is a critical service aimed at ensuring the safety and health of your home or business environment. Mold growth can occur in areas with excessive moisture, often resulting from leaks, flooding, or high humidity levels. Our professional mold removal process begins with a thorough inspection to identify the source and extent of the mold infestation. Using advanced equipment and proven techniques, we meticulously remove mold and clean affected areas to prevent further contamination. Our team also addresses the underlying moisture issues to inhibit future growth. Trust our experienced professionals to restore your space to a clean, healthy state, free from the harmful effects of mold.</p>
-      </div>
-      <Row xs={1} md={2} lg={4} className="g-4 m-3">
-        {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '50px' }}>
-            <Card className="h-100">
-              <Card.Img variant="top" src={card.image} className="card-img-top" style={{ maxHeight: '300px', objectFit: 'cover' }} />
-              <Card.Body className="card-body">
-                <Card.Title>{card.title}</Card.Title>
-                <Card.Text>
-                  {card.description}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+    <main className="mold-page">
 
-      <div className="d-flex justify-content-center" style={{ padding: '1px 10px 50px 10px' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
+      {/* ==========================================
+          BACK TO SERVICES
+      ========================================== */}
+
+      <div className="mold-back">
+        <a
+          href="/#services"
+          className="mold-back-link"
+        >
+          ← Back to All Services
+        </a>
       </div>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request a Quote</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="firstName">
-              <Form.Label>First Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={quoteFormData.firstName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="lastName" className="mt-2">
-              <Form.Label>Last Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={quoteFormData.lastName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="phoneNumber" className="mt-2">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                value={quoteFormData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="email" className="mt-2">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={quoteFormData.email}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="message" className="mt-2">
-              <Form.Label>Message:</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="message"
-                value={quoteFormData.message}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-          <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+      {/* ==========================================
+          HERO
+      ========================================== */}
+
+      <section className="mold-hero">
+        <span className="mold-eyebrow">
+          Water & Mold Contents
+        </span>
+
+        <h1>
+          Restoring What Water and Mold Have Damaged.
+        </h1>
+
+        <p>
+          Water and mold damage can affect the belongings that matter most.
+          The Right Pack Out carefully documents, evaluates, cleans, and
+          restores affected contents whenever possible, helping protect your
+          possessions throughout every stage of the recovery process.
+        </p>
+      </section>
+
+      {/* ==========================================
+          TRUST STRIP
+      ========================================== */}
+
+      <section className="mold-trust-strip">
+
+        <div className="mold-trust-item">
+          <strong>
+            Detailed Assessment
+          </strong>
+
+          <span>
+            Affected contents are reviewed for condition and restoration potential
+          </span>
+        </div>
+
+        <div className="mold-trust-item">
+          <strong>
+            Controlled Handling
+          </strong>
+
+          <span>
+            Items are managed carefully to help limit unnecessary disturbance
+          </span>
+        </div>
+
+        <div className="mold-trust-item">
+          <strong>
+            Organized Documentation
+          </strong>
+
+          <span>
+            Project records help support clear communication throughout recovery
+          </span>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          CONTENTS RECOVERY SERVICES
+      ========================================== */}
+
+      <section className="mold-services">
+
+        <div className="mold-divider"></div>
+
+        <div className="mold-section-heading">
+          <span>
+            What's Included
+          </span>
+
+          <h2>
+            Careful Recovery for Water- and Mold-Affected Contents
+          </h2>
+
+          <p>
+            Every affected item is different. Our process focuses on
+            documentation, appropriate handling, and identifying what may
+            be safely restored.
+          </p>
+        </div>
+
+        <div className="mold-service-grid">
+
+          <article className="mold-service-card">
+            <div className="mold-service-icon">
+              📷
+            </div>
+
+            <h3>
+              Condition Documentation
+            </h3>
+
+            <p>
+              Affected contents can be photographed and documented before
+              treatment to help record their condition.
+            </p>
+          </article>
+
+          <article className="mold-service-card">
+            <div className="mold-service-icon">
+              💧
+            </div>
+
+            <h3>
+              Moisture Assessment
+            </h3>
+
+            <p>
+              Water-affected items are reviewed to help determine their
+              condition and appropriate next steps.
+            </p>
+          </article>
+
+          <article className="mold-service-card">
+            <div className="mold-service-icon">
+              🔎
+            </div>
+
+            <h3>
+              Contamination Review
+            </h3>
+
+            <p>
+              Visible mold or contamination is documented so affected
+              contents can be handled appropriately.
+            </p>
+          </article>
+
+          <article className="mold-service-card">
+            <div className="mold-service-icon">
+              🧼
+            </div>
+
+            <h3>
+              Specialty Cleaning
+            </h3>
+
+            <p>
+              Cleaning methods are selected based on the item, material,
+              condition, and type of contamination.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          FEATURE AREA
+      ========================================== */}
+
+      <section className="mold-feature">
+
+        <div className="mold-feature-copy">
+          <span className="mold-eyebrow">
+            Contents Recovery
+          </span>
+
+          <h2>
+            Careful Handling From Assessment to Restoration
+          </h2>
+
+          <p>
+            Water and mold can affect contents differently depending on
+            material, exposure, and condition. Careful evaluation helps
+            determine whether an item may be cleaned, treated, dried,
+            or prepared for additional restoration.
+          </p>
+
+          <p>
+            Our process emphasizes thoughtful handling and clear documentation
+            so affected belongings remain organized throughout recovery.
+          </p>
+        </div>
+
+        <div className="mold-feature-panel">
+          <span className="mold-feature-label">
+            Thoughtful Recovery
+          </span>
+
+          <h3>
+            Assess. Clean. Protect.
+          </h3>
+
+          <p>
+            Professional contents care helps identify what may be recoverable
+            while supporting organized handling throughout the process.
+          </p>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          REAL PROJECT EXAMPLES
+      ========================================== */}
+
+      <section className="mold-projects">
+
+        <div className="mold-section-heading">
+          <span>
+            Real Contents Recovery
+          </span>
+
+          <h2>
+            Careful Assessment. Visible Results.
+          </h2>
+
+          <p>
+            Real examples of contents affected by water or mold and the
+            specialized care used during the recovery process.
+          </p>
+        </div>
+
+        <div className="mold-project-grid">
+
+          <article className="mold-project-card">
+            <img
+              src={MoldShoe}
+              alt="Before and after mold cleaning on a specialty shoe"
+            />
+
+            <div className="mold-project-card-content">
+              <span className="mold-project-label">
+                Before & After
+              </span>
+
+              <h3>
+                Specialty Contents Cleaning
+              </h3>
+
+              <p>
+                This item was carefully inspected and cleaned to address
+                visible mold contamination while preserving the item
+                whenever possible.
+              </p>
+            </div>
+          </article>
+
+          <article className="mold-project-card">
+            <img
+              src={MoldChamber}
+              alt="Controlled chamber used during specialty contents treatment"
+            />
+
+            <div className="mold-project-card-content">
+              <span className="mold-project-label">
+                Treatment Process
+              </span>
+
+              <h3>
+                Controlled Contents Care
+              </h3>
+
+              <p>
+                Specialty contents may require controlled treatment and
+                careful handling as part of the cleaning and recovery process.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          WHY CHOOSE US
+      ========================================== */}
+
+      <section className="mold-benefits">
+
+        <div className="mold-section-heading">
+          <span>
+            Why Choose The Right Pack Out
+          </span>
+
+          <h2>
+            Organized Care for Affected Belongings
+          </h2>
+        </div>
+
+        <div className="mold-benefit-grid">
+
+          <div className="mold-benefit-item">
+            <strong>
+              Detailed Documentation
+            </strong>
+
+            <span>
+              Contents can be photographed and organized to support
+              project records and communication.
+            </span>
+          </div>
+
+          <div className="mold-benefit-item">
+            <strong>
+              Controlled Handling
+            </strong>
+
+            <span>
+              Affected items are handled carefully to help reduce unnecessary
+              disturbance or cross-contamination.
+            </span>
+          </div>
+
+          <div className="mold-benefit-item">
+            <strong>
+              Specialty Contents Care
+            </strong>
+
+            <span>
+              Treatment approaches can be selected based on the material,
+              condition, and type of damage.
+            </span>
+          </div>
+
+          <div className="mold-benefit-item">
+            <strong>
+              Residential & Commercial
+            </strong>
+
+            <span>
+              Contents recovery can support homes, businesses, and
+              restoration-related projects.
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          CLOSING SECTION
+      ========================================== */}
+
+      <section className="mold-cta">
+
+        <div className="mold-cta-content">
+
+          <div>
+            <span>
+              Care Through the Recovery Process
+            </span>
+
+            <h2>
+              Thoughtful Care for Water- and Mold-Affected Contents.
+            </h2>
+
+            <p className="mold-cta-text">
+              When you are ready to discuss water- or mold-affected belongings,
+              use the Request Assistance button in the header and our team can
+              help determine the next steps.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }
 
-export default MoldCards;
+export default Mold;

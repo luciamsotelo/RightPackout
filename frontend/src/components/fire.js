@@ -1,199 +1,440 @@
-import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Fire4 from '../images/FjacketB3.jpeg';
-import Fire1 from '../images/FjacketB1.jpeg';
-import Fire2 from '../images/FjacketA1.jpeg';
-import Fire3 from '../images/FjacketA2.jpeg';
-import Image2 from '../images/imagesoon.jpeg';
+import React, { useState } from "react";
 
-function FireCards() {
+import RequestAssistanceModal from "./RequestAssistanceModal";
+
+import FireBeforeFull from "../images/FjacketB3.jpeg";
+import FireBeforeDetail from "../images/FjacketB1.jpeg";
+import FireAfterLeft from "../images/FjacketA1.jpeg";
+import FireAfterRight from "../images/FjacketA2.jpeg";
+
+import "../styles/FirePage.css";
+
+function Fire() {
   const [showModal, setShowModal] = useState(false);
-  const [quoteFormData, setQuoteFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    message: ''
-  });
 
   const handleShowModal = () => {
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      message: ''
-    });
     setShowModal(true);
   };
 
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuoteFormData({ ...quoteFormData, [name]: value });
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
-
-  const handleSendQuoteRequest = () => {
-    const emailBody = encodeURIComponent(`
-      First Name: ${quoteFormData.firstName}
-      Last Name: ${quoteFormData.lastName}
-      Phone Number: ${quoteFormData.phoneNumber}
-      Email: ${quoteFormData.email}
-      Message: ${quoteFormData.message}
-    `);
-
-    let subject = 'Quote Request on Fire Restoration';
-    if (quoteFormData.firstName && quoteFormData.lastName) {
-      const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
-      if (fullName !== 'Lucia Sotelo') {
-        subject = `Quote Request for Fire Restoration - ${fullName}`;
-      }
-    }
-
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-    handleCloseModal();
-  };
-
-  const cardsData = [
-    {
-      title: 'Before Fire Restoration',
-      image: Fire4,
-      description: 'Description of fire restoration 1.'
-    },
-    {
-      title: 'Before Fire Restoration',
-      image: Fire1,
-      description: 'Description of fire restoration 2.'
-    },
-    {
-      title: 'After Fire Restoration',
-      image: Fire2,
-      description: 'Description of fire restoration 3.'
-    },
-    {
-      title: 'After Fire Restoration',
-      image: Fire3,
-      description: 'Description of fire restoration 4.'
-    },
-    {
-      title: 'Fire Restoration',
-      image: Image2,
-      description: 'Description of fire restoration 1.'
-    },
-    {
-      title: 'Fire Restoration',
-      image: Image2,
-      description: 'Description of fire restoration 2.'
-    },
-    {
-      title: 'Fire Restoration',
-      image: Image2,
-      description: 'Description of fire restoration 3.'
-    },
-    {
-      title: 'Fire Restoration',
-      image: Image2,
-      description: 'Description of fire restoration 4.'
-    }
-    
-  ];
 
   return (
-    <div className="" style={{ marginBottom: '100px'}}>
-      <div className="d-flex justify-content-center mt-3">
-        <div style={{ textAlign: 'justify', margin: '30px' }}>
-          <h1 style={{ textAlign: 'center' }}>Fire Restoration</h1>
-          <p style={{ marginBottom: '-55px' }}>Fire restoration is a crucial service dedicated to repairing and restoring contents impacted by fire damage. Whether it's a residential home or commercial establishment, our comprehensive fire restoration process begins with a detailed assessment to evaluate the extent of fire damage, smoke residue, and water damage from firefighting efforts. Our skilled technicians employ state-of-the-art equipment and techniques to remove soot, ash, and smoke odors, while salvaging and restoring belongings whenever possible. We prioritize safety, efficiency, and compassion in every restoration project, aiming to swiftly return your property to its pre-loss condition. Trust us to guide you through the restoration process, offering peace of mind during this challenging time</p>
+    <>
+      <main className="fire-page">
+
+        {/* ==========================================
+            BACK TO SERVICES
+        ========================================== */}
+
+        <div className="fire-back">
+          <a
+            href="/#services"
+            className="fire-back-link"
+          >
+            ← Back to All Services
+          </a>
         </div>
-      </div>
-      <div className="d-flex justify-content-center" style={{ padding: '60px 10px 5px 10px' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-      </div>
-      <Row xs={1} sm={2} md={2} lg={4} className="g-4 m-3">
-        {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '50px' }}>
-            <Card className="h-100">
-              <Card.Img variant="top" src={card.image} style={{ height: '300px', objectFit: 'cover' }} className="img-fluid" />
-              <Card.Body>
-                <Card.Title>{card.title}</Card.Title>
-                <Card.Text style={{ fontSize: '0.9rem' }}>
-                  {card.description}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
 
-      
+        {/* ==========================================
+            HERO
+        ========================================== */}
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request a Quote</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="firstName">
-              <Form.Label>First Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={quoteFormData.firstName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="lastName" className="mt-2">
-              <Form.Label>Last Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={quoteFormData.lastName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="phoneNumber" className="mt-2">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                value={quoteFormData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="email" className="mt-2">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={quoteFormData.email}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="message" className="mt-2">
-              <Form.Label>Message:</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="message"
-                value={quoteFormData.message}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-          <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+        <section className="fire-hero">
+          <span className="fire-eyebrow">
+            Fire & Smoke Damage Restoration
+          </span>
+
+          <h1>
+            Restoring What Fire and Smoke Have Damaged
+          </h1>
+
+          <p>
+            Fire damage can be overwhelming. The Right Pack Out carefully
+            evaluates, documents, cleans, and restores affected belongings
+            whenever possible, helping protect the items that still matter
+            after a loss.
+          </p>
+        </section>
+
+        {/* ==========================================
+            TRUST STRIP
+        ========================================== */}
+
+        <section className="fire-trust-strip">
+
+          <div className="fire-trust-item">
+            <strong>
+              Careful Assessment
+            </strong>
+
+            <span>
+              Contents are evaluated for condition and restoration potential
+            </span>
+          </div>
+
+          <div className="fire-trust-item">
+            <strong>
+              Specialized Cleaning
+            </strong>
+
+            <span>
+              Appropriate methods are selected for smoke, soot, and residue
+            </span>
+          </div>
+
+          <div className="fire-trust-item">
+            <strong>
+              Detailed Documentation
+            </strong>
+
+            <span>
+              Organized records support restoration and insurance communication
+            </span>
+          </div>
+
+        </section>
+
+        {/* ==========================================
+            FIRE RESTORATION SERVICES
+        ========================================== */}
+
+        <section className="fire-services">
+
+          <div className="fire-divider"></div>
+
+          <div className="fire-section-heading">
+            <span>
+              What's Included
+            </span>
+
+            <h2>
+              Specialized Care for Fire & Smoke-Damaged Contents
+            </h2>
+
+            <p>
+              Every loss is different. Our process focuses on identifying
+              what can be restored and selecting appropriate cleaning methods
+              for each item.
+            </p>
+          </div>
+
+          <div className="fire-service-grid">
+
+            <article className="fire-service-card">
+              <div className="fire-service-icon">
+                🔎
+              </div>
+
+              <h3>
+                Condition Assessment
+              </h3>
+
+              <p>
+                Affected contents are reviewed to determine condition,
+                contamination, and restoration potential.
+              </p>
+            </article>
+
+            <article className="fire-service-card">
+              <div className="fire-service-icon">
+                🧼
+              </div>
+
+              <h3>
+                Smoke & Soot Cleaning
+              </h3>
+
+              <p>
+                Cleaning methods are selected based on the material,
+                condition, and type of residue present.
+              </p>
+            </article>
+
+            <article className="fire-service-card">
+              <div className="fire-service-icon">
+                🌫️
+              </div>
+
+              <h3>
+                Odor Treatment
+              </h3>
+
+              <p>
+                Smoke odor concerns can be addressed as part of the
+                contents restoration process when appropriate.
+              </p>
+            </article>
+
+            <article className="fire-service-card">
+              <div className="fire-service-icon">
+                📋
+              </div>
+
+              <h3>
+                Restoration Documentation
+              </h3>
+
+              <p>
+                Contents can be photographed and documented to support
+                project records and insurance communication.
+              </p>
+            </article>
+
+          </div>
+        </section>
+
+        {/* ==========================================
+            FEATURE AREA
+        ========================================== */}
+
+        <section className="fire-feature">
+
+          <div className="fire-feature-copy">
+            <span className="fire-eyebrow">
+              Restoration First
+            </span>
+
+            <h2>
+              Saving What Can Be Restored
+            </h2>
+
+            <p>
+              Not every fire-damaged item is a total loss. When restoration
+              is possible, affected belongings are carefully documented,
+              cleaned, treated, and evaluated with the goal of preserving
+              as much as possible.
+            </p>
+
+            <p>
+              Garments, textiles, furnishings, and specialty contents may
+              require different treatment methods depending on material,
+              contamination, and overall condition.
+            </p>
+          </div>
+
+          <div className="fire-feature-panel">
+            <span className="fire-feature-label">
+              Thoughtful Recovery
+            </span>
+
+            <h3>
+              Assess. Clean. Restore.
+            </h3>
+
+            <p>
+              Professional contents restoration helps identify what may be
+              recoverable and provides organized care throughout the process.
+            </p>
+          </div>
+
+        </section>
+
+        {/* ==========================================
+            REAL FIRE RESTORATION
+        ========================================== */}
+
+        <section className="fire-projects">
+
+          <div className="fire-section-heading">
+            <span>
+              Real Restoration Work
+            </span>
+
+            <h2>
+              From Smoke-Damaged to Restored
+            </h2>
+
+            <p>
+              This garment shows how careful specialty cleaning can help
+              recover contents affected by fire and smoke exposure.
+            </p>
+          </div>
+
+          <div className="fire-project-grid">
+
+            <article className="fire-project-card">
+
+              <div className="fire-image-grid">
+                <img
+                  src={FireBeforeFull}
+                  alt="Smoke and fire damaged jacket before restoration"
+                />
+
+                <img
+                  src={FireBeforeDetail}
+                  alt="Close view of smoke damaged jacket before cleaning"
+                />
+              </div>
+
+              <div className="fire-project-card-content">
+                <span className="fire-project-label">
+                  Before Restoration
+                </span>
+
+                <h3>
+                  Visible Smoke & Fire Damage
+                </h3>
+
+                <p>
+                  The garment was documented before cleaning to record
+                  its condition and visible contamination.
+                </p>
+              </div>
+
+            </article>
+
+            <article className="fire-project-card">
+
+              <div className="fire-image-grid">
+                <img
+                  src={FireAfterLeft}
+                  alt="Restored jacket after professional fire and smoke cleaning"
+                />
+
+                <img
+                  src={FireAfterRight}
+                  alt="Second view of restored jacket after specialty cleaning"
+                />
+              </div>
+
+              <div className="fire-project-card-content">
+                <span className="fire-project-label">
+                  After Restoration
+                </span>
+
+                <h3>
+                  Professionally Cleaned & Restored
+                </h3>
+
+                <p>
+                  Specialized contents cleaning helped improve the garment's
+                  condition while preserving its materials and appearance.
+                </p>
+              </div>
+
+            </article>
+
+          </div>
+        </section>
+
+        {/* ==========================================
+            WHY CHOOSE US
+        ========================================== */}
+
+        <section className="fire-benefits">
+
+          <div className="fire-section-heading">
+            <span>
+              Why Choose The Right Pack Out
+            </span>
+
+            <h2>
+              Careful Restoration When It Matters Most
+            </h2>
+          </div>
+
+          <div className="fire-benefit-grid">
+
+            <div className="fire-benefit-item">
+              <strong>
+                Detailed Assessment
+              </strong>
+
+              <span>
+                Each item is reviewed to determine condition and restoration potential.
+              </span>
+            </div>
+
+            <div className="fire-benefit-item">
+              <strong>
+                Specialty Contents Care
+              </strong>
+
+              <span>
+                Treatment methods can be selected based on material and damage type.
+              </span>
+            </div>
+
+            <div className="fire-benefit-item">
+              <strong>
+                Organized Documentation
+              </strong>
+
+              <span>
+                Project records help support clear communication throughout recovery.
+              </span>
+            </div>
+
+            <div className="fire-benefit-item">
+              <strong>
+                Residential & Commercial
+              </strong>
+
+              <span>
+                Fire and smoke contents services can support homes and businesses.
+              </span>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ==========================================
+            FINAL CTA
+        ========================================== */}
+
+        <section className="fire-cta">
+
+          <div className="fire-cta-content">
+
+            <div>
+              <span>
+                Here When You Need Us
+              </span>
+
+              <h2>
+                Need Help With Fire or Smoke-Damaged Contents?
+              </h2>
+            </div>
+
+            <div className="fire-cta-actions">
+
+              <button
+                type="button"
+                className="fire-primary-button"
+                onClick={handleShowModal}
+              >
+                Request Assistance
+              </button>
+
+              <a
+                href="tel:+16197867089"
+                className="fire-secondary-button"
+              >
+                Call 619-786-7089
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      {/* ==========================================
+          SHARED REQUEST ASSISTANCE MODAL
+      ========================================== */}
+
+      <RequestAssistanceModal
+        show={showModal}
+        onHide={handleCloseModal}
+        service="Fire & Smoke Damage Restoration"
+      />
+
+    </>
   );
 }
 
-export default FireCards;
+export default Fire;

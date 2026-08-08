@@ -1,184 +1,407 @@
-import React, { useState } from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Drapes1 from '../images/Drapes1.jpeg';
-import Drapes5 from '../images/Drapes5.jpeg';
-import Drapes4 from '../images/Drapes4.jpeg';
+import React from "react";
 
-function DraperyCards() {
-  const [showModal, setShowModal] = useState(false);
-  const [quoteFormData, setQuoteFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    email: '',
-    message: ''
-  });
+import Drapes1 from "../images/Drapes1.jpeg";
+import Drapes5 from "../images/Drapes5.jpeg";
+import Drapes4 from "../images/Drapes4.jpeg";
 
-  const handleShowModal = () => {
-    setQuoteFormData({
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      email: '',
-      message: ''
-    });
-    setShowModal(true);
-  };
+import "../styles/DraperyPage.css";
 
-  const handleCloseModal = () => setShowModal(false);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setQuoteFormData({ ...quoteFormData, [name]: value });
-  };
-
-  const handleSendQuoteRequest = () => {
-    const emailBody = encodeURIComponent(`
-      First Name: ${quoteFormData.firstName}
-      Last Name: ${quoteFormData.lastName}
-      Phone Number: ${quoteFormData.phoneNumber}
-      Email: ${quoteFormData.email}
-      Message: ${quoteFormData.message}
-    `);
-
-    // Customize subject based on form data or other conditions
-    let subject = 'Quote Request on Drapery';
-    if (quoteFormData.firstName && quoteFormData.lastName) {
-      const fullName = `${quoteFormData.firstName} ${quoteFormData.lastName}`;
-      if (fullName !== 'Lucia Sotelo') {
-        subject = `Quote Request for Drapery - ${fullName}`;
-      }
-    }
-
-    // Prepare mailto link with updated subject
-    window.location.href = `mailto:therightpackout@gmail.com?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
-
-    // Close modal after sending request
-    handleCloseModal();
-  };
-
-  const cardsData = [
-    {
-      title: 'Drapery 1',
-      image: Drapes1,
-      description: 'Description of drapery 1.'
-    },
-    {
-      title: 'Drapery 2',
-      image: Drapes5,
-      description: 'Description of drapery 2.'
-    },
-    {
-      title: 'Drapery 3',
-      image: Drapes4,
-      description: 'Description of drapery 3.'
-    }
-    
-  ];
-
+function Drapery() {
   return (
-    <div className="" style={{ marginBottom: '100px'}}>
-      <div className="d-flex justify-content-center mt-3">
-        <div style={{ maxWidth: '900px', textAlign: 'center' }}>
-          <h1>Drapery Services</h1>
-          <p>We offer various drapery services to ensure the safety and longevity of your drapery items.</p>
+    <main className="drapery-page">
 
-          <ul style ={{ paddingBottom: '-100px', color: 'blue', marginLeft: '10px', textAlign: 'left'}}>
-            <li>take down drapery</li> 
-            <li>clean drapery</li>
-            <li>repair if needed</li>
-            <li>ability to make drapes</li>
-            <li>rehang drapery</li>
-          </ul>
+      {/* ==========================================
+          BACK TO SERVICES
+      ========================================== */}
+
+      <div className="drapery-back">
+        <a
+          href="/#services"
+          className="drapery-back-link"
+        >
+          ← Back to All Services
+        </a>
+      </div>
+
+      {/* ==========================================
+          HERO
+      ========================================== */}
+
+      <section className="drapery-hero">
+        <span className="drapery-eyebrow">
+          Drapery Cleaning & Restoration
+        </span>
+
+        <h1>
+          Professional Care for Draperies and Specialty Fabrics
+        </h1>
+
+        <p>
+          Draperies and specialty fabrics deserve careful attention.
+          The Right Pack Out provides professional take-down, cleaning,
+          repair, and reinstallation services designed to protect their
+          condition, appearance, and longevity.
+        </p>
+      </section>
+
+      {/* ==========================================
+          TRUST STRIP
+      ========================================== */}
+
+      <section className="drapery-trust-strip">
+
+        <div className="drapery-trust-item">
+          <strong>
+            Careful Take-Down
+          </strong>
+
+          <span>
+            Draperies are removed with attention to fabrics and hardware
+          </span>
+        </div>
+
+        <div className="drapery-trust-item">
+          <strong>
+            Specialty Cleaning
+          </strong>
+
+          <span>
+            Cleaning methods are selected for the material and condition
+          </span>
+        </div>
+
+        <div className="drapery-trust-item">
+          <strong>
+            Professional Reinstallation
+          </strong>
+
+          <span>
+            Draperies are returned with attention to alignment and appearance
+          </span>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          DRAPERY SERVICES
+      ========================================== */}
+
+      <section className="drapery-services">
+
+        <div className="drapery-divider"></div>
+
+        <div className="drapery-section-heading">
+          <span>
+            What's Included
+          </span>
+
+          <h2>
+            Detailed Care From Removal to Reinstallation
+          </h2>
+
+          <p>
+            Each stage is handled with attention to the fabric, hardware,
+            placement, and overall appearance of the finished installation.
+          </p>
+        </div>
+
+        <div className="drapery-service-grid">
+
+          <article className="drapery-service-card">
+            <div className="drapery-service-icon">
+              🪜
+            </div>
+
+            <h3>
+              Professional Take-Down
+            </h3>
+
+            <p>
+              Draperies are carefully removed to help protect fabrics,
+              hardware, and surrounding finishes.
+            </p>
+          </article>
+
+          <article className="drapery-service-card">
+            <div className="drapery-service-icon">
+              🧼
+            </div>
+
+            <h3>
+              Specialty Cleaning
+            </h3>
+
+            <p>
+              Cleaning methods are selected based on fabric type,
+              construction, condition, and restoration needs.
+            </p>
+          </article>
+
+          <article className="drapery-service-card">
+            <div className="drapery-service-icon">
+              🧵
+            </div>
+
+            <h3>
+              Repairs & Fabrication
+            </h3>
+
+            <p>
+              Minor repairs or replacement fabrication can be coordinated
+              when appropriate for the project.
+            </p>
+          </article>
+
+          <article className="drapery-service-card">
+            <div className="drapery-service-icon">
+              🪟
+            </div>
+
+            <h3>
+              Professional Reinstallation
+            </h3>
+
+            <p>
+              Draperies are rehung with attention to placement,
+              alignment, hardware, and finished appearance.
+            </p>
+          </article>
 
         </div>
-      </div>
-      <Row xs={1} md={2} lg={3} className="g-4 m-3" >
-        {cardsData.map((card, idx) => (
-          <Col key={idx} style={{ marginBottom: '50px'}}>
-            <Card className="h-100">
-              <Card.Img variant="top" src={card.image} />
-              <Card.Body>
-                <Card.Title>{card.title}</Card.Title>
-                <Card.Text>
-                  {card.description}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
+      </section>
 
-      <div className="d-flex justify-content-center" style={{ padding: '1px 10px 50px 10px' }}>
-        <Button variant="danger" onClick={handleShowModal}>Request a Quote</Button>
-      </div>
+      {/* ==========================================
+          FEATURE AREA
+      ========================================== */}
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Request a Quote</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="firstName">
-              <Form.Label>First Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="firstName"
-                value={quoteFormData.firstName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="lastName" className="mt-2">
-              <Form.Label>Last Name:</Form.Label>
-              <Form.Control
-                type="text"
-                name="lastName"
-                value={quoteFormData.lastName}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="phoneNumber" className="mt-2">
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                value={quoteFormData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="email" className="mt-2">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                value={quoteFormData.email}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="message" className="mt-2">
-              <Form.Label>Message:</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                name="message"
-                value={quoteFormData.message}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
-          <Button variant="primary" onClick={handleSendQuoteRequest}>Send Quote Request</Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
+      <section className="drapery-feature">
+
+        <div className="drapery-feature-copy">
+          <span className="drapery-eyebrow">
+            From Take-Down to Rehang
+          </span>
+
+          <h2>
+            Managed With Care Through Every Stage
+          </h2>
+
+          <p>
+            Drapery restoration involves more than cleaning alone.
+            Careful removal, proper treatment, repairs when needed,
+            and professional reinstallation all contribute to the final result.
+          </p>
+
+          <p>
+            Our team helps coordinate the entire process so specialty fabrics
+            and window treatments are handled thoughtfully from beginning
+            to completion.
+          </p>
+        </div>
+
+        <div className="drapery-feature-panel">
+          <span className="drapery-feature-label">
+            Finished With Care
+          </span>
+
+          <h3>
+            Removed. Cleaned. Reinstalled.
+          </h3>
+
+          <p>
+            A coordinated process helps protect the fabric while supporting
+            a clean, polished, and properly finished installation.
+          </p>
+        </div>
+
+      </section>
+
+      {/* ==========================================
+          REAL DRAPERY WORK
+      ========================================== */}
+
+      <section className="drapery-projects">
+
+        <div className="drapery-section-heading">
+          <span>
+            Real Drapery Work
+          </span>
+
+          <h2>
+            Careful Handling. Clean Results. Professional Reinstallation.
+          </h2>
+
+          <p>
+            Examples of draperies and specialty window treatments handled
+            through cleaning, restoration, and reinstallation.
+          </p>
+        </div>
+
+        <div className="drapery-project-grid">
+
+          <article className="drapery-project-card">
+            <img
+              src={Drapes1}
+              alt="Professional drapery cleaning and restoration"
+            />
+
+            <div className="drapery-project-card-content">
+              <span className="drapery-project-label">
+                Drapery Care
+              </span>
+
+              <h3>
+                Carefully Cleaned
+              </h3>
+
+              <p>
+                Specialty fabrics are handled with care throughout
+                the cleaning and restoration process.
+              </p>
+            </div>
+          </article>
+
+          <article className="drapery-project-card">
+            <img
+              src={Drapes5}
+              alt="Restored draperies professionally rehung"
+            />
+
+            <div className="drapery-project-card-content">
+              <span className="drapery-project-label">
+                Reinstallation
+              </span>
+
+              <h3>
+                Professionally Rehung
+              </h3>
+
+              <p>
+                Draperies are carefully returned and reinstalled with
+                attention to alignment, placement, and appearance.
+              </p>
+            </div>
+          </article>
+
+          <article className="drapery-project-card">
+            <img
+              src={Drapes4}
+              alt="Finished drapery installation after professional cleaning"
+            />
+
+            <div className="drapery-project-card-content">
+              <span className="drapery-project-label">
+                Finished Result
+              </span>
+
+              <h3>
+                Restored & Ready
+              </h3>
+
+              <p>
+                The finished installation reflects careful cleaning,
+                handling, and attention to detail throughout the project.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          WHY CHOOSE US
+      ========================================== */}
+
+      <section className="drapery-benefits">
+
+        <div className="drapery-section-heading">
+          <span>
+            Why Choose The Right Pack Out
+          </span>
+
+          <h2>
+            Specialty Care for Fabrics and Window Treatments
+          </h2>
+        </div>
+
+        <div className="drapery-benefit-grid">
+
+          <div className="drapery-benefit-item">
+            <strong>
+              Fabric-Focused Care
+            </strong>
+
+            <span>
+              Treatment decisions are made with the material and
+              construction of the drapery in mind.
+            </span>
+          </div>
+
+          <div className="drapery-benefit-item">
+            <strong>
+              Careful Handling
+            </strong>
+
+            <span>
+              Draperies, hardware, and surrounding finishes are handled
+              thoughtfully throughout the process.
+            </span>
+          </div>
+
+          <div className="drapery-benefit-item">
+            <strong>
+              Repair Coordination
+            </strong>
+
+            <span>
+              Repairs or replacement fabrication can be coordinated
+              when restoration alone is not enough.
+            </span>
+          </div>
+
+          <div className="drapery-benefit-item">
+            <strong>
+              Finished Appearance
+            </strong>
+
+            <span>
+              Reinstallation focuses on alignment, placement, and
+              a professional finished result.
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ==========================================
+          CLOSING SECTION
+      ========================================== */}
+
+      <section className="drapery-cta">
+
+        <div className="drapery-cta-content">
+
+          <div>
+            <span>
+              From Fabric Care to Final Rehang
+            </span>
+
+            <h2>
+              Drapery Care Managed From Start to Finish.
+            </h2>
+
+            <p className="drapery-cta-text">
+              When you are ready to discuss drapery cleaning, repair,
+              or reinstallation, use the Request Assistance button in
+              the header and our team can help determine the next steps.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
   );
 }
 
-export default DraperyCards;
+export default Drapery;

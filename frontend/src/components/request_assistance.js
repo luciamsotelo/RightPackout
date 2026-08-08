@@ -501,7 +501,7 @@ ${formData.details}
               >
                 {status === "submitting"
                   ? "Preparing Request..."
-                  : "Request Assistance"}
+                  : "Submit Request"}
               </button>
 
               <p className="request-privacy-note">

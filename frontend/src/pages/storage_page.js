@@ -1,18 +1,21 @@
-import React from 'react'
-import Header from '../components/header.js';
-import Footer from '../components/footer.js';
-import Storage from '../components/storage.js';
-import Menu from '../components/menu.js';
+import React from "react";
 
-const storage = () => {
+import Header from "../components/header";
+import Storage from "../components/storage";
+import Footer from "../components/footer";
+
+const StoragePage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Storage />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default storage
+      <main>
+        <Storage />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default StoragePage;

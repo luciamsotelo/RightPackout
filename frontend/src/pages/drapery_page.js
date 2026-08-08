@@ -1,18 +1,17 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Drapery from '../components/drapery'
-import Menu from '../components/menu'
+import React from "react";
 
-const drapery_page = () => {
+import Header from "../components/header";
+import Footer from "../components/footer";
+import Drapery from "../components/drapery";
+
+const DraperyPage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Drapery />
-      < Footer />
+      <Header />
+      <Drapery />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default drapery_page
+export default DraperyPage;

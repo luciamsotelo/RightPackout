@@ -1,19 +1,19 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Packout from '../components/packout'
-import Menu from '../components/menu'
+import React from "react";
 
+import Header from "../components/header";
+import Packout from "../components/packout";
+import Footer from "../components/footer";
 
-const packoutpackback_page = () => {
+const PackoutPackbackPage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Packout />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default packoutpackback_page
+      <Packout />
+
+      <Footer />
+    </div>
+  );
+};
+
+export default PackoutPackbackPage;

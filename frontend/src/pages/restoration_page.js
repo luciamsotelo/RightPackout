@@ -1,18 +1,21 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Restoration from '../components/restoration'
-import Menu from '../components/menu'
+import React from "react";
 
-const restoration_page = () => {
+import Header from "../components/header";
+import Restoration from "../components/restoration";
+import Footer from "../components/footer";
+
+const RestorationPage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Restoration />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default restoration_page
+      <main>
+        <Restoration />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default RestorationPage;

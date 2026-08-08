@@ -44,11 +44,11 @@ const HomePage = () => {
 </a>
 
   <a
-    href="#featured-work"
-    className="secondary-home-button"
-  >
-    View Our Work
-  </a>
+  href="/our-work"
+  className="secondary-home-button"
+>
+  View Our Work
+</a>
 </div>
 
               <div

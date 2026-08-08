@@ -1,18 +1,19 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Fire from '../components/fire'
-import Menu from '../components/menu'
+import React from "react";
 
-const fire_page = () => {
+import Header from "../components/header";
+import Fire from "../components/fire";
+import Footer from "../components/footer";
+
+const FirePage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Fire />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default fire_page
+      <Fire />
+
+      <Footer />
+    </div>
+  );
+};
+
+export default FirePage;

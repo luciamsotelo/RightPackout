@@ -1,0 +1,719 @@
+/* ==========================================
+   CONSTRUCTION CLEANUP PAGE
+========================================== */
+
+.construction-page {
+  padding: 0 1rem 4rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f8fafc 45%,
+      #f4f7fb 100%
+    );
+}
+
+
+/* ==========================================
+   BACK TO SERVICES
+========================================== */
+
+.construction-back {
+  max-width: 1180px;
+  margin: 1.75rem auto 0;
+  padding: 0 0.25rem;
+}
+
+.construction-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.72rem 1.05rem;
+
+  color: #064b91;
+  background-color: #ffffff;
+
+  border: 1px solid #d7e0ea;
+  border-radius: 999px;
+
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 16px rgba(15, 35, 60, 0.055);
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.construction-back-link:hover {
+  color: #c9232d;
+  border-color: rgba(201, 35, 45, 0.45);
+  transform: translateX(-2px);
+
+  box-shadow:
+    0 9px 22px rgba(15, 35, 60, 0.08);
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+.construction-hero {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 3.5rem 1rem 3.2rem;
+  text-align: center;
+}
+
+.construction-eyebrow {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+
+  color: #c9232d;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.construction-hero h1 {
+  max-width: 950px;
+  margin: 0 auto 1rem;
+
+  color: #07386c;
+
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.construction-hero p {
+  max-width: 780px;
+  margin: 0 auto;
+
+  color: #5f6b7a;
+
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.construction-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 0.75rem;
+  margin-top: 1.65rem;
+}
+
+.construction-primary-button,
+.construction-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+  padding: 0.7rem 1.05rem;
+
+  border-radius: 9px;
+
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.construction-primary-button {
+  color: #ffffff;
+  background-color: #c9232d;
+  border: 2px solid #c9232d;
+}
+
+.construction-primary-button:hover {
+  color: #ffffff;
+  background-color: #a81721;
+  border-color: #a81721;
+
+  transform: translateY(-1px);
+}
+
+.construction-secondary-button {
+  color: #07386c;
+  background-color: #ffffff;
+  border: 2px solid #07386c;
+}
+
+.construction-secondary-button:hover {
+  color: #ffffff;
+  background-color: #07386c;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   SECTION HEADINGS
+========================================== */
+
+.construction-section-heading {
+  max-width: 760px;
+  margin: 0 auto 1.6rem;
+  text-align: center;
+}
+
+.construction-section-heading > span {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+
+  color: #c9232d;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.construction-section-heading h2 {
+  margin: 0;
+
+  color: #07386c;
+
+  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.construction-section-heading p {
+  max-width: 680px;
+  margin: 0.7rem auto 0;
+
+  color: #647184;
+
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   SERVICES
+========================================== */
+
+.construction-services {
+  max-width: 1150px;
+  margin: 0 auto 3rem;
+}
+
+.construction-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.construction-service-card {
+  padding: 1.25rem;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e1e7ee;
+  border-top: 3px solid #064b91;
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 22px rgba(15, 35, 60, 0.055),
+    0 2px 6px rgba(15, 35, 60, 0.025);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-top-color 0.2s ease;
+}
+
+.construction-service-card:hover {
+  transform: translateY(-3px);
+  border-top-color: #c9232d;
+
+  box-shadow:
+    0 14px 30px rgba(15, 35, 60, 0.09);
+}
+
+.construction-service-icon{
+
+    width:70px;
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:1rem;
+
+    background:#eef5fc;
+
+    border-radius:18px;
+
+    font-size:2rem;
+
+    transition:.25s;
+}
+
+.construction-service-card:hover
+.construction-service-icon{
+
+    transform:scale(1.08);
+
+    background:#07386c;
+
+    color:white;
+}
+
+.construction-service-card h3 {
+  margin: 0 0 0.4rem;
+
+  color: #07386c;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.construction-service-card p {
+  margin: 0;
+
+  color: #647184;
+
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+
+/* ==========================================
+   FEATURE SECTION
+========================================== */
+
+.construction-feature {
+  max-width: 1100px;
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  margin: 0 auto 3rem;
+  padding: 2.3rem;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 30px rgba(15, 35, 60, 0.055);
+}
+
+.construction-feature-copy h2 {
+  margin: 0 0 0.7rem;
+
+  color: #07386c;
+
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.construction-feature-copy p {
+  margin: 0 0 0.7rem;
+
+  color: #5f6b7a;
+
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.construction-feature-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.construction-feature-panel {
+  padding: 2rem;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #052b53 0%,
+      #07386c 60%,
+      #064b91 100%
+    );
+
+  border-radius: 16px;
+}
+
+.construction-feature-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.construction-feature-panel h3 {
+  margin: 0 0 0.5rem;
+
+  color: #ffffff;
+
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.construction-feature-panel p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   BENEFITS
+========================================== */
+
+.construction-benefits {
+  max-width: 1150px;
+  margin: 0 auto 3rem;
+  padding: 2.25rem;
+
+  background-color: #f0f5fa;
+
+  border: 1px solid #e3eaf1;
+  border-radius: 18px;
+}
+
+.construction-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.construction-benefit-item {
+  padding: 1.05rem;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 11px;
+
+  box-shadow:
+    0 4px 13px rgba(15, 35, 60, 0.035);
+}
+
+.construction-benefit-item strong {
+  display: block;
+  margin-bottom: 0.25rem;
+
+  color: #07386c;
+
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.construction-benefit-item span {
+  color: #647184;
+
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+.construction-cta {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      120deg,
+      #052b53 0%,
+      #07386c 55%,
+      #064b91 100%
+    );
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 14px 32px rgba(5, 43, 83, 0.12);
+}
+
+.construction-cta-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 1.5rem;
+}
+
+.construction-cta span {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.construction-cta h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 800;
+}
+
+.construction-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.6rem;
+}
+
+.construction-cta .construction-secondary-button {
+  color: #ffffff;
+
+  background-color: transparent;
+
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.construction-cta .construction-secondary-button:hover {
+  color: #07386c;
+
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* ==========================================
+   TRUST STRIP
+========================================== */
+
+.construction-trust-strip {
+  max-width: 1000px;
+  margin: -0.5rem auto 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 8px 24px rgba(15, 35, 60, 0.05);
+}
+
+.construction-trust-item {
+  padding: 1.5rem 1.4rem;
+  text-align: center;
+}
+
+.construction-trust-item strong {
+  display: block;
+  margin-bottom: .45rem;
+
+  color: #07386c;
+  font-size: .95rem;
+  font-weight: 800;
+}
+
+.construction-trust-item span{
+  color:#647184;
+  font-size:.80rem;
+  line-height:1.6;
+}
+
+.construction-trust-item:not(:last-child) {
+  border-right: 1px solid #e5eaf0;
+}
+
+.construction-trust-item strong {
+  display: block;
+  margin-bottom: 0.2rem;
+
+  color: #07386c;
+
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.construction-trust-item span {
+  color: #647184;
+
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 767px) {
+  .construction-trust-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .construction-trust-item:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid #e5eaf0;
+  }
+}
+
+.construction-divider{
+
+    width:90px;
+    height:4px;
+
+    margin:0 auto 3rem;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #c9232d,
+        transparent
+    );
+
+    opacity:.45;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 991px) {
+  .construction-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .construction-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .construction-benefit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .construction-cta-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 767px) {
+  .construction-page {
+    padding: 0 0.75rem 3rem;
+  }
+
+  .construction-back {
+    margin-top: 1.25rem;
+  }
+
+  .construction-back-link {
+    padding: 0.62rem 0.85rem;
+
+    font-size: 0.8rem;
+  }
+
+  .construction-hero {
+    padding: 2.3rem 0.5rem 2.2rem;
+  }
+
+  .construction-hero h1 {
+    font-size: 2rem;
+  }
+
+  .construction-hero p {
+    font-size: 0.9rem;
+  }
+
+  .construction-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .construction-primary-button,
+  .construction-secondary-button {
+    width: 100%;
+  }
+
+  .construction-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .construction-feature {
+    padding: 1.4rem;
+  }
+
+  .construction-feature-panel {
+    padding: 1.4rem;
+  }
+
+  .construction-benefits {
+    padding: 1.4rem;
+  }
+
+  .construction-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .construction-cta {
+    padding: 1.5rem;
+  }
+
+  .construction-cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}

@@ -1,18 +1,21 @@
-import React from 'react'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import Preservations from '../components/preservations'
-import Menu from '../components/menu'
+import React from "react";
 
-const preservations_page = () => {
+import Header from "../components/header";
+import Preservations from "../components/preservations";
+import Footer from "../components/footer";
+
+const PreservationsPage = () => {
   return (
     <div>
-      < Header />
-      < Menu />
-      < Preservations />
-      < Footer />
-    </div>
-  )
-}
+      <Header />
 
-export default preservations_page
+      <main>
+        <Preservations />
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default PreservationsPage;
