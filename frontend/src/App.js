@@ -5,7 +5,7 @@ import Home from "./pages/home_page";
 import Pack from "./pages/packoutpackback_page";
 import Storage from "./pages/storage_page";
 import Moving from "./pages/moving_page";
-import Preservations from "./pages/preservations_page";
+import Preservation from "./pages/preservation_page";
 import Drapery from "./pages/drapery_page";
 import Mold from "./pages/mold_page";
 import Fire from "./pages/fire_page";
@@ -27,13 +27,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* HOME */}
         <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
 
+        {/* SERVICES */}
         <Route path="/pack" element={<Pack />} />
         <Route path="/storage" element={<Storage />} />
         <Route path="/moving" element={<Moving />} />
-        <Route path="/preservations" element={<Preservations />} />
+        <Route path="/preservation" element={<Preservation />} />
         <Route path="/drapery" element={<Drapery />} />
         <Route path="/mold" element={<Mold />} />
         <Route path="/fire" element={<Fire />} />
@@ -41,22 +43,17 @@ function App() {
         <Route path="/window" element={<Window />} />
         <Route path="/consultation" element={<Consultation />} />
         <Route path="/management" element={<Management />} />
-
-        <Route path="/about" element={<About />} />
-        <Route path="/review" element={<Review />} />
         <Route path="/construction" element={<Construction />} />
         <Route path="/hoarder" element={<Hoarder />} />
+
+        {/* COMPANY */}
+        <Route path="/about" element={<About />} />
+        <Route path="/review" element={<Review />} />
         <Route path="/feedback" element={<Feedback />} />
+        <Route path="/our-work" element={<OurWork />} />
 
-        <Route
-          path="/request-assistance"
-          element={<RequestAssistancePage />}
-        />
-
-        <Route
-          path="/our-work"
-          element={<OurWork />}
-        />
+        {/* CONTACT */}
+        <Route path="/request-assistance" element={<RequestAssistancePage />} />
       </Routes>
 
       <FloatingQuoteButton />

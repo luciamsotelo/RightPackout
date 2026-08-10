@@ -1,5 +1,5 @@
 /* ==========================================
-   HOME PAGE
+  HOME PAGE
 ========================================== */
 
 .site-page {
@@ -8,7 +8,7 @@
 }
 
 /* ==========================================
-   PREMIUM HOMEPAGE HERO
+  PREMIUM HOMEPAGE HERO
 ========================================== */
 
 .premium-home-hero {
@@ -16,16 +16,8 @@
   overflow: hidden;
   padding: 5rem 1rem 4.5rem;
   background:
-    radial-gradient(
-      circle at 8% 18%,
-      rgba(201, 35, 45, 0.09),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 92% 12%,
-      rgba(6, 75, 145, 0.12),
-      transparent 32%
-    ),
+    radial-gradient(circle at 8% 18%, rgba(201, 35, 45, 0.09), transparent 28%),
+    radial-gradient(circle at 92% 12%, rgba(6, 75, 145, 0.12), transparent 32%),
     linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
 }
 
@@ -51,7 +43,7 @@
 }
 
 /* ==========================================
-   HERO COPY
+  HERO COPY
 ========================================== */
 
 .premium-home-hero-content {
@@ -103,7 +95,7 @@
 }
 
 /* ==========================================
-   HERO ACTIONS
+  HERO ACTIONS
 ========================================== */
 
 .home-introduction-actions {
@@ -159,7 +151,7 @@
 }
 
 /* ==========================================
-   HERO TRUST LIST
+  HERO TRUST LIST
 ========================================== */
 
 .hero-trust-list {
@@ -192,7 +184,7 @@
 }
 
 /* ==========================================
-   HERO IMAGE
+  HERO IMAGE
 ========================================== */
 
 .premium-home-hero-visual {
@@ -294,36 +286,53 @@
 }
 
 /* ==========================================
-   FLOATING HERO CARD
+   HERO EXPERIENCE CARD
 ========================================== */
 
 .hero-experience-card {
-  position: absolute;
-  bottom: 0;
-  left: -2rem;
-  z-index: 4;
-  width: min(370px, calc(100% - 2rem));
+  position: relative;
+
+  width: min(370px, 100%);
+  margin: 1rem 0 0 auto;
+
   display: flex;
   align-items: center;
   gap: 0.8rem;
+
   padding: 1rem 1.1rem;
-  background-color: rgba(255, 255, 255, 0.97);
+
+  background-color: #ffffff;
+
   border: 1px solid rgba(219, 227, 236, 0.9);
   border-radius: 14px;
-  box-shadow: 0 18px 38px rgba(15, 35, 60, 0.17);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: 0 10px 24px rgba(15, 35, 60, 0.1);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hero-experience-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 30px rgba(15, 35, 60, 0.14);
 }
 
 .hero-experience-icon {
   width: 43px;
   height: 43px;
+
   display: grid;
   place-items: center;
+
   flex-shrink: 0;
+
   color: #ffffff;
   background-color: #07386c;
+
   border-radius: 11px;
+
   font-weight: 900;
 }
 
@@ -334,18 +343,21 @@
 
 .hero-experience-card strong {
   color: #07386c;
+
   font-size: 0.94rem;
 }
 
 .hero-experience-card div > span {
   margin-top: 0.15rem;
+
   color: #647184;
+
   font-size: 0.76rem;
   line-height: 1.4;
 }
 
 /* ==========================================
-   TRUST STRIP
+  TRUST STRIP
 ========================================== */
 
 .trust-strip {
@@ -387,7 +399,7 @@
 }
 
 /* ==========================================
-   TABLET
+  TABLET
 ========================================== */
 
 @media (max-width: 1199px) {
@@ -438,7 +450,7 @@
 }
 
 /* ==========================================
-   MOBILE
+  MOBILE
 ========================================== */
 
 @media (max-width: 767px) {
@@ -544,7 +556,7 @@
 }
 
 /* ==========================================
-   COMPACT PREMIUM HERO ADJUSTMENTS
+  COMPACT PREMIUM HERO ADJUSTMENTS
 ========================================== */
 
 .premium-home-hero {
@@ -607,7 +619,7 @@
 }
 
 /* ==========================================
-   COMPACT HERO — TABLET
+  COMPACT HERO — TABLET
 ========================================== */
 
 @media (max-width: 991px) {
@@ -622,7 +634,7 @@
 }
 
 /* ==========================================
-   COMPACT HERO — MOBILE
+  COMPACT HERO — MOBILE
 ========================================== */
 
 @media (max-width: 767px) {

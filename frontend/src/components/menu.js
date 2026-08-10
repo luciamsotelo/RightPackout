@@ -11,7 +11,7 @@ function Menu() {
         { label: "Pack Out & Pack Back", href: "/pack" },
         { label: "Storage", href: "/storage" },
         { label: "Moving Items", href: "/moving" },
-        { label: "Preservation Services", href: "/preservations" },
+        { label: "Preservation Services", href: "/preservation" },
       ],
     },
 
@@ -35,9 +35,10 @@ function Menu() {
       description:
         "Professional inventory and documentation for owners, contractors, and insurance claims.",
       items: [
-        { label: "Contents Inventory", href: "/consultation" },
-        { label: "Insurance Documentation", href: "/consultation" },
-        { label: "Total Loss Inventory", href: "/consultation" },
+        {
+          label: "Contents Documentation",
+          href: "/consultation",
+        },
       ],
     },
 
@@ -47,8 +48,10 @@ function Menu() {
       description:
         "Organized coordination from packout through restoration and return.",
       items: [
-        { label: "Site Coordination", href: "/management" },
-        { label: "Project Management", href: "/management" },
+        {
+          label: "Project Management & Coordination",
+          href: "/management",
+        },
       ],
     },
 
@@ -58,8 +61,14 @@ function Menu() {
       description:
         "Thoughtful solutions for challenging spaces and specialized cleaning needs.",
       items: [
-        { label: "Construction Dust Cleaning", href: "/construction" },
-        { label: "Hoarder House Cleaning", href: "/hoarder" },
+        {
+          label: "Construction Dust Cleaning",
+          href: "/construction",
+        },
+        {
+          label: "Hoarding Cleanup",
+          href: "/hoarder",
+        },
       ],
     },
   ];
@@ -67,8 +76,7 @@ function Menu() {
   return (
     <section
       id="services"
-      className="services-navigation"
-      aria-labelledby="services-title"
+      className="services-navigation-section"
     >
       <div className="container">
 
@@ -115,8 +123,13 @@ function Menu() {
                 </div>
 
                 <div>
-                  <h3>{group.title}</h3>
-                  <p>{group.description}</p>
+                  <h3>
+                    {group.title}
+                  </h3>
+
+                  <p>
+                    {group.description}
+                  </p>
                 </div>
               </div>
 
@@ -131,8 +144,13 @@ function Menu() {
                     key={`${group.title}-${item.label}`}
                     className="compact-service-link"
                   >
-                    <span>{item.label}</span>
-                    <span aria-hidden="true">→</span>
+                    <span>
+                      {item.label}
+                    </span>
+
+                    <span aria-hidden="true">
+                      →
+                    </span>
                   </a>
                 ))}
               </div>
