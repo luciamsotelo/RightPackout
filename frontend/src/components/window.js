@@ -1,7 +1,6 @@
 import React from "react";
 
-import WindowPhoto from "../images/DrapesNeedClean1.jpeg";
-
+import WindowPhoto from "../images/drapes-need-clean1.jpeg";
 import "../styles/WindowPage.css";
 
 function Window() {
