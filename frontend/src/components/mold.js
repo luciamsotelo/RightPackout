@@ -1,7 +1,7 @@
 import React from "react";
 
 import MoldShoe from "../images/MB&Ashoe.jpeg";
-import MoldChamber from "../images/MChamb4.jpeg";
+import MoldChamber from "../images/mchamb4.jpeg";
 
 import "../styles/MoldPage.css";
 
