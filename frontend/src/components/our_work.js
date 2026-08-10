@@ -87,8 +87,9 @@ import storage1 from "../images/Storage1.jpeg";
 import storage2 from "../images/Storage2.jpeg";
 import storage4 from "../images/storage4.jpeg";
 import storage11 from "../images/storage11.jpeg";
-import storageOS1 from "../images/StorageOS1.jpeg";
-import storageOS2 from "../images/StorageOS2.jpeg";
+import storageOS1 from "../images/storage-os1.jpeg";
+import storageOS2 from "../images/storage-os2.jpeg";
+import storageOS3 from "../images/storage-os3.jpeg";
 import storageRug from "../images/storage-rug.jpeg";
 
 /* ==========================================

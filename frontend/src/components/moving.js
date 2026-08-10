@@ -1,6 +1,6 @@
 import React from "react";
 
-import StorageOS2 from "../images/StorageOS2.jpeg";
+import StorageOS2 from "../images/storage-os2.jpeg";
 import Storage2 from "../images/Storage2.jpeg";
 
 import "../styles/MovingPage.css";
