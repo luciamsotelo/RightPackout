@@ -89,20 +89,19 @@ import storage4 from "../images/storage4.jpeg";
 import storage11 from "../images/storage11.jpeg";
 import storageOS1 from "../images/StorageOS1.jpeg";
 import storageOS2 from "../images/StorageOS2.jpeg";
-import storedRug from "../images/Storerug1.jpeg";
+import storageRug from "../images/storage-rug.jpeg";
 
 /* ==========================================
    FILTERS
 ========================================== */
 
 const filters = [
-  
   { label: "Fire & Smoke", value: "fire" },
   { label: "Water & Mold", value: "water" },
   { label: "Contents Cleaning", value: "cleaning" },
   { label: "Drapery & Textiles", value: "drapery" },
   { label: "Packout & Storage", value: "packout" },
-  { label: "All Work", value: "all" }
+  { label: "All Work", value: "all" },
 ];
 
 /* ==========================================
@@ -178,18 +177,13 @@ const SectionHeading = ({ title, description, result = false }) => (
   </div>
 );
 
-const CaseStudyImage = ({
-  src,
-  alt,
-  label,
-  labelType = "document",
-}) => {
+const CaseStudyImage = ({ src, alt, label, labelType = "document" }) => {
   const labelClass =
     labelType === "before"
       ? "work-image-label work-before-label"
       : labelType === "after"
-      ? "work-image-label work-after-label"
-      : "work-documentation-label";
+        ? "work-image-label work-after-label"
+        : "work-documentation-label";
 
   return (
     <figure className="work-case-study-image">
@@ -216,9 +210,7 @@ const StandardProjectCard = ({ project }) => (
           className="work-project-image"
         />
 
-        <span className="work-image-label work-before-label">
-          Before
-        </span>
+        <span className="work-image-label work-before-label">Before</span>
       </figure>
 
       <div className="work-comparison-arrow" aria-hidden="true">
@@ -232,16 +224,12 @@ const StandardProjectCard = ({ project }) => (
           className="work-project-image"
         />
 
-        <span className="work-image-label work-after-label">
-          After
-        </span>
+        <span className="work-image-label work-after-label">After</span>
       </figure>
     </div>
 
     <div className="work-project-content">
-      <span className="work-project-eyebrow">
-        {project.eyebrow}
-      </span>
+      <span className="work-project-eyebrow">{project.eyebrow}</span>
 
       <h3>{project.title}</h3>
 
@@ -256,18 +244,14 @@ const StandardProjectCard = ({ project }) => (
 const FireCaseStudy = () => (
   <article className="work-case-study">
     <div className="work-case-study-heading">
-      <span className="work-project-eyebrow">
-        Fire & Smoke
-      </span>
+      <span className="work-project-eyebrow">Fire & Smoke</span>
 
-      <h2>
-        Smoke Damage Garment Restoration
-      </h2>
+      <h2>Smoke Damage Garment Restoration</h2>
 
       <p>
         This varsity jacket showed visible smoke and soot contamination.
-        Specialized textile cleaning helped improve the garment while
-        preserving its materials, colors, and embroidered details.
+        Specialized textile cleaning helped improve the garment while preserving
+        its materials, colors, and embroidered details.
       </p>
     </div>
 
@@ -326,19 +310,14 @@ const FireCaseStudy = () => (
 const WaterMoldCaseStudy = () => (
   <article className="work-case-study">
     <div className="work-case-study-heading">
-      <span className="work-project-eyebrow">
-        Water & Mold
-      </span>
+      <span className="work-project-eyebrow">Water & Mold</span>
 
-      <h2>
-        Water & Mold Contents Assessment
-      </h2>
+      <h2>Water & Mold Contents Assessment</h2>
 
       <p>
-        Water-related losses can affect contents in ways that are not
-        always immediately visible. Careful inspection and documentation
-        help identify contamination, affected materials, and potential
-        restoration needs.
+        Water-related losses can affect contents in ways that are not always
+        immediately visible. Careful inspection and documentation help identify
+        contamination, affected materials, and potential restoration needs.
       </p>
     </div>
 
@@ -397,19 +376,14 @@ const WaterMoldCaseStudy = () => (
 const CleaningCaseStudy = () => (
   <article className="work-case-study">
     <div className="work-case-study-heading">
-      <span className="work-project-eyebrow">
-        Contents Cleaning
-      </span>
+      <span className="work-project-eyebrow">Contents Cleaning</span>
 
-      <h2>
-        Upholstery Cleaning & Contamination Removal
-      </h2>
+      <h2>Upholstery Cleaning & Contamination Removal</h2>
 
       <p>
-        This upholstered sectional required detailed cleaning after
-        visible contamination affected the cushions and seating surfaces.
-        The project included inspection, treatment, cleaning, and final
-        presentation.
+        This upholstered sectional required detailed cleaning after visible
+        contamination affected the cushions and seating surfaces. The project
+        included inspection, treatment, cleaning, and final presentation.
       </p>
     </div>
 
@@ -474,19 +448,15 @@ const CleaningCaseStudy = () => (
 const DraperyCaseStudy = () => (
   <article className="work-case-study">
     <div className="work-case-study-heading">
-      <span className="work-project-eyebrow">
-        Drapery & Textiles
-      </span>
+      <span className="work-project-eyebrow">Drapery & Textiles</span>
 
-      <h2>
-        Drapery Inspection, Documentation & Professional Care
-      </h2>
+      <h2>Drapery Inspection, Documentation & Professional Care</h2>
 
       <p>
-        Drapery projects often require more than cleaning. Detailed
-        inspection can identify shrinkage, damaged lace, missing
-        components, improper finishing, and installation concerns before
-        corrective work is determined.
+        Drapery projects often require more than cleaning. Detailed inspection
+        can identify shrinkage, damaged lace, missing components, improper
+        finishing, and installation concerns before corrective work is
+        determined.
       </p>
     </div>
 
@@ -563,31 +533,20 @@ const DraperyCaseStudy = () => (
           "Professionally hung window treatments",
           "Detailed Installation",
         ],
-        [
-          drapes3,
-          "Professionally installed sheer drapery",
-          "Sheer Drapery",
-        ],
+        [drapes3, "Professionally installed sheer drapery", "Sheer Drapery"],
         [
           drapes4,
           "Finished patterned drapery installation",
           "Finished Presentation",
         ],
-        [
-          drapes5,
-          "Finished doorway drapery installation",
-          "Custom Drapery",
-        ],
+        [drapes5, "Finished doorway drapery installation", "Custom Drapery"],
         [
           drapesValances,
           "Professionally installed drapery and valances",
           "Valances & Drapery",
         ],
       ].map(([src, alt, label]) => (
-        <figure
-          className="work-finished-drapery-image"
-          key={label}
-        >
+        <figure className="work-finished-drapery-image" key={label}>
           <img src={src} alt={alt} />
           <span>{label}</span>
         </figure>
@@ -684,11 +643,7 @@ const PackoutCaseStudy = () => {
           "Organized boxes stored during restoration",
           "Organized Storage",
         ],
-        [
-          storage4,
-          "Labeled boxes organized for storage",
-          "Labeled Inventory",
-        ],
+        [storage4, "Labeled boxes organized for storage", "Labeled Inventory"],
         [
           storageOS1,
           "Stored contents organized by project",
@@ -700,7 +655,7 @@ const PackoutCaseStudy = () => {
           "Contents Storage",
         ],
         [
-          storedRug,
+          storageRug,
           "Professionally wrapped rugs stored during restoration",
           "Protected Specialty Items",
         ],
@@ -711,19 +666,15 @@ const PackoutCaseStudy = () => {
   return (
     <article className="work-case-study">
       <div className="work-case-study-heading">
-        <span className="work-project-eyebrow">
-          Packout & Storage
-        </span>
+        <span className="work-project-eyebrow">Packout & Storage</span>
 
-        <h2>
-          Professional Packout, Inventory & Secure Storage
-        </h2>
+        <h2>Professional Packout, Inventory & Secure Storage</h2>
 
         <p>
-          A successful packout is more than placing belongings into boxes.
-          Our process includes careful documentation, organized packing,
-          labeling, protection, storage, and preparation for the eventual
-          return of contents to the home.
+          A successful packout is more than placing belongings into boxes. Our
+          process includes careful documentation, organized packing, labeling,
+          protection, storage, and preparation for the eventual return of
+          contents to the home.
         </p>
       </div>
 
@@ -737,12 +688,7 @@ const PackoutCaseStudy = () => {
 
           <div className={step.gridClass}>
             {step.images.map(([src, alt, label]) => (
-              <CaseStudyImage
-                key={label}
-                src={src}
-                alt={alt}
-                label={label}
-              />
+              <CaseStudyImage key={label} src={src} alt={alt} label={label} />
             ))}
           </div>
         </React.Fragment>
@@ -776,26 +722,19 @@ const OurWork = () => {
   const visibleProjects =
     activeFilter === "all"
       ? standardProjects
-      : standardProjects.filter(
-          (project) => project.category === activeFilter
-        );
+      : standardProjects.filter((project) => project.category === activeFilter);
 
   const showAll = activeFilter === "all";
 
-  const showFire =
-    showAll || activeFilter === "fire";
+  const showFire = showAll || activeFilter === "fire";
 
-  const showWater =
-    showAll || activeFilter === "water";
+  const showWater = showAll || activeFilter === "water";
 
-  const showCleaning =
-    showAll || activeFilter === "cleaning";
+  const showCleaning = showAll || activeFilter === "cleaning";
 
-  const showDrapery =
-    showAll || activeFilter === "drapery";
+  const showDrapery = showAll || activeFilter === "drapery";
 
-  const showPackout =
-    showAll || activeFilter === "packout";
+  const showPackout = showAll || activeFilter === "packout";
 
   return (
     <>
@@ -805,16 +744,14 @@ const OurWork = () => {
 
       <section className="work-page-hero">
         <div className="container work-page-hero-content">
-          <span className="work-page-eyebrow">
-            Our Work
-          </span>
+          <span className="work-page-eyebrow">Our Work</span>
 
-          <h1>
-            Professional Restoration. Visible Results.
-          </h1>
+          <h1>Professional Restoration. Visible Results.</h1>
 
           <p>
-            Trusted by homeowners, insurance professionals, and restoration companies throughout Southern California for expert contents cleaning. textile care, water damage recover, and packout services.
+            Trusted by homeowners, insurance professionals, and restoration
+            companies throughout Southern California for expert contents
+            cleaning. textile care, water damage recover, and packout services.
           </p>
 
           <FilterButtons
@@ -830,7 +767,6 @@ const OurWork = () => {
 
       <section className="work-page-section">
         <div className="container">
-
           {showFire && <FireCaseStudy />}
 
           {showWater && <WaterMoldCaseStudy />}
@@ -844,14 +780,10 @@ const OurWork = () => {
           {visibleProjects.length > 0 && (
             <div className="work-project-grid">
               {visibleProjects.map((project) => (
-                <StandardProjectCard
-                  key={project.id}
-                  project={project}
-                />
+                <StandardProjectCard key={project.id} project={project} />
               ))}
             </div>
           )}
-
         </div>
       </section>
 
@@ -862,27 +794,17 @@ const OurWork = () => {
       <section className="work-page-cta">
         <div className="container work-page-cta-content">
           <div>
-            <span className="work-page-eyebrow">
-              Need Assistance?
-            </span>
+            <span className="work-page-eyebrow">Need Assistance?</span>
 
-            <h2>
-              Let Our Team Help With Your Recovery.
-            </h2>
+            <h2>Let Our Team Help With Your Recovery.</h2>
           </div>
 
           <div className="work-page-cta-actions">
-            <a
-              href="/request-assistance"
-              className="work-primary-button"
-            >
+            <a href="/request-assistance" className="work-primary-button">
               Request Assistance
             </a>
 
-            <a
-              href="tel:+16197867089"
-              className="work-secondary-button"
-            >
+            <a href="tel:+16197867089" className="work-secondary-button">
               Call 619-786-7089
             </a>
           </div>
