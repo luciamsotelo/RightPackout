@@ -31,31 +31,31 @@ const RequestAssistance = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setStatus("submitting");
 
-    const emailBody = `
-REQUEST ASSISTANCE
+    try {
+      const apiUrl = process.env.REACT_APP_API_URL;
 
-Name:
-${formData.firstName} ${formData.lastName}
-
-Phone:
-${formData.phone}
-
-Email:
-${formData.email}
-
+      const response = await fetch(`${apiUrl}/api/assistance`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service: formData.service,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phoneNumber: formData.phone,
+          email: formData.email,
+          message: `
 Property Address:
 ${formData.address || "Not provided"}
 
-Service Needed:
-${formData.service}
-
 Emergency:
-${formData.emergency}
+${formData.emergency || "Not provided"}
 
 Insurance Company:
 ${formData.insuranceCompany || "Not provided"}
@@ -64,22 +64,23 @@ Claim Number:
 ${formData.claimNumber || "Not provided"}
 
 Preferred Contact Method:
-${formData.preferredContact}
+${formData.preferredContact || "Not provided"}
 
 Details:
 ${formData.details}
-`;
+        `.trim(),
+        }),
+      });
 
-    const subject = encodeURIComponent(
-      `Request Assistance - ${formData.firstName} ${formData.lastName}`
-    );
+      if (!response.ok) {
+        throw new Error("Unable to submit assistance request");
+      }
 
-    const body = encodeURIComponent(emailBody);
-
-    window.location.href =
-      `mailto:therightpackout@gmail.com?subject=${subject}&body=${body}`;
-
-    setStatus("success");
+      setStatus("success");
+    } catch (error) {
+      console.error("Assistance request error:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -90,9 +91,7 @@ ${formData.details}
 
       <section className="request-page-hero">
         <div className="container request-page-hero-content">
-          <span className="request-page-eyebrow">
-            Request Assistance
-          </span>
+          <span className="request-page-eyebrow">Request Assistance</span>
 
           <h1>We're Ready to Help.</h1>
 
@@ -105,9 +104,7 @@ ${formData.details}
           <div className="request-page-emergency-line">
             <span>Need immediate assistance?</span>
 
-            <a href="tel:+16197867089">
-              Call 619-786-7089
-            </a>
+            <a href="tel:+16197867089">Call 619-786-7089</a>
           </div>
         </div>
       </section>
@@ -118,7 +115,6 @@ ${formData.details}
 
       <section className="request-page-section">
         <div className="container request-page-layout">
-
           {/* LEFT SIDE */}
 
           <aside className="request-page-intro">
@@ -130,8 +126,8 @@ ${formData.details}
 
             <p>
               Whether you need packout, cleaning, storage, restoration,
-              preservation, or insurance documentation support, we'll use
-              this information to better understand your needs.
+              preservation, or insurance documentation support, we'll use this
+              information to better understand your needs.
             </p>
 
             <div className="request-benefits">
@@ -141,9 +137,7 @@ ${formData.details}
                 <div>
                   <strong>24/7 Emergency Response</strong>
 
-                  <p>
-                    Immediate assistance when timing matters most.
-                  </p>
+                  <p>Immediate assistance when timing matters most.</p>
                 </div>
               </div>
 
@@ -154,8 +148,8 @@ ${formData.details}
                   <strong>Detailed Documentation</strong>
 
                   <p>
-                    Organized inventory and reporting to support your
-                    project and insurance process.
+                    Organized inventory and reporting to support your project
+                    and insurance process.
                   </p>
                 </div>
               </div>
@@ -167,8 +161,8 @@ ${formData.details}
                   <strong>Professional Contents Care</strong>
 
                   <p>
-                    Careful handling, cleaning, storage, preservation,
-                    and restoration.
+                    Careful handling, cleaning, storage, preservation, and
+                    restoration.
                   </p>
                 </div>
               </div>
@@ -181,13 +175,9 @@ ${formData.details}
                 Don't wait for the form if you need help right away.
               </strong>
 
-              <a href="tel:+16197867089">
-                Call 619-786-7089
-              </a>
+              <a href="tel:+16197867089">Call 619-786-7089</a>
 
-              <small>
-                Available 24 hours a day, 7 days a week.
-              </small>
+              <small>Available 24 hours a day, 7 days a week.</small>
             </div>
           </aside>
 
@@ -197,36 +187,24 @@ ${formData.details}
             <div className="request-form-heading">
               <h2>Tell Us How We Can Help</h2>
 
-              <p>
-                Fields marked with an asterisk are required.
-              </p>
+              <p>Fields marked with an asterisk are required.</p>
 
-              <span>
-                Most requests take only a few minutes to complete.
-              </span>
+              <span>Most requests take only a few minutes to complete.</span>
             </div>
 
             {status === "success" && (
-              <div
-                className="request-message-success"
-                role="status"
-              >
-                Your request is ready. Please complete the email that
-                opened on your device.
+              <div className="request-message-success" role="status">
+                Your request is ready. Please complete the email that opened on
+                your device.
               </div>
             )}
 
-            <form
-              className="request-form"
-              onSubmit={handleSubmit}
-            >
+            <form className="request-form" onSubmit={handleSubmit}>
               {/* NAME */}
 
               <div className="request-form-row">
                 <div className="request-field">
-                  <label htmlFor="request-first-name">
-                    First Name *
-                  </label>
+                  <label htmlFor="request-first-name">First Name *</label>
 
                   <input
                     id="request-first-name"
@@ -240,9 +218,7 @@ ${formData.details}
                 </div>
 
                 <div className="request-field">
-                  <label htmlFor="request-last-name">
-                    Last Name *
-                  </label>
+                  <label htmlFor="request-last-name">Last Name *</label>
 
                   <input
                     id="request-last-name"
@@ -260,9 +236,7 @@ ${formData.details}
 
               <div className="request-form-row">
                 <div className="request-field">
-                  <label htmlFor="request-phone">
-                    Phone *
-                  </label>
+                  <label htmlFor="request-phone">Phone *</label>
 
                   <input
                     id="request-phone"
@@ -276,9 +250,7 @@ ${formData.details}
                 </div>
 
                 <div className="request-field">
-                  <label htmlFor="request-email">
-                    Email *
-                  </label>
+                  <label htmlFor="request-email">Email *</label>
 
                   <input
                     id="request-email"
@@ -295,9 +267,7 @@ ${formData.details}
               {/* ADDRESS */}
 
               <div className="request-field">
-                <label htmlFor="request-address">
-                  Property Address
-                </label>
+                <label htmlFor="request-address">Property Address</label>
 
                 <input
                   id="request-address"
@@ -314,9 +284,7 @@ ${formData.details}
 
               <div className="request-form-row">
                 <div className="request-field">
-                  <label htmlFor="request-service">
-                    Service Needed *
-                  </label>
+                  <label htmlFor="request-service">Service Needed *</label>
 
                   <select
                     id="request-service"
@@ -325,29 +293,21 @@ ${formData.details}
                     onChange={handleChange}
                     required
                   >
-                    <option value="">
-                      Select a service
-                    </option>
+                    <option value="">Select a service</option>
 
                     <option value="Pack Out & Pack Back">
                       Pack Out & Pack Back
                     </option>
 
-                    <option value="Contents Cleaning">
-                      Contents Cleaning
-                    </option>
+                    <option value="Contents Cleaning">Contents Cleaning</option>
 
-                    <option value="Secure Storage">
-                      Secure Storage
-                    </option>
+                    <option value="Secure Storage">Secure Storage</option>
 
                     <option value="Fire & Smoke Restoration">
                       Fire & Smoke Restoration
                     </option>
 
-                    <option value="Mold Restoration">
-                      Mold Restoration
-                    </option>
+                    <option value="Mold Restoration">Mold Restoration</option>
 
                     <option value="Drapery & Textile Cleaning">
                       Drapery & Textile Cleaning
@@ -361,9 +321,7 @@ ${formData.details}
                       Inventory & Insurance Reporting
                     </option>
 
-                    <option value="Moving Services">
-                      Moving Services
-                    </option>
+                    <option value="Moving Services">Moving Services</option>
 
                     <option value="Construction Cleanup">
                       Construction Cleanup
@@ -373,9 +331,7 @@ ${formData.details}
                       Hoarder House Cleaning
                     </option>
 
-                    <option value="Other">
-                      Other / Not Sure
-                    </option>
+                    <option value="Other">Other / Not Sure</option>
                   </select>
                 </div>
 
@@ -391,21 +347,13 @@ ${formData.details}
                     onChange={handleChange}
                     required
                   >
-                    <option value="">
-                      Select one
-                    </option>
+                    <option value="">Select one</option>
 
-                    <option value="Yes">
-                      Yes
-                    </option>
+                    <option value="Yes">Yes</option>
 
-                    <option value="No">
-                      No
-                    </option>
+                    <option value="No">No</option>
 
-                    <option value="Not Sure">
-                      Not Sure
-                    </option>
+                    <option value="Not Sure">Not Sure</option>
                   </select>
                 </div>
               </div>
@@ -429,9 +377,7 @@ ${formData.details}
                 </div>
 
                 <div className="request-field">
-                  <label htmlFor="request-claim-number">
-                    Claim Number
-                  </label>
+                  <label htmlFor="request-claim-number">Claim Number</label>
 
                   <input
                     id="request-claim-number"
@@ -458,30 +404,20 @@ ${formData.details}
                   onChange={handleChange}
                   required
                 >
-                  <option value="">
-                    Select a contact method
-                  </option>
+                  <option value="">Select a contact method</option>
 
-                  <option value="Phone">
-                    Phone Call
-                  </option>
+                  <option value="Phone">Phone Call</option>
 
-                  <option value="Text">
-                    Text Message
-                  </option>
+                  <option value="Text">Text Message</option>
 
-                  <option value="Email">
-                    Email
-                  </option>
+                  <option value="Email">Email</option>
                 </select>
               </div>
 
               {/* DETAILS */}
 
               <div className="request-field">
-                <label htmlFor="request-details">
-                  Tell Us What Happened *
-                </label>
+                <label htmlFor="request-details">Tell Us What Happened *</label>
 
                 <textarea
                   id="request-details"
@@ -505,8 +441,8 @@ ${formData.details}
               </button>
 
               <p className="request-privacy-note">
-                Your information will only be used to respond to your
-                request for assistance.
+                Your information will only be used to respond to your request
+                for assistance.
               </p>
             </form>
           </div>
