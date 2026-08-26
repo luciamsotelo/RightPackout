@@ -38,27 +38,41 @@ function RequestAssistanceModal({
     onHide();
   };
 
-  const handleSubmit = () => {
-    const subject = encodeURIComponent(
-      `Request Assistance - ${service}`
-    );
+  const handleSubmit = async () => {
+    try {
+      const apiUrl = process.env.REACT_APP_API_URL;
 
-    const body = encodeURIComponent(
-      `Service: ${service}
+      const response = await fetch(`${apiUrl}/api/assistance`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          phoneNumber: formData.phoneNumber,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-First Name: ${formData.firstName}
-Last Name: ${formData.lastName}
-Phone Number: ${formData.phoneNumber}
-Email: ${formData.email}
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
 
-How Can We Help?
-${formData.message}`
-    );
+      alert(
+        "Thank you! Your request has been received. A member of The Right Pack Out team will contact you soon.",
+      );
 
-    window.location.href =
-      `mailto:therightpackout@gmail.com?subject=${subject}&body=${body}`;
+      handleClose();
+    } catch (error) {
+      console.error("Assistance request error:", error);
 
-    handleClose();
+      alert(
+        "We were unable to submit your request. Please try again or call us directly for assistance.",
+      );
+    }
   };
 
   return (
@@ -73,22 +87,16 @@ ${formData.message}`
           HEADER
       ========================================== */}
 
-      <Modal.Header
-        closeButton
-        className="request-modal-header"
-      >
+      <Modal.Header closeButton className="request-modal-header">
         <div>
-          <span className="request-modal-eyebrow">
-            The Right Pack Out
-          </span>
+          <span className="request-modal-eyebrow">The Right Pack Out</span>
 
           <Modal.Title className="request-modal-title">
             How Can We Help?
           </Modal.Title>
 
           <p className="request-modal-intro">
-            Tell us a little about what you need and the best
-            way to reach you.
+            Tell us a little about what you need and the best way to reach you.
           </p>
 
           {service !== "General Assistance" && (
@@ -107,11 +115,8 @@ ${formData.message}`
       <Modal.Body className="request-modal-body">
         <Form>
           <div className="request-modal-name-grid">
-
             <Form.Group>
-              <Form.Label>
-                First Name
-              </Form.Label>
+              <Form.Label>First Name</Form.Label>
 
               <Form.Control
                 type="text"
@@ -123,9 +128,7 @@ ${formData.message}`
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>
-                Last Name
-              </Form.Label>
+              <Form.Label>Last Name</Form.Label>
 
               <Form.Control
                 type="text"
@@ -135,13 +138,10 @@ ${formData.message}`
                 onChange={handleInputChange}
               />
             </Form.Group>
-
           </div>
 
           <Form.Group className="mt-3">
-            <Form.Label>
-              Phone Number
-            </Form.Label>
+            <Form.Label>Phone Number</Form.Label>
 
             <Form.Control
               type="tel"
@@ -153,9 +153,7 @@ ${formData.message}`
           </Form.Group>
 
           <Form.Group className="mt-3">
-            <Form.Label>
-              Email Address
-            </Form.Label>
+            <Form.Label>Email Address</Form.Label>
 
             <Form.Control
               type="email"
@@ -167,9 +165,7 @@ ${formData.message}`
           </Form.Group>
 
           <Form.Group className="mt-3">
-            <Form.Label>
-              How Can We Help?
-            </Form.Label>
+            <Form.Label>How Can We Help?</Form.Label>
 
             <Form.Control
               as="textarea"
@@ -188,7 +184,6 @@ ${formData.message}`
       ========================================== */}
 
       <Modal.Footer className="request-modal-footer">
-
         <button
           type="button"
           className="request-modal-cancel"
@@ -204,7 +199,6 @@ ${formData.message}`
         >
           Request Assistance
         </button>
-
       </Modal.Footer>
     </Modal>
   );
