@@ -194,8 +194,15 @@ ${formData.details}
 
             {status === "success" && (
               <div className="request-message-success" role="status">
-                Your request is ready. Please complete the email that opened on
-                your device.
+                Thank you! Your request has been received. A member of The Right
+                Pack Out team will contact you soon.
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="request-message-error" role="alert">
+                We were unable to submit your request. Please try again or call
+                619-786-7089 for immediate assistance.
               </div>
             )}
 
