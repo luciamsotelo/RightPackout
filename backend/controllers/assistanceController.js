@@ -11,7 +11,7 @@ exports.createAssistanceRequest = async (req, res) => {
       req.body;
 
     const { error } = await resend.emails.send({
-      from: "Right Pack Out Website <onboarding@resend.dev>",
+      from: "Right Pack Out Website <website@mail.therightpackout.com>",
       to: ["therightpackout@gmail.com"],
       subject: `New Website Request - ${firstName} ${lastName}`,
       html: `
